@@ -13,7 +13,7 @@ namespace Renting_Management_System.DAL
         public Renting_Management_System.Models.ImageTypeMod type;
         public Renting_Management_System.DAL.DBConnection da;
         /// <summary>
-        /// 获取所有数据，整个表
+        /// 获取所有数据，整个表的记录
         /// </summary>
         /// <returns></returns>
         public DataSet GetAll()
@@ -51,7 +51,7 @@ namespace Renting_Management_System.DAL
             }
         }
         /// <summary>
-        /// 删除一个类
+        /// 删除一个影类
         /// 返回 true 表示成功；
         /// 返回 false 表示该类不存在
         /// </summary>
