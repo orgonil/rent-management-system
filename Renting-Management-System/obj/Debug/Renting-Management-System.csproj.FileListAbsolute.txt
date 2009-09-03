@@ -6,3 +6,5 @@ C:\Users\RINROTA\Documents\Visual Studio 2008\Projects\Renting-Management-System
 C:\Users\RINROTA\Documents\Visual Studio 2008\Projects\Renting-Management-System\Renting-Management-System\obj\Debug\Renting-Management-System.csproj.GenerateResource.Cache
 C:\Users\RINROTA\Documents\Visual Studio 2008\Projects\Renting-Management-System\Renting-Management-System\obj\Debug\Renting-Management-System.exe
 C:\Users\RINROTA\Documents\Visual Studio 2008\Projects\Renting-Management-System\Renting-Management-System\obj\Debug\Renting-Management-System.pdb
+D:\My Project\obj\Debug\Renting-Management-System.exe
+D:\My Project\obj\Debug\Renting-Management-System.pdb
