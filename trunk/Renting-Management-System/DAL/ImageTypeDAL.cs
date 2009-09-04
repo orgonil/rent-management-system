@@ -30,6 +30,7 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public Renting_Management_System.Models.ImageTypeMod SelectData(string _imageTypeCode)
         {
+            type = new Renting_Management_System.Models.ImageTypeMod();
             type.ImageTypeCode = _imageTypeCode;
             da = new DBConnection();
             DataSet ds = new DataSet();
@@ -59,6 +60,7 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public bool DeleteData(Renting_Management_System.Models.ImageTypeMod iType)
         {
+            type = new Renting_Management_System.Models.ImageTypeMod(); 
             type = SelectData(iType.ImageTypeCode);
             if (type != null)
             {
@@ -83,6 +85,7 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public bool ModifyData(Renting_Management_System.Models.ImageTypeMod iType)
         {
+            type = new Renting_Management_System.Models.ImageTypeMod(); 
             type = SelectData(iType.ImageTypeCode);
             if (type != null)
             {
@@ -93,7 +96,7 @@ namespace Renting_Management_System.DAL
                 modifyStr.Append(type.ImageTypeName + "'");
                 modifyStr.Append("Where 影类代码 = '");
                 modifyStr.Append(type.ImageTypeCode + "'");
-                da.UpdateQuery(modifyStr.ToString().Trim());
+                da.UpdateQuery(modifyStr.ToString());
                 return true;
             }
             else
@@ -108,6 +111,7 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public bool AddData(Renting_Management_System.Models.ImageTypeMod iType)
         {
+            type = new Renting_Management_System.Models.ImageTypeMod(); 
             type = SelectData(iType.ImageTypeCode);
             if (type == null)
             {
@@ -118,6 +122,7 @@ namespace Renting_Management_System.DAL
                 insertStr.Append(type.ImageTypeCode + "','");
                 insertStr.Append(type.ImageTypeName);
                 insertStr.Append("')");
+                da.InsertQuery(insertStr.ToString());
                 return true;
             }
             else

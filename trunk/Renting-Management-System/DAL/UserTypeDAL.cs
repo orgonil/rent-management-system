@@ -30,14 +30,14 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public Renting_Management_System.Models.UserTypeMod SelectData(string _userTypeCode)
         {
-            Renting_Management_System.Models.UserTypeMod uType = new Renting_Management_System.Models.UserTypeMod();
-            uType.UserTypeCode = _userTypeCode;
+            type = new Renting_Management_System.Models.UserTypeMod();
+            type.UserTypeCode = _userTypeCode;
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Yonghulei");
             selectStr.Append("Where 用户类代码 = '");
-            selectStr.Append(uType.UserTypeCode);
+            selectStr.Append(type.UserTypeCode);
             selectStr.Append("'");
             ds = da.SelectQuery(selectStr.ToString());
             if (ds.Tables.Count == 0)
@@ -46,9 +46,9 @@ namespace Renting_Management_System.DAL
             }
             else
             {
-                uType.UserTypeCode = ds.Tables[0].Rows[0]["用户类代码"].ToString().Trim();
-                uType.UserTypeName = ds.Tables[0].Rows[0]["用户类名称"].ToString().Trim();
-                return uType;
+                type.UserTypeCode = ds.Tables[0].Rows[0]["用户类代码"].ToString().Trim();
+                type.UserTypeName = ds.Tables[0].Rows[0]["用户类名称"].ToString().Trim();
+                return type;
             }
         }
         /// <summary>
@@ -60,6 +60,7 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public bool DeleteData(Renting_Management_System.Models.UserTypeMod uType)
         {
+            type = new Renting_Management_System.Models.UserTypeMod();
             type = SelectData(uType.UserTypeCode);
             if (type != null)
             {
@@ -84,6 +85,7 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public bool ModifyData(Renting_Management_System.Models.UserTypeMod uType)
         {
+            type = new Renting_Management_System.Models.UserTypeMod();
             type = SelectData(uType.UserTypeCode);
             if (type != null)
             {
@@ -94,7 +96,7 @@ namespace Renting_Management_System.DAL
                 modifyStr.Append(type.UserTypeName + "'");
                 modifyStr.Append("Where 用户类代码 = '");
                 modifyStr.Append(type.UserTypeCode + "'");
-                da.UpdateQuery(modifyStr.ToString().Trim());
+                da.UpdateQuery(modifyStr.ToString());
                 return true;
             }
             else
@@ -109,6 +111,7 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public bool AddData(Renting_Management_System.Models.UserTypeMod uType)
         {
+            type = new Renting_Management_System.Models.UserTypeMod();
             type = SelectData(uType.UserTypeCode);
             if (type == null)
             {
@@ -119,6 +122,7 @@ namespace Renting_Management_System.DAL
                 insertStr.Append(type.UserTypeCode + "','");
                 insertStr.Append(type.UserTypeName);
                 insertStr.Append("')");
+                da.InsertQuery(insertStr.ToString());
                 return true;
             }
             else

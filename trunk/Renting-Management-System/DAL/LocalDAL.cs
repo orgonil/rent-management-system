@@ -33,6 +33,7 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public Renting_Management_System.Models.LocalMod SelectData(string _localCode)
         {
+            local = new Renting_Management_System.Models.LocalMod();
             local.LocalCode = _localCode;
             da = new DBConnection();
             DataSet ds = new DataSet();
@@ -40,7 +41,7 @@ namespace Renting_Management_System.DAL
             selectStr.Append("Select * From Didian");
             selectStr.Append("Where 地点代码 = '");
             selectStr.Append(local.LocalCode);
-            selectStr("'");
+            selectStr.Append("'");
             ds = da.SelectQuery(selectStr.ToString());
             if (ds.Tables.Count == 0)
             {
@@ -63,6 +64,7 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public bool ModifyData(Renting_Management_System.Models.LocalMod _local)
         {
+            local = new Renting_Management_System.Models.LocalMod();
             local = SelectData(_local.LocalCode);
             if (local != null)
             {
@@ -90,6 +92,7 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public bool DeleteData(Renting_Management_System.Models.LocalMod _local)
         {
+            local = new Renting_Management_System.Models.LocalMod();
             local = SelectData(_local.LocalCode);
             if (local != null)
             {
@@ -115,6 +118,7 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public bool AddData(Renting_Management_System.Models.LocalMod _local)
         {
+            local = new Renting_Management_System.Models.LocalMod();
             local = SelectData(_local.LocalCode);
             if (local == null)
             {

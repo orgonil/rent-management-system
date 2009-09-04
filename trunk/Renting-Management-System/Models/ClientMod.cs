@@ -70,6 +70,15 @@ namespace Renting_Management_System.Models
             get { return _certificateNumber; }
             set { _certificateNumber = value; }
         }
+        private string _clientAddress;
+        /// <summary>
+        /// 客户地址
+        /// </summary>
+        public string ClientAddress
+        {
+            get { return _clientAddress; }
+            set { _clientAddress = value; }
+        }
         private string _clientContact;
         /// <summary>
         /// 客户联系
