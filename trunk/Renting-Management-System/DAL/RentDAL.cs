@@ -12,6 +12,11 @@ namespace Renting_Management_System.DAL
     {
         public Renting_Management_System.Models.RentMod rent;
         public Renting_Management_System.DAL.DBConnection da;
+        /// <summary>
+        /// 获取所有租借记录，整个表的数据集
+        /// 返回一个数据集
+        /// </summary>
+        /// <returns></returns>
         public DataSet GetAll()
         {
             DataSet ds = new DataSet();
@@ -19,7 +24,13 @@ namespace Renting_Management_System.DAL
             ds = da.SelectQuery("Select * From Rent");
             return ds;
         }
-        public DataSet SelectData_1(string _customerID)
+        /// <summary>
+        /// 通过客户编号获取一个租借记录的数据集
+        /// 返回 null 表示记录不存在，否侧返回一个租借记录的数据集
+        /// </summary>
+        /// <param name="_customerID"></param>
+        /// <returns></returns>
+        public DataSet SelectDataByCustomerID(string _customerID)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Rent");
@@ -34,7 +45,13 @@ namespace Renting_Management_System.DAL
             else
             { return ds; }
         }
-        public DataSet SelectData_2(string _imageID)
+        /// <summary>
+        /// 通过影像编号获取一个租借记录的数据集
+        /// 返回 null 表示记录不存在，否侧返回一个租借记录的数据集
+        /// </summary>
+        /// <param name="_imageID"></param>
+        /// <returns></returns>
+        public DataSet SelectDataByImageID(string _imageID)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Rent");
@@ -49,7 +66,13 @@ namespace Renting_Management_System.DAL
             else
             { return ds; }
         }
-        public DataSet SelectData_3(string _userID)
+        /// <summary>
+        /// 通过用户编号获取一个租借记录的数据集
+        /// 返回 null 表示记录不存在，否侧返回一个租借记录的数据集
+        /// </summary>
+        /// <param name="_userID"></param>
+        /// <returns></returns>
+        public DataSet SelectDataByUserID(string _userID)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Rent");
@@ -64,7 +87,14 @@ namespace Renting_Management_System.DAL
             else
             { return ds; }
         }
-        public Renting_Management_System.Models.RentMod SelectData_4(string _customerID, string _imageID)
+        /// <summary>
+        /// 通过客户编号和影像编号，获取一个租借记录
+        /// 返回 null 表示记录不存在，否侧返回一个租借的记录
+        /// </summary>
+        /// <param name="_customerID"></param>
+        /// <param name="_imageID"></param>
+        /// <returns></returns>
+        public Renting_Management_System.Models.RentMod SelectDataBy_CustomerID_N_ImageID(string _customerID, string _imageID)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Rent");
@@ -93,10 +123,16 @@ namespace Renting_Management_System.DAL
                 return rent;
             }
         }
+        /// <summary>
+        /// 添加一个租借的记录
+        /// 返回 true 表示成功，否侧该记录已存在
+        /// </summary>
+        /// <param name="_rent"></param>
+        /// <returns></returns>
         public bool AddData(Renting_Management_System.Models.RentMod _rent)
         {
             rent = new Renting_Management_System.Models.RentMod();
-            rent = SelectData_4(_rent.CustomerID, _rent.ImageID);
+            rent =SelectDataBy_CustomerID_N_ImageID(_rent.CustomerID, _rent.ImageID);
             if (rent == null)
             {
                 StringBuilder insertStr = new StringBuilder();
@@ -120,19 +156,77 @@ namespace Renting_Management_System.DAL
                 return false;
             }
         }
+        /// <summary>
+        /// 修改一个租借的记录
+        /// 返回 true 表示成功，否侧该记录不存在
+        /// </summary>
+        /// <param name="_rent"></param>
+        /// <returns></returns>
         public bool ModifyData(Renting_Management_System.Models.RentMod _rent)
         {
             rent = new Renting_Management_System.Models.RentMod();
-            rent = SelectData_4(_rent.CustomerID, _rent.ImageID);
+            rent =SelectDataBy_CustomerID_N_ImageID(_rent.CustomerID, _rent.ImageID);
             if (rent != null)
             {
                 StringBuilder updateStr = new StringBuilder();
                 updateStr.Append("Update Rent");
                 updateStr.Append("Set ");
-
+                updateStr.Append("用户编号 = '");
+                updateStr.Append(rent.UserID);
+                updateStr.Append("',出租数量 = ");
+                updateStr.Append(rent.QuantityOfRent);
+                updateStr.Append(",出租日期 = ");
+                updateStr.Append(rent.RentDate.ToShortDateString());
+                updateStr.Append(",归还日期 = ");
+                updateStr.Append(rent.ReturnDate.ToShortDateString());
+                updateStr.Append(",出租押金 = ");
+                updateStr.Append(rent.Deposit);
+                updateStr.Append(",归还状态 = '");
+                updateStr.Append(rent.ReturnState);
+                updateStr.Append("',描述 = '");
+                updateStr.Append(rent.Description);
+                updateStr.Append("'");
+                updateStr.Append("Where 客户编号 = '");
+                updateStr.Append(rent.CustomerID);
+                updateStr.Append("' And 影像编号 = '");
+                updateStr.Append(rent.ImageID);
+                updateStr.Append("'");
+                da = new DBConnection();
+                da.UpdateQuery(updateStr.ToString());
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
+        /// <summary>
+        /// 删除一个租借记录
+        /// 返回 true 表示成功，否侧该记录不存在
+        /// </summary>
+        /// <param name="_rent"></param>
+        /// <returns></returns>
         public bool DeletData(Renting_Management_System.Models.RentMod _rent)
-        { }
+        { 
+            rent = new Renting_Management_System.Models.RentMod();
+            rent =SelectDataBy_CustomerID_N_ImageID(_rent.CustomerID, _rent.ImageID);
+            if (rent != null)
+            {
+                StringBuilder deleteStr = new StringBuilder();
+                deleteStr.Append("Delete From Rent");
+                deleteStr.Append("Where 客户编号 = '");
+                deleteStr.Append(rent.CustomerID);
+                deleteStr.Append("' And 影像编号 = '");
+                deleteStr.Append(rent.ImageID);
+                deleteStr.Append("'");
+                da = new DBConnection();
+                da.DeleteQuery(deleteStr.ToString());
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
