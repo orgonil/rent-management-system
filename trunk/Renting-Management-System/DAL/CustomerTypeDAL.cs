@@ -8,9 +8,9 @@ using System.Data.SqlClient;
 
 namespace Renting_Management_System.DAL
 {
-    class ClientTypeDAL
+    class CustomerTypeDAL
     {
-        public Renting_Management_System.Models.ClientTypeMod type;
+        public Renting_Management_System.Models.CustomerTypeMod type;
         public Renting_Management_System.DAL.DBConnection da;
         /// <summary>
         /// 获取所有数据，整个表
@@ -20,7 +20,7 @@ namespace Renting_Management_System.DAL
         {
             da = new DBConnection();
             DataSet ds = new DataSet();
-            ds = da.SelectQuery("Select * from Kehulei");
+            ds = da.SelectQuery("Select * from CustomerType");
             return ds;
         }
         /// <summary>
@@ -28,16 +28,16 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_userTypeCode"></param>
         /// <returns></returns>
-        public Renting_Management_System.Models.ClientTypeMod SelectData(string _clientTypeCode)
+        public Renting_Management_System.Models.CustomerTypeMod SelectData(string _customerTypeCode)
         {
-            type = new Renting_Management_System.Models.ClientTypeMod();
-            type.ClientTypeCode = _clientTypeCode;
+            type = new Renting_Management_System.Models.CustomerTypeMod();
+            type.CustomerTypeCode = _customerTypeCode;
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Kehulei");
+            selectStr.Append("Select * From CustomerType");
             selectStr.Append("Where 客户类代码 = '");
-            selectStr.Append(type.ClientTypeCode);
+            selectStr.Append(type.CustomerTypeCode);
             selectStr.Append("'");
             ds = da.SelectQuery(selectStr.ToString());
             if (ds.Tables.Count == 0)
@@ -46,8 +46,8 @@ namespace Renting_Management_System.DAL
             }
             else
             {
-                type.ClientTypeCode = ds.Tables[0].Rows[0]["客户类代码"].ToString().Trim();
-                type.ClientTypeName = ds.Tables[0].Rows[0]["客户类名称"].ToString().Trim();
+                type.CustomerTypeCode = ds.Tables[0].Rows[0]["客户类代码"].ToString().Trim();
+                type.CustomerTypeName = ds.Tables[0].Rows[0]["客户类名称"].ToString().Trim();
                 return type;
             }
         }
@@ -58,17 +58,17 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="uType"></param>
         /// <returns></returns>
-        public bool DeleteData(Renting_Management_System.Models.ClientTypeMod cType)
+        public bool DeleteData(Renting_Management_System.Models.CustomerTypeMod cType)
         {
-            type = new Renting_Management_System.Models.ClientTypeMod();
-            type = SelectData(cType.ClientTypeCode);
+            type = new Renting_Management_System.Models.CustomerTypeMod();
+            type = SelectData(cType.CustomerTypeCode);
             if (type != null)
             {
                 da = new DBConnection();
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From Kehulei");
+                deleteStr.Append("Delete From CustomerType");
                 deleteStr.Append("Where 客户类代码 = '");
-                deleteStr.Append(type.ClientTypeCode);
+                deleteStr.Append(type.CustomerTypeCode);
                 deleteStr.Append("'");
                 da.DeleteQuery(deleteStr.ToString());
                 return true;
@@ -83,19 +83,19 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="uType"></param>
         /// <returns></returns>
-        public bool ModifyData(Renting_Management_System.Models.ClientTypeMod cType)
+        public bool ModifyData(Renting_Management_System.Models.CustomerTypeMod cType)
         {
-            type = new Renting_Management_System.Models.ClientTypeMod();
-            type = SelectData(cType.ClientTypeCode);
+            type = new Renting_Management_System.Models.CustomerTypeMod();
+            type = SelectData(cType.CustomerTypeCode);
             if (type != null)
             {
                 da = new DBConnection();
                 StringBuilder modifyStr = new StringBuilder();
-                modifyStr.Append("Update Kehulei");
+                modifyStr.Append("Update CustomerType");
                 modifyStr.Append("Set 客户类名称 = '");
-                modifyStr.Append(type.ClientTypeName + "'");
+                modifyStr.Append(type.CustomerTypeName + "'");
                 modifyStr.Append("Where 客户类代码 = '");
-                modifyStr.Append(type.ClientTypeCode + "'");
+                modifyStr.Append(type.CustomerTypeCode + "'");
                 da.UpdateQuery(modifyStr.ToString());
                 return true;
             }
@@ -109,18 +109,18 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="uType"></param>
         /// <returns></returns>
-        public bool AddData(Renting_Management_System.Models.ClientTypeMod cType)
+        public bool AddData(Renting_Management_System.Models.CustomerTypeMod cType)
         {
-            type = new Renting_Management_System.Models.ClientTypeMod();
-            type = SelectData(cType.ClientTypeCode);
+            type = new Renting_Management_System.Models.CustomerTypeMod();
+            type = SelectData(cType.CustomerTypeCode);
             if (type == null)
             {
                 da = new DBConnection();
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into Kehulei (客户类代码,客户类名称)");
+                insertStr.Append("Insert Into CustomerType (客户类代码,客户类名称)");
                 insertStr.Append("Values ('");
-                insertStr.Append(type.ClientTypeCode + "','");
-                insertStr.Append(type.ClientTypeName);
+                insertStr.Append(type.CustomerTypeCode + "','");
+                insertStr.Append(type.CustomerTypeName);
                 insertStr.Append("')");
                 da.InsertQuery(insertStr.ToString());
                 return true;
