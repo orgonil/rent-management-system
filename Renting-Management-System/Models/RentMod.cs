@@ -7,14 +7,14 @@ namespace Renting_Management_System.Models
 {
     class RentMod
     {
-        private string _clientID;
+        private string _customerID;
         /// <summary>
         /// 客户编号
         /// </summary>
-        public string ClientID
+        public string CustomerID
         {
-            get { return _clientID; }
-            set { _clientID = value; }
+            get { return _customerID; }
+            set { _customerID = value; }
         }
         private string _ImageID;
         /// <summary>

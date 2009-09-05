@@ -49,8 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\CertificateTypeDAL.cs" />
-    <Compile Include="DAL\ClientDAL.cs" />
-    <Compile Include="DAL\ClientTypeDAL.cs" />
+    <Compile Include="DAL\CustomerDAL.cs" />
+    <Compile Include="DAL\CustomerTypeDAL.cs" />
     <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\ImageDAL.cs" />
     <Compile Include="DAL\ImageTypeDAL.cs" />
@@ -65,8 +65,8 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CertificateTypeMod.cs" />
-    <Compile Include="Models\ClientMod.cs" />
-    <Compile Include="Models\ClientTypeMod.cs" />
+    <Compile Include="Models\CustomerMod.cs" />
+    <Compile Include="Models\CustomerTypeMod.cs" />
     <Compile Include="Models\ImageMod.cs" />
     <Compile Include="Models\ImageTypeMod.cs" />
     <Compile Include="Models\LocalMod.cs" />

@@ -47,7 +47,7 @@ namespace Renting_Management_System.DAL
                 user = new Renting_Management_System.Models.UserMod();
                 user.UserID = ds.Tables[0].Rows[0]["用户编号"].ToString().Trim();
                 user.UserName = ds.Tables[0].Rows[0]["用户名称"].ToString().Trim();
-                user.Sex = ds.Tables[0].Rows[0]["性别"].ToString().Trim();
+                user.Sex = char.Parse(ds.Tables[0].Rows[0]["性别"].ToString().Trim());
                 user.BirthDate = DateTime.Parse(ds.Tables[0].Rows[0]["出生日期"].ToString().Trim());
                 user.UserPassword = ds.Tables[0].Rows[0]["用户密码"].ToString().Trim();
                 user.UserTypeCode = ds.Tables[0].Rows[0]["用户类代码"].ToString().Trim();
@@ -81,7 +81,7 @@ namespace Renting_Management_System.DAL
                 user = new Renting_Management_System.Models.UserMod();
                 user.UserID = ds.Tables[0].Rows[0]["用户编号"].ToString().Trim();
                 user.UserName = ds.Tables[0].Rows[0]["用户名称"].ToString().Trim();
-                user.Sex = ds.Tables[0].Rows[0]["性别"].ToString().Trim();
+                user.Sex = char.Parse(ds.Tables[0].Rows[0]["性别"].ToString().Trim());
                 user.BirthDate = DateTime.Parse(ds.Tables[0].Rows[0]["出生日期"].ToString().Trim());
                 user.UserPassword = ds.Tables[0].Rows[0]["用户密码"].ToString().Trim();
                 user.UserTypeCode = ds.Tables[0].Rows[0]["用户类代码"].ToString().Trim();
@@ -141,7 +141,7 @@ namespace Renting_Management_System.DAL
                 insertStr.Append(user.UserContact + "','");
                 insertStr.Append(user.UserAddress + "','");
                 insertStr.Append(user.UserDescription);
-                insertStr("')");
+                insertStr.Append("')");
                 da = new DBConnection();
                 da.InsertQuery(insertStr.ToString());
                 return true;
@@ -186,7 +186,7 @@ namespace Renting_Management_System.DAL
                 updateStr.Append(user.UserAddress + "'");
                 updateStr.Append(",用户描述 = '");
                 updateStr.Append(user.UserDescription);
-                updateStr("'");
+                updateStr.Append("'");
                 updateStr.Append("Where 用户编号 = '");
                 updateStr.Append(user.UserID + "'");
                 da = new DBConnection();

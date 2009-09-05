@@ -16,15 +16,15 @@ namespace Renting_Management_System.DAL
         {
             DataSet ds = new DataSet();
             da = new DBConnection();
-            ds = da.SelectQuery("Select * From Zujie");
+            ds = da.SelectQuery("Select * From Rent");
             return ds;
         }
-        public DataSet SelectData_1(string _clientID)
+        public DataSet SelectData_1(string _customerID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Zujie");
+            selectStr.Append("Select * From Rent");
             selectStr.Append("Where 客户编号 = '");
-            selectStr.Append(_clientID);
+            selectStr.Append(_customerID);
             selectStr.Append("'");
             da = new DBConnection();
             DataSet ds = new DataSet();
@@ -37,7 +37,7 @@ namespace Renting_Management_System.DAL
         public DataSet SelectData_2(string _imageID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Zujie");
+            selectStr.Append("Select * From Rent");
             selectStr.Append("Where 影像编号 = '");
             selectStr.Append(_imageID);
             selectStr.Append("'");
@@ -52,7 +52,7 @@ namespace Renting_Management_System.DAL
         public DataSet SelectData_3(string _userID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Zujie");
+            selectStr.Append("Select * From Rent");
             selectStr.Append("Where 用户编号 = '");
             selectStr.Append(_userID);
             selectStr.Append("'");
@@ -64,12 +64,12 @@ namespace Renting_Management_System.DAL
             else
             { return ds; }
         }
-        public Renting_Management_System.Models.RentMod SelectData_4(string _clientID, string _imageID)
+        public Renting_Management_System.Models.RentMod SelectData_4(string _customerID, string _imageID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Zujie");
+            selectStr.Append("Select * From Rent");
             selectStr.Append("Where 客户编号 = '");
-            selectStr.Append(_clientID);
+            selectStr.Append(_customerID);
             selectStr.Append("' And 影像编号 = '");
             selectStr.Append(_imageID);
             selectStr.Append("'");
@@ -82,7 +82,7 @@ namespace Renting_Management_System.DAL
             {
                 rent = new Renting_Management_System.Models.RentMod();
                 rent.ImageID = ds.Tables[0].Rows[0]["影像编号"].ToString().Trim();
-                rent.ClientID = ds.Tables[0].Rows[0]["客户编号"].ToString().Trim();
+                rent.CustomerID = ds.Tables[0].Rows[0]["客户编号"].ToString().Trim();
                 rent.UserID = ds.Tables[0].Rows[0]["用户编号"].ToString().Trim();
                 rent.QuantityOfRent = int.Parse(ds.Tables[0].Rows[0]["影像编号"].ToString().Trim());
                 rent.RentDate = DateTime.Parse(ds.Tables[0].Rows[0]["出租日期"].ToString().Trim());
@@ -96,14 +96,14 @@ namespace Renting_Management_System.DAL
         public bool AddData(Renting_Management_System.Models.RentMod _rent)
         {
             rent = new Renting_Management_System.Models.RentMod();
-            rent = SelectData_4(_rent.ClientID, _rent.ImageID);
+            rent = SelectData_4(_rent.CustomerID, _rent.ImageID);
             if (rent == null)
             {
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into Zujie(影像编号,客户编号,用户编号,出租数量,出租日期,归还日期,出租押金,归还状态,描述)");
+                insertStr.Append("Insert Into Rent(影像编号,客户编号,用户编号,出租数量,出租日期,归还日期,出租押金,归还状态,描述)");
                 insertStr.Append("Values ('");
                 insertStr.Append(rent.ImageID + "','");
-                insertStr.Append(rent.ClientID + "','");
+                insertStr.Append(rent.CustomerID + "','");
                 insertStr.Append(rent.UserID + "',");
                 insertStr.Append(rent.QuantityOfRent + ",");
                 insertStr.Append(rent.RentDate.ToShortDateString() + ",");
@@ -123,11 +123,11 @@ namespace Renting_Management_System.DAL
         public bool ModifyData(Renting_Management_System.Models.RentMod _rent)
         {
             rent = new Renting_Management_System.Models.RentMod();
-            rent = SelectData_4(_rent.ClientID, _rent.ImageID);
+            rent = SelectData_4(_rent.CustomerID, _rent.ImageID);
             if (rent != null)
             {
                 StringBuilder updateStr = new StringBuilder();
-                updateStr.Append("Update Zujie");
+                updateStr.Append("Update Rent");
                 updateStr.Append("Set ");
 
             }
