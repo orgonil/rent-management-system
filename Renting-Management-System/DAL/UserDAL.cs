@@ -19,7 +19,7 @@ namespace Renting_Management_System.DAL
         public DataSet GetAll()
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Yonghu");
+            selectStr.Append("Select * From User");
             DataSet ds = new DataSet();
             da = new DBConnection();
             ds = da.SelectQuery(selectStr.ToString());
@@ -30,10 +30,10 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_userID"></param>
         /// <returns></returns>
-        public Renting_Management_System.Models.UserMod SelectData_1(string _userID)
+        public Renting_Management_System.Models.UserMod SelectDataByUserID(string _userID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Yonghu");
+            selectStr.Append("Select * From User");
             selectStr.Append("Where 用户编号 = '");
             selectStr.Append(_userID);
             selectStr.Append("'");
@@ -64,10 +64,10 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_userName"></param>
         /// <returns></returns>
-        public Renting_Management_System.Models.UserMod SelectData_2(string _userName)
+        public Renting_Management_System.Models.UserMod SelectDataByUserName(string _userName)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Yonghu");
+            selectStr.Append("Select * From User");
             selectStr.Append("Where 用户名称 = '");
             selectStr.Append(_userName);
             selectStr.Append("'");
@@ -98,10 +98,10 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_userTypeCode"></param>
         /// <returns></returns>
-        public DataSet SelectData_3(string _userTypeCode)
+        public DataSet SelectDataByUserTypeCode(string _userTypeCode)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Yonghu");
+            selectStr.Append("Select * From User");
             selectStr.Append("Where 用户类代码 = '");
             selectStr.Append(_userTypeCode);
             selectStr.Append("'");
@@ -123,11 +123,11 @@ namespace Renting_Management_System.DAL
         public bool AddData(Renting_Management_System.Models.UserMod _user)
         {
             user = new Renting_Management_System.Models.UserMod();
-            user = SelectData_1(_user.UserID);
+            user = SelectDataByUserID(_user.UserID);
             if (user == null)
             {
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into Yonghu");
+                insertStr.Append("Insert Into User");
                 insertStr.Append("(用户编号,用户名称,性别,出生日期,用户密码,用户类代码,证件类代码,证件号码,联系方式,用户地址,用户描述)");
                 insertStr.Append("Values ('");
                 insertStr.Append(user.UserID + "','");
@@ -158,13 +158,13 @@ namespace Renting_Management_System.DAL
         public bool ModifyData(Renting_Management_System.Models.UserMod _user)
         {
             user = new Renting_Management_System.Models.UserMod();
-            user = SelectData_1(_user.UserID);
+            user = SelectDataByUserID(_user.UserID);
             if (user == null)
             { return false; }
             else
             {
                 StringBuilder updateStr = new StringBuilder();
-                updateStr.Append("Update Yonghu");
+                updateStr.Append("Update User");
                 updateStr.Append("Set");
                 updateStr.Append("用户名称 = '");
                 updateStr.Append(user.UserName + "'");
@@ -204,11 +204,11 @@ namespace Renting_Management_System.DAL
         public bool DeleteData(Renting_Management_System.Models.UserMod _user)
         {
             user = new Renting_Management_System.Models.UserMod();
-            user = SelectData_1(_user.UserID);
+            user = SelectDataByUserID(_user.UserID);
             if (user != null)
             {
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From Yonghu");
+                deleteStr.Append("Delete From User");
                 deleteStr.Append("Where 用户编号 = '");
                 deleteStr.Append(user.UserID);
                 deleteStr.Append("'");

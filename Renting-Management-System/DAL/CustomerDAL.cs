@@ -30,7 +30,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_customerID"></param>
         /// <returns></returns>
-        public Renting_Management_System.Models.CustomerMod SelectData_1(string _customerID)
+        public Renting_Management_System.Models.CustomerMod SelectDataByID(string _customerID)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * from Customer");
@@ -64,7 +64,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_customerName"></param>
         /// <returns></returns>
-        public Renting_Management_System.Models.CustomerMod SelectData_2(string _customerName)
+        public Renting_Management_System.Models.CustomerMod SelectDataByName(string _customerName)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * from Customer");
@@ -98,7 +98,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_customerTypeCode"></param>
         /// <returns></returns>
-        public DataSet SelectData_3(string _customerTypeCode)
+        public DataSet SelectDataByTypeCode(string _customerTypeCode)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * from Customer");
@@ -124,7 +124,7 @@ namespace Renting_Management_System.DAL
         public bool AddData(Renting_Management_System.Models.CustomerMod _customer)
         {
             customer = new Renting_Management_System.Models.CustomerMod();
-            customer = SelectData_1(_customer.CustomerID);
+            customer = SelectDataByID(_customer.CustomerID);
             if (customer == null)
             {
                 StringBuilder insertStr = new StringBuilder();
@@ -159,7 +159,7 @@ namespace Renting_Management_System.DAL
         public bool ModifyData(Renting_Management_System.Models.CustomerMod _customer)
         {
             customer = new Renting_Management_System.Models.CustomerMod();
-            customer = SelectData_1(_customer.CustomerID);
+            customer = SelectDataByID(_customer.CustomerID);
             if (customer != null)
             {
                 StringBuilder updateStr = new StringBuilder();
@@ -203,7 +203,7 @@ namespace Renting_Management_System.DAL
         public bool DeleteData(Renting_Management_System.Models.CustomerMod _customer)
         {
             customer = new Renting_Management_System.Models.CustomerMod();
-            customer = SelectData_1(_customer.CustomerID);
+            customer = SelectDataByID(_customer.CustomerID);
             if (customer != null)
             {
                 StringBuilder deleteStr = new StringBuilder();

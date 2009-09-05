@@ -20,7 +20,7 @@ namespace Renting_Management_System.DAL
         {
             da = new DBConnection();
             DataSet ds = new DataSet();
-            ds = da.SelectQuery("Select * from Yonghulei");
+            ds = da.SelectQuery("Select * from UserType");
             return ds;
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Yonghulei");
+            selectStr.Append("Select * From UserType");
             selectStr.Append("Where 用户类代码 = '");
             selectStr.Append(type.UserTypeCode);
             selectStr.Append("'");
@@ -66,7 +66,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From Yonghulei");
+                deleteStr.Append("Delete From UserType");
                 deleteStr.Append("Where 用户类代码 = '");
                 deleteStr.Append(type.UserTypeCode);
                 deleteStr.Append("'");
@@ -91,7 +91,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder modifyStr = new StringBuilder();
-                modifyStr.Append("Update Yonghulei");
+                modifyStr.Append("Update UserType");
                 modifyStr.Append("Set 用户类名称 = '");
                 modifyStr.Append(type.UserTypeName + "'");
                 modifyStr.Append("Where 用户类代码 = '");
@@ -117,7 +117,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into Yonghulei (用户类代码,用户类名称)");
+                insertStr.Append("Insert Into UserType (用户类代码,用户类名称)");
                 insertStr.Append("Values ('");
                 insertStr.Append(type.UserTypeCode + "','");
                 insertStr.Append(type.UserTypeName);

@@ -20,7 +20,7 @@ namespace Renting_Management_System.DAL
         {
             da = new DBConnection();
             DataSet ds = new DataSet();
-            ds = da.SelectQuery("Select * from Yinglei");
+            ds = da.SelectQuery("Select * from ImageType");
             return ds;
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Yinglei");
+            selectStr.Append("Select * From ImageType");
             selectStr.Append("Where 影类代码 = '");
             selectStr.Append(type.ImageTypeCode);
             selectStr.Append("'");
@@ -66,7 +66,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From Yinglei");
+                deleteStr.Append("Delete From ImageType");
                 deleteStr.Append("Where 影类代码 = '");
                 deleteStr.Append(type.ImageTypeCode);
                 deleteStr.Append("'");
@@ -91,7 +91,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder modifyStr = new StringBuilder();
-                modifyStr.Append("Update Yinglei");
+                modifyStr.Append("Update ImageType");
                 modifyStr.Append("Set 影类名称 = '");
                 modifyStr.Append(type.ImageTypeName + "'");
                 modifyStr.Append("Where 影类代码 = '");
@@ -117,7 +117,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into Yinglei (影类代码,影类名称)");
+                insertStr.Append("Insert Into ImageType (影类代码,影类名称)");
                 insertStr.Append("Values ('");
                 insertStr.Append(type.ImageTypeCode + "','");
                 insertStr.Append(type.ImageTypeName);
