@@ -5,34 +5,34 @@ using System.Text;
 
 namespace Renting_Management_System.Models
 {
-    class ClientMod
+    class CustomerMod
     {
-        private string _clientID;
+        private string _customerID;
         /// <summary>
         /// 客户编号
         /// </summary>
-        public string ClientID
+        public string CustomerID
         {
-            get { return _clientID; }
-            set { _clientID = value; }
+            get { return _customerID; }
+            set { _customerID = value; }
         }
-        private string _clientTypeCode;
+        private string _customerTypeCode;
         /// <summary>
         /// 客户类代码
         /// </summary>
-        public string ClientTypeCode
+        public string CustomerTypeCode
         {
-            get { return _clientTypeCode; }
-            set { _clientTypeCode = value; }
+            get { return _customerTypeCode; }
+            set { _customerTypeCode = value; }
         }
-        private string _clientName;
+        private string _customerName;
         /// <summary>
         /// 客户名称
         /// </summary>
-        public string ClientName
+        public string CustomerName
         {
-            get { return _clientName; }
-            set { _clientName = value; }
+            get { return _customerName; }
+            set { _customerName = value; }
         }
         private char _sex;
         /// <summary>
@@ -70,41 +70,41 @@ namespace Renting_Management_System.Models
             get { return _certificateNumber; }
             set { _certificateNumber = value; }
         }
-        private string _clientAddress;
+        private string _customerAddress;
         /// <summary>
         /// 客户地址
         /// </summary>
-        public string ClientAddress
+        public string CustomerAddress
         {
-            get { return _clientAddress; }
-            set { _clientAddress = value; }
+            get { return _customerAddress; }
+            set { _customerAddress = value; }
         }
-        private string _clientContact;
+        private string _customerContact;
         /// <summary>
         /// 客户联系
         /// </summary>
-        public string ClientContact
+        public string CustomerContact
         {
-            get { return _clientContact; }
-            set { _clientContact = value; }
+            get { return _customerContact; }
+            set { _customerContact = value; }
         }
-        private string _clientState;
+        private string _customerState;
         /// <summary>
         /// 客户状态
         /// </summary>
-        public string ClientState
+        public string CustomerState
         {
-            get { return _clientState; }
-            set { _clientState = value; }
+            get { return _customerState; }
+            set { _customerState = value; }
         }
-        private string _clientDescription;
+        private string _customerDescription;
         /// <summary>
         /// 客户描述
         /// </summary>
-        public string ClientDescription
+        public string CustomerDescription
         {
-            get { return _clientDescription; }
-            set { _clientDescription = value; }
+            get { return _customerDescription; }
+            set { _customerDescription = value; }
         }
     }
 }
