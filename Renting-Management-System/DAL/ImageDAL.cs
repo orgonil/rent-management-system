@@ -48,6 +48,7 @@ namespace Renting_Management_System.DAL
                 image = new Renting_Management_System.Models.ImageMod();
                 image.ImageID = ds.Tables[0].Rows[0]["影像编号"].ToString().Trim();
                 image.ImageName = ds.Tables[0].Rows[0]["影像名称"].ToString().Trim();
+                image.UserID = ds.Tables[0].Rows[0]["用户编号"].ToString().Trim();
                 image.ImageTypeCode = ds.Tables[0].Rows[0]["影类代码"].ToString().Trim();
                 image.LocalCode = ds.Tables[0].Rows[0]["地点代码"].ToString().Trim();
                 image.ImageCostPrice = int.Parse(ds.Tables[0].Rows[0]["影像原价"].ToString().Trim());
@@ -82,6 +83,7 @@ namespace Renting_Management_System.DAL
                 image = new Renting_Management_System.Models.ImageMod();
                 image.ImageID = ds.Tables[0].Rows[0]["影像编号"].ToString().Trim();
                 image.ImageName = ds.Tables[0].Rows[0]["影像名称"].ToString().Trim();
+                image.UserID = ds.Tables[0].Rows[0]["用户编号"].ToString().Trim();
                 image.ImageTypeCode = ds.Tables[0].Rows[0]["影类代码"].ToString().Trim();
                 image.LocalCode = ds.Tables[0].Rows[0]["地点代码"].ToString().Trim();
                 image.ImageCostPrice = int.Parse(ds.Tables[0].Rows[0]["影像原价"].ToString().Trim());
@@ -99,6 +101,35 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_imageTypeCode"></param>
         /// <returns></returns>
+        public Renting_Management_System.Models.ImageMod SelectDataByUerName(string _userID)
+        { 
+            StringBuilder selectStr = new StringBuilder();
+            selectStr.Append("Select * From Image");
+            selectStr.Append("Where 用户编号 = '");
+            selectStr.Append(_userID);
+            selectStr.Append("'");
+            DataSet ds = new DataSet();
+            da = new DBConnection();
+            ds = da.SelectQuery(selectStr.ToString());
+            if (ds.Tables.Count == 0)
+            { return null; }
+            else
+            {
+                image = new Renting_Management_System.Models.ImageMod();
+                image.ImageID = ds.Tables[0].Rows[0]["影像编号"].ToString().Trim();
+                image.ImageName = ds.Tables[0].Rows[0]["影像名称"].ToString().Trim();
+                image.UserID = ds.Tables[0].Rows[0]["用户编号"].ToString().Trim();
+                image.ImageTypeCode = ds.Tables[0].Rows[0]["影类代码"].ToString().Trim();
+                image.LocalCode = ds.Tables[0].Rows[0]["地点代码"].ToString().Trim();
+                image.ImageCostPrice = int.Parse(ds.Tables[0].Rows[0]["影像原价"].ToString().Trim());
+                image.ImageRentalPrice = int.Parse(ds.Tables[0].Rows[0]["影像租价"].ToString().Trim());
+                image.StorageQuantity = int.Parse(ds.Tables[0].Rows[0]["库存数量"].ToString().Trim());
+                image.ShelvesNumber = ds.Tables[0].Rows[0]["货架号"].ToString().Trim();
+                image.RentState = ds.Tables[0].Rows[0]["出租状态"].ToString().Trim();
+                image.ImageDescription = ds.Tables[0].Rows[0]["影像描述"].ToString().Trim();
+                return image;
+            }
+        }
         public DataSet SelectDataByTypeCode(string _imageTypeCode)
         {
             StringBuilder selectStr = new StringBuilder();
@@ -129,10 +160,11 @@ namespace Renting_Management_System.DAL
             else
             {
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into Image (影像编号,影像名称,影类代码,地点代码,影像原价,影像租价,库存数量,货架号,出租状态,影像描述)");
+                insertStr.Append("Insert Into Image (影像编号,影像名称,用户编号,影类代码,地点代码,影像原价,影像租价,库存数量,货架号,出租状态,影像描述)");
                 insertStr.Append("Values ('");
                 insertStr.Append(image.ImageID + "','");
                 insertStr.Append(image.ImageName + "','");
+                insertStr.Append(image.UserID + "','");
                 insertStr.Append(image.ImageTypeCode + "','");
                 insertStr.Append(image.LocalCode + "',");
                 insertStr.Append(image.ImageCostPrice + ",");
@@ -166,6 +198,8 @@ namespace Renting_Management_System.DAL
                 updateStr.Append("Set ");
                 updateStr.Append("影像名称 = '");
                 updateStr.Append(image.ImageName);
+                updateStr.Append("',用户编号 = '");
+                updateStr.Append(image.UserID);
                 updateStr.Append("',影类代码 = '");
                 updateStr.Append(image.ImageTypeCode);
                 updateStr.Append("',地点代码 = '");
