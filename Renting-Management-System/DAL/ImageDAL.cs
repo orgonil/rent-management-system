@@ -96,13 +96,13 @@ namespace Renting_Management_System.DAL
             }
         }
         /// <summary>
-        /// 通过影像类型获取数据
-        /// 返回 null 表示没有数据，否侧返回一个影像的数据集
+        /// 通过用户编号获取一个影像的记录
+        /// 返回 null 表示数据不存在，否侧返回一个影像的记录
         /// </summary>
-        /// <param name="_imageTypeCode"></param>
+        /// <param name="_userID"></param>
         /// <returns></returns>
         public Renting_Management_System.Models.ImageMod SelectDataByUerName(string _userID)
-        { 
+        {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Image");
             selectStr.Append("Where 用户编号 = '");
@@ -130,6 +130,12 @@ namespace Renting_Management_System.DAL
                 return image;
             }
         }
+        /// <summary>
+        /// 通过影像类型获取数据
+        /// 返回 null 表示没有数据，否侧返回一个影像的数据集
+        /// </summary>
+        /// <param name="_imageTypeCode"></param>
+        /// <returns></returns>
         public DataSet SelectDataByTypeCode(string _imageTypeCode)
         {
             StringBuilder selectStr = new StringBuilder();
