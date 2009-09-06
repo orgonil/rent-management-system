@@ -106,5 +106,14 @@ namespace Renting_Management_System.Models
             get { return _customerDescription; }
             set { _customerDescription = value; }
         }
+        private bool _customerDeny;
+        /// <summary>
+        /// 拒绝客户
+        /// </summary>
+        public bool CustomerDeny
+        {
+            get { return _customerDeny; }
+            set { _customerDeny = value; }
+        }
     }
 }
