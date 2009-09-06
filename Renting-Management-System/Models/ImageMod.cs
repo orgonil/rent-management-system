@@ -25,6 +25,15 @@ namespace Renting_Management_System.Models
             get { return _imageName; }
             set { _imageName = value; }
         }
+        private string _userID;
+        /// <summary>
+        /// 用户编号
+        /// </summary>
+        public string UserID
+        {
+            get { return _userID; }
+            set { _userID = value; }
+        }
         private string _imageTypeCode;
         /// <summary>
         /// 影像类代码
