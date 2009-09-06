@@ -58,10 +58,10 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="uType"></param>
         /// <returns></returns>
-        public bool DeleteData(Renting_Management_System.Models.CertificateTypeMod zType)
+        public bool DeleteData(Renting_Management_System.Models.CertificateTypeMod _certificateType)
         {
             type = new Renting_Management_System.Models.CertificateTypeMod();
-            type = SelectData(zType.CertificateTypeCode);
+            type = SelectData(_certificateType.CertificateTypeCode);
             if (type != null)
             {
                 da = new DBConnection();
@@ -83,10 +83,10 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="uType"></param>
         /// <returns></returns>
-        public bool ModifyData(Renting_Management_System.Models.CertificateTypeMod zType)
+        public bool ModifyData(Renting_Management_System.Models.CertificateTypeMod _certificateType)
         {
             type = new Renting_Management_System.Models.CertificateTypeMod();
-            type = SelectData(zType.CertificateTypeCode);
+            type = SelectData(_certificateType.CertificateTypeCode);
             if (type != null)
             {
                 da = new DBConnection();
@@ -109,10 +109,10 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="uType"></param>
         /// <returns></returns>
-        public bool AddData(Renting_Management_System.Models.CertificateTypeMod zType)
+        public bool AddData(Renting_Management_System.Models.CertificateTypeMod _certificateType)
         {
             type = new Renting_Management_System.Models.CertificateTypeMod();
-            type = SelectData(zType.CertificateTypeCode);
+            type = SelectData(_certificateType.CertificateTypeCode);
             if (type == null)
             {
                 da = new DBConnection();

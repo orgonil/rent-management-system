@@ -58,10 +58,10 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="uType"></param>
         /// <returns></returns>
-        public bool DeleteData(Renting_Management_System.Models.CustomerTypeMod cType)
+        public bool DeleteData(Renting_Management_System.Models.CustomerTypeMod _customerType)
         {
             type = new Renting_Management_System.Models.CustomerTypeMod();
-            type = SelectData(cType.CustomerTypeCode);
+            type = SelectData(_customerType.CustomerTypeCode);
             if (type != null)
             {
                 da = new DBConnection();
@@ -83,10 +83,10 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="uType"></param>
         /// <returns></returns>
-        public bool ModifyData(Renting_Management_System.Models.CustomerTypeMod cType)
+        public bool ModifyData(Renting_Management_System.Models.CustomerTypeMod _customerType)
         {
             type = new Renting_Management_System.Models.CustomerTypeMod();
-            type = SelectData(cType.CustomerTypeCode);
+            type = SelectData(_customerType.CustomerTypeCode);
             if (type != null)
             {
                 da = new DBConnection();
@@ -109,10 +109,10 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="uType"></param>
         /// <returns></returns>
-        public bool AddData(Renting_Management_System.Models.CustomerTypeMod cType)
+        public bool AddData(Renting_Management_System.Models.CustomerTypeMod _customerType)
         {
             type = new Renting_Management_System.Models.CustomerTypeMod();
-            type = SelectData(cType.CustomerTypeCode);
+            type = SelectData(_customerType.CustomerTypeCode);
             if (type == null)
             {
                 da = new DBConnection();

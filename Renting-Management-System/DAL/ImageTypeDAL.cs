@@ -58,10 +58,10 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="uType"></param>
         /// <returns></returns>
-        public bool DeleteData(Renting_Management_System.Models.ImageTypeMod iType)
+        public bool DeleteData(Renting_Management_System.Models.ImageTypeMod _imageType)
         {
             type = new Renting_Management_System.Models.ImageTypeMod(); 
-            type = SelectData(iType.ImageTypeCode);
+            type = SelectData(_imageType.ImageTypeCode);
             if (type != null)
             {
                 da = new DBConnection();
@@ -83,10 +83,10 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="uType"></param>
         /// <returns></returns>
-        public bool ModifyData(Renting_Management_System.Models.ImageTypeMod iType)
+        public bool ModifyData(Renting_Management_System.Models.ImageTypeMod _imageType)
         {
             type = new Renting_Management_System.Models.ImageTypeMod(); 
-            type = SelectData(iType.ImageTypeCode);
+            type = SelectData(_imageType.ImageTypeCode);
             if (type != null)
             {
                 da = new DBConnection();
@@ -109,10 +109,10 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="uType"></param>
         /// <returns></returns>
-        public bool AddData(Renting_Management_System.Models.ImageTypeMod iType)
+        public bool AddData(Renting_Management_System.Models.ImageTypeMod _imageType)
         {
             type = new Renting_Management_System.Models.ImageTypeMod(); 
-            type = SelectData(iType.ImageTypeCode);
+            type = SelectData(_imageType.ImageTypeCode);
             if (type == null)
             {
                 da = new DBConnection();

@@ -30,7 +30,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_customerID"></param>
         /// <returns></returns>
-        public Renting_Management_System.Models.CustomerMod SelectDataByID(string _customerID)
+        public Renting_Management_System.Models.CustomerMod SelectByID(string _customerID)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * from Customer");
@@ -54,6 +54,7 @@ namespace Renting_Management_System.DAL
                 customer.CustomerContact = ds.Tables[0].Rows[0]["联系方式"].ToString().Trim();
                 customer.CustomerState = ds.Tables[0].Rows[0]["客户状态"].ToString().Trim();
                 customer.CustomerDescription = ds.Tables[0].Rows[0]["客户描述"].ToString().Trim();
+                customer.CustomerDeny = bool.Parse(ds.Tables[0].Rows[0]["客户拒绝"].ToString().Trim());
                 return customer;
             }
             else
@@ -64,7 +65,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_customerName"></param>
         /// <returns></returns>
-        public Renting_Management_System.Models.CustomerMod SelectDataByName(string _customerName)
+        public Renting_Management_System.Models.CustomerMod SelectByName(string _customerName)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * from Customer");
@@ -88,6 +89,7 @@ namespace Renting_Management_System.DAL
                 customer.CustomerContact = ds.Tables[0].Rows[0]["联系方式"].ToString().Trim();
                 customer.CustomerState = ds.Tables[0].Rows[0]["客户状态"].ToString().Trim();
                 customer.CustomerDescription = ds.Tables[0].Rows[0]["客户描述"].ToString().Trim();
+                customer.CustomerDeny = bool.Parse(ds.Tables[0].Rows[0]["客户拒绝"].ToString().Trim());
                 return customer;
             }
             else
@@ -98,7 +100,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_customerTypeCode"></param>
         /// <returns></returns>
-        public DataSet SelectDataByTypeCode(string _customerTypeCode)
+        public DataSet SelectByTypeCode(string _customerTypeCode)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * from Customer");
@@ -124,12 +126,12 @@ namespace Renting_Management_System.DAL
         public bool AddData(Renting_Management_System.Models.CustomerMod _customer)
         {
             customer = new Renting_Management_System.Models.CustomerMod();
-            customer = SelectDataByID(_customer.CustomerID);
+            customer = SelectByID(_customer.CustomerID);
             if (customer == null)
             {
                 StringBuilder insertStr = new StringBuilder();
                 insertStr.Append("Insert Into Customer");
-                insertStr.Append("(客户编号,客户类代码,客户名称,性别,出生日期,证件类代码,证件号码,客户地址,联系方式,客户状态,客户描述)");
+                insertStr.Append("(客户编号,客户类代码,客户名称,性别,出生日期,证件类代码,证件号码,客户地址,联系方式,客户状态,客户描述,客户拒绝)");
                 insertStr.Append("Values ('");
                 insertStr.Append(customer.CustomerID + "','");
                 insertStr.Append(customer.CustomerTypeCode + "','");
@@ -141,7 +143,8 @@ namespace Renting_Management_System.DAL
                 insertStr.Append(customer.CustomerAddress + "','");
                 insertStr.Append(customer.CustomerContact + "','");
                 insertStr.Append(customer.CustomerState + "','");
-                insertStr.Append(customer.CustomerDescription);
+                insertStr.Append(customer.CustomerDescription + "','");
+                insertStr.Append(customer.CustomerDeny.ToString());
                 insertStr.Append("')");
                 da = new DBConnection();
                 da.InsertQuery(insertStr.ToString());
@@ -159,7 +162,7 @@ namespace Renting_Management_System.DAL
         public bool ModifyData(Renting_Management_System.Models.CustomerMod _customer)
         {
             customer = new Renting_Management_System.Models.CustomerMod();
-            customer = SelectDataByID(_customer.CustomerID);
+            customer = SelectByID(_customer.CustomerID);
             if (customer != null)
             {
                 StringBuilder updateStr = new StringBuilder();
@@ -185,6 +188,8 @@ namespace Renting_Management_System.DAL
                 updateStr.Append(customer.CustomerState + "'");
                 updateStr.Append(",客户描述 = '");
                 updateStr.Append(customer.CustomerDescription + "'");
+                updateStr.Append(",客户拒绝 = '");
+                updateStr.Append(customer.CustomerDeny.ToString() + "'");
                 updateStr.Append("Where 客户编号 = '");
                 updateStr.Append(customer.CustomerID + "'");
                 da = new DBConnection();
@@ -203,7 +208,7 @@ namespace Renting_Management_System.DAL
         public bool DeleteData(Renting_Management_System.Models.CustomerMod _customer)
         {
             customer = new Renting_Management_System.Models.CustomerMod();
-            customer = SelectDataByID(_customer.CustomerID);
+            customer = SelectByID(_customer.CustomerID);
             if (customer != null)
             {
                 StringBuilder deleteStr = new StringBuilder();

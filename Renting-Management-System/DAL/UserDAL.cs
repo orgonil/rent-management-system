@@ -30,7 +30,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_userID"></param>
         /// <returns></returns>
-        public Renting_Management_System.Models.UserMod SelectDataByUserID(string _userID)
+        public Renting_Management_System.Models.UserMod SelectByID(string _userID)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From User");
@@ -56,6 +56,7 @@ namespace Renting_Management_System.DAL
                 user.UserContact = ds.Tables[0].Rows[0]["联系方式"].ToString().Trim();
                 user.UserAddress = ds.Tables[0].Rows[0]["用户地址"].ToString().Trim();
                 user.UserDescription = ds.Tables[0].Rows[0]["用户描述"].ToString().Trim();
+                user.UserDeny = bool.Parse(ds.Tables[0].Rows[0]["用户拒绝"].ToString().Trim());
                 return user;
             }
         }
@@ -64,7 +65,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_userName"></param>
         /// <returns></returns>
-        public Renting_Management_System.Models.UserMod SelectDataByUserName(string _userName)
+        public Renting_Management_System.Models.UserMod SelectByName(string _userName)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From User");
@@ -90,6 +91,7 @@ namespace Renting_Management_System.DAL
                 user.UserContact = ds.Tables[0].Rows[0]["联系方式"].ToString().Trim();
                 user.UserAddress = ds.Tables[0].Rows[0]["用户地址"].ToString().Trim();
                 user.UserDescription = ds.Tables[0].Rows[0]["用户描述"].ToString().Trim();
+                user.UserDeny = bool.Parse(ds.Tables[0].Rows[0]["用户拒绝"].ToString().Trim());
                 return user;
             }
         }
@@ -98,7 +100,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_userTypeCode"></param>
         /// <returns></returns>
-        public DataSet SelectDataByUserTypeCode(string _userTypeCode)
+        public DataSet SelectByTypeCode(string _userTypeCode)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From User");
@@ -123,12 +125,12 @@ namespace Renting_Management_System.DAL
         public bool AddData(Renting_Management_System.Models.UserMod _user)
         {
             user = new Renting_Management_System.Models.UserMod();
-            user = SelectDataByUserID(_user.UserID);
+            user = SelectByID(_user.UserID);
             if (user == null)
             {
                 StringBuilder insertStr = new StringBuilder();
                 insertStr.Append("Insert Into User");
-                insertStr.Append("(用户编号,用户名称,性别,出生日期,用户密码,用户类代码,证件类代码,证件号码,联系方式,用户地址,用户描述)");
+                insertStr.Append("(用户编号,用户名称,性别,出生日期,用户密码,用户类代码,证件类代码,证件号码,联系方式,用户地址,用户描述,用户拒绝)");
                 insertStr.Append("Values ('");
                 insertStr.Append(user.UserID + "','");
                 insertStr.Append(user.UserName + "','");
@@ -140,7 +142,8 @@ namespace Renting_Management_System.DAL
                 insertStr.Append(user.CertificateNumber + "','");
                 insertStr.Append(user.UserContact + "','");
                 insertStr.Append(user.UserAddress + "','");
-                insertStr.Append(user.UserDescription);
+                insertStr.Append(user.UserDescription + "','");
+                insertStr.Append(user.UserDeny.ToString());
                 insertStr.Append("')");
                 da = new DBConnection();
                 da.InsertQuery(insertStr.ToString());
@@ -158,7 +161,7 @@ namespace Renting_Management_System.DAL
         public bool ModifyData(Renting_Management_System.Models.UserMod _user)
         {
             user = new Renting_Management_System.Models.UserMod();
-            user = SelectDataByUserID(_user.UserID);
+            user = SelectByID(_user.UserID);
             if (user == null)
             { return false; }
             else
@@ -185,7 +188,9 @@ namespace Renting_Management_System.DAL
                 updateStr.Append(",用户地址 = '");
                 updateStr.Append(user.UserAddress + "'");
                 updateStr.Append(",用户描述 = '");
-                updateStr.Append(user.UserDescription);
+                updateStr.Append(user.UserDescription + "'");
+                updateStr.Append(",用户拒绝 = '");
+                updateStr.Append(user.UserDeny.ToString());
                 updateStr.Append("'");
                 updateStr.Append("Where 用户编号 = '");
                 updateStr.Append(user.UserID + "'");
@@ -204,7 +209,7 @@ namespace Renting_Management_System.DAL
         public bool DeleteData(Renting_Management_System.Models.UserMod _user)
         {
             user = new Renting_Management_System.Models.UserMod();
-            user = SelectDataByUserID(_user.UserID);
+            user = SelectByID(_user.UserID);
             if (user != null)
             {
                 StringBuilder deleteStr = new StringBuilder();
