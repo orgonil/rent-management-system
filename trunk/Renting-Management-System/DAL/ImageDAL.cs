@@ -31,7 +31,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_imageID"></param>
         /// <returns></returns>
-        public Renting_Management_System.Models.ImageMod SelectDataByID(string _imageID)
+        public Renting_Management_System.Models.ImageMod SelectByID(string _imageID)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Image");
@@ -66,7 +66,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_imageName"></param>
         /// <returns></returns>
-        public Renting_Management_System.Models.ImageMod SelectDataByName(string _imageName)
+        public Renting_Management_System.Models.ImageMod SelectByName(string _imageName)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Image");
@@ -96,47 +96,12 @@ namespace Renting_Management_System.DAL
             }
         }
         /// <summary>
-        /// 通过用户编号获取一个影像的记录
-        /// 返回 null 表示数据不存在，否侧返回一个影像的记录
-        /// </summary>
-        /// <param name="_userID"></param>
-        /// <returns></returns>
-        public Renting_Management_System.Models.ImageMod SelectDataByUerName(string _userID)
-        {
-            StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Image");
-            selectStr.Append("Where 用户编号 = '");
-            selectStr.Append(_userID);
-            selectStr.Append("'");
-            DataSet ds = new DataSet();
-            da = new DBConnection();
-            ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count == 0)
-            { return null; }
-            else
-            {
-                image = new Renting_Management_System.Models.ImageMod();
-                image.ImageID = ds.Tables[0].Rows[0]["影像编号"].ToString().Trim();
-                image.ImageName = ds.Tables[0].Rows[0]["影像名称"].ToString().Trim();
-                image.UserID = ds.Tables[0].Rows[0]["用户编号"].ToString().Trim();
-                image.ImageTypeCode = ds.Tables[0].Rows[0]["影类代码"].ToString().Trim();
-                image.LocalCode = ds.Tables[0].Rows[0]["地点代码"].ToString().Trim();
-                image.ImageCostPrice = int.Parse(ds.Tables[0].Rows[0]["影像原价"].ToString().Trim());
-                image.ImageRentalPrice = int.Parse(ds.Tables[0].Rows[0]["影像租价"].ToString().Trim());
-                image.StorageQuantity = int.Parse(ds.Tables[0].Rows[0]["库存数量"].ToString().Trim());
-                image.ShelvesNumber = ds.Tables[0].Rows[0]["货架号"].ToString().Trim();
-                image.RentState = ds.Tables[0].Rows[0]["出租状态"].ToString().Trim();
-                image.ImageDescription = ds.Tables[0].Rows[0]["影像描述"].ToString().Trim();
-                return image;
-            }
-        }
-        /// <summary>
         /// 通过影像类型获取数据
         /// 返回 null 表示没有数据，否侧返回一个影像的数据集
         /// </summary>
         /// <param name="_imageTypeCode"></param>
         /// <returns></returns>
-        public DataSet SelectDataByTypeCode(string _imageTypeCode)
+        public DataSet SelectByTypeCode(string _imageTypeCode)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Image");
@@ -152,6 +117,29 @@ namespace Renting_Management_System.DAL
             { return ds; }
         }
         /// <summary>
+        /// 通过用户编号获取影像数据
+        /// 返回 null 表示没有数据，否侧返回一个影像的数据集
+        /// </summary>
+        /// <param name="_userID"></param>
+        /// <returns></returns>
+        public DataSet SelectByUserID(string _userID)
+        {
+            StringBuilder selectStr = new StringBuilder();
+            selectStr.Append("Select * From Image");
+            selectStr.Append("Where 用户编号 = '");
+            selectStr.Append(_userID);
+            selectStr.Append("'");
+            DataSet ds = new DataSet();
+            da = new DBConnection();
+            ds = da.SelectQuery(selectStr.ToString());
+            if (ds.Tables.Count == 0)
+            { return null; }
+            else
+            {
+                return ds;
+            }
+        }
+        /// <summary>
         /// 添加一个影像的信息
         /// 返回 true 表示成功，否侧该影像已存在
         /// </summary>
@@ -160,7 +148,7 @@ namespace Renting_Management_System.DAL
         public bool AddData(Renting_Management_System.Models.ImageMod _image)
         {
             image = new Renting_Management_System.Models.ImageMod();
-            image = SelectDataByID(_image.ImageID);
+            image = SelectByID(_image.ImageID);
             if (image != null)
             { return false; }
             else
@@ -194,7 +182,7 @@ namespace Renting_Management_System.DAL
         public bool ModifyData(Renting_Management_System.Models.ImageMod _image)
         {
             image = new Renting_Management_System.Models.ImageMod();
-            image = SelectDataByID(_image.ImageID);
+            image = SelectByID(_image.ImageID);
             if (image == null)
             { return false; }
             else
@@ -240,7 +228,7 @@ namespace Renting_Management_System.DAL
         public bool DeleteData(Renting_Management_System.Models.ImageMod _image)
         {
             image = new Renting_Management_System.Models.ImageMod();
-            image = SelectDataByID(_image.ImageID);
+            image = SelectByID(_image.ImageID);
             if (image == null)
             { return false; }
             else
