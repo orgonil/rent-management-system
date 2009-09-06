@@ -30,7 +30,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_customerID"></param>
         /// <returns></returns>
-        public DataSet SelectDataByCustomerID(string _customerID)
+        public DataSet SelectByCustomerID(string _customerID)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Rent");
@@ -51,7 +51,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_imageID"></param>
         /// <returns></returns>
-        public DataSet SelectDataByImageID(string _imageID)
+        public DataSet SelectByImageID(string _imageID)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Rent");
@@ -72,7 +72,7 @@ namespace Renting_Management_System.DAL
         /// </summary>
         /// <param name="_userID"></param>
         /// <returns></returns>
-        public DataSet SelectDataByUserID(string _userID)
+        public DataSet SelectByUserID(string _userID)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Rent");
@@ -94,7 +94,7 @@ namespace Renting_Management_System.DAL
         /// <param name="_customerID"></param>
         /// <param name="_imageID"></param>
         /// <returns></returns>
-        public Renting_Management_System.Models.RentMod SelectDataBy_CustomerID_N_ImageID(string _customerID, string _imageID)
+        public Renting_Management_System.Models.RentMod SelectBy_CustomerID_N_ImageID(string _customerID, string _imageID)
         {
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From Rent");
@@ -132,7 +132,7 @@ namespace Renting_Management_System.DAL
         public bool AddData(Renting_Management_System.Models.RentMod _rent)
         {
             rent = new Renting_Management_System.Models.RentMod();
-            rent =SelectDataBy_CustomerID_N_ImageID(_rent.CustomerID, _rent.ImageID);
+            rent =SelectBy_CustomerID_N_ImageID(_rent.CustomerID, _rent.ImageID);
             if (rent == null)
             {
                 StringBuilder insertStr = new StringBuilder();
@@ -165,7 +165,7 @@ namespace Renting_Management_System.DAL
         public bool ModifyData(Renting_Management_System.Models.RentMod _rent)
         {
             rent = new Renting_Management_System.Models.RentMod();
-            rent =SelectDataBy_CustomerID_N_ImageID(_rent.CustomerID, _rent.ImageID);
+            rent =SelectBy_CustomerID_N_ImageID(_rent.CustomerID, _rent.ImageID);
             if (rent != null)
             {
                 StringBuilder updateStr = new StringBuilder();
@@ -209,7 +209,7 @@ namespace Renting_Management_System.DAL
         public bool DeletData(Renting_Management_System.Models.RentMod _rent)
         { 
             rent = new Renting_Management_System.Models.RentMod();
-            rent =SelectDataBy_CustomerID_N_ImageID(_rent.CustomerID, _rent.ImageID);
+            rent =SelectBy_CustomerID_N_ImageID(_rent.CustomerID, _rent.ImageID);
             if (rent != null)
             {
                 StringBuilder deleteStr = new StringBuilder();

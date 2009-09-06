@@ -56,12 +56,12 @@ namespace Renting_Management_System.DAL
         /// 返回 true 表示成功；
         /// 返回 false 表示该类不存在
         /// </summary>
-        /// <param name="uType"></param>
+        /// <param name="_userType"></param>
         /// <returns></returns>
-        public bool DeleteData(Renting_Management_System.Models.UserTypeMod uType)
+        public bool DeleteData(Renting_Management_System.Models.UserTypeMod _userType)
         {
             type = new Renting_Management_System.Models.UserTypeMod();
-            type = SelectData(uType.UserTypeCode);
+            type = SelectData(_userType.UserTypeCode);
             if (type != null)
             {
                 da = new DBConnection();
@@ -81,12 +81,12 @@ namespace Renting_Management_System.DAL
         /// 返回 true 表示成功
         /// 返回 false 表示该类不存在
         /// </summary>
-        /// <param name="uType"></param>
+        /// <param name="_userType"></param>
         /// <returns></returns>
-        public bool ModifyData(Renting_Management_System.Models.UserTypeMod uType)
+        public bool ModifyData(Renting_Management_System.Models.UserTypeMod _userType)
         {
             type = new Renting_Management_System.Models.UserTypeMod();
-            type = SelectData(uType.UserTypeCode);
+            type = SelectData(_userType.UserTypeCode);
             if (type != null)
             {
                 da = new DBConnection();
@@ -107,12 +107,12 @@ namespace Renting_Management_System.DAL
         /// 返回 true 表示成功
         /// 返回 false 表示数据已存在
         /// </summary>
-        /// <param name="uType"></param>
+        /// <param name="_userType"></param>
         /// <returns></returns>
-        public bool AddData(Renting_Management_System.Models.UserTypeMod uType)
+        public bool AddData(Renting_Management_System.Models.UserTypeMod _userType)
         {
             type = new Renting_Management_System.Models.UserTypeMod();
-            type = SelectData(uType.UserTypeCode);
+            type = SelectData(_userType.UserTypeCode);
             if (type == null)
             {
                 da = new DBConnection();
