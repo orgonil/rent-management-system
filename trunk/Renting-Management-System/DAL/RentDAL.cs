@@ -21,7 +21,7 @@ namespace Renting_Management_System.DAL
         {
             DataSet ds = new DataSet();
             da = new DBConnection();
-            ds = da.SelectQuery("Select * From Rent");
+            ds = da.SelectQuery("Select * From [Rent]");
             return ds;
         }
         /// <summary>
@@ -33,7 +33,7 @@ namespace Renting_Management_System.DAL
         public DataSet SelectByCustomerID(string _customerID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Rent");
+            selectStr.Append("Select * From [Rent]");
             selectStr.Append("Where 客户编号 = '");
             selectStr.Append(_customerID);
             selectStr.Append("'");
@@ -54,7 +54,7 @@ namespace Renting_Management_System.DAL
         public DataSet SelectByImageID(string _imageID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Rent");
+            selectStr.Append("Select * From [Rent]");
             selectStr.Append("Where 影像编号 = '");
             selectStr.Append(_imageID);
             selectStr.Append("'");
@@ -75,7 +75,7 @@ namespace Renting_Management_System.DAL
         public DataSet SelectByUserID(string _userID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Rent");
+            selectStr.Append("Select * From [Rent]");
             selectStr.Append("Where 用户编号 = '");
             selectStr.Append(_userID);
             selectStr.Append("'");
@@ -97,7 +97,7 @@ namespace Renting_Management_System.DAL
         public Renting_Management_System.Models.RentMod SelectBy_CustomerID_N_ImageID(string _customerID, string _imageID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Rent");
+            selectStr.Append("Select * From [Rent]");
             selectStr.Append("Where 客户编号 = '");
             selectStr.Append(_customerID);
             selectStr.Append("' And 影像编号 = '");
@@ -136,7 +136,7 @@ namespace Renting_Management_System.DAL
             if (rent == null)
             {
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into Rent(影像编号,客户编号,用户编号,出租数量,出租日期,归还日期,出租押金,归还状态,描述)");
+                insertStr.Append("Insert Into ]Rent](影像编号,客户编号,用户编号,出租数量,出租日期,归还日期,出租押金,归还状态,描述)");
                 insertStr.Append("Values ('");
                 insertStr.Append(rent.ImageID + "','");
                 insertStr.Append(rent.CustomerID + "','");
@@ -169,7 +169,7 @@ namespace Renting_Management_System.DAL
             if (rent != null)
             {
                 StringBuilder updateStr = new StringBuilder();
-                updateStr.Append("Update Rent");
+                updateStr.Append("Update [Rent]");
                 updateStr.Append("Set ");
                 updateStr.Append("用户编号 = '");
                 updateStr.Append(rent.UserID);
@@ -213,7 +213,7 @@ namespace Renting_Management_System.DAL
             if (rent != null)
             {
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From Rent");
+                deleteStr.Append("Delete From [Rent]");
                 deleteStr.Append("Where 客户编号 = '");
                 deleteStr.Append(rent.CustomerID);
                 deleteStr.Append("' And 影像编号 = '");

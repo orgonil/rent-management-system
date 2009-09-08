@@ -20,7 +20,7 @@ namespace Renting_Management_System.DAL
         {
             da = new DBConnection();
             DataSet ds = new DataSet();
-            ds = da.SelectQuery("Select * from CustomerType");
+            ds = da.SelectQuery("Select * from [CustomerType]");
             return ds;
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From CustomerType");
+            selectStr.Append("Select * From [CustomerType]");
             selectStr.Append("Where 客户类代码 = '");
             selectStr.Append(type.CustomerTypeCode);
             selectStr.Append("'");
@@ -66,7 +66,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From CustomerType");
+                deleteStr.Append("Delete From [CustomerType]");
                 deleteStr.Append("Where 客户类代码 = '");
                 deleteStr.Append(type.CustomerTypeCode);
                 deleteStr.Append("'");
@@ -91,7 +91,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder modifyStr = new StringBuilder();
-                modifyStr.Append("Update CustomerType");
+                modifyStr.Append("Update [CustomerType]");
                 modifyStr.Append("Set 客户类名称 = '");
                 modifyStr.Append(type.CustomerTypeName + "'");
                 modifyStr.Append("Where 客户类代码 = '");
@@ -117,7 +117,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into CustomerType (客户类代码,客户类名称)");
+                insertStr.Append("Insert Into [CustomerType] (客户类代码,客户类名称)");
                 insertStr.Append("Values ('");
                 insertStr.Append(type.CustomerTypeCode + "','");
                 insertStr.Append(type.CustomerTypeName);

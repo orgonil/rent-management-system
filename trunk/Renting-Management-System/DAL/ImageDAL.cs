@@ -21,7 +21,7 @@ namespace Renting_Management_System.DAL
         {
             da = new DBConnection();
             DataSet ds = new DataSet();
-            string selectStr = "Select * From Image";
+            string selectStr = "Select * From [Image]";
             ds = da.SelectQuery(selectStr);
             return ds;
         }
@@ -34,7 +34,7 @@ namespace Renting_Management_System.DAL
         public Renting_Management_System.Models.ImageMod SelectByID(string _imageID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Image");
+            selectStr.Append("Select * From [Image]");
             selectStr.Append("Where 影像编号 = '");
             selectStr.Append(_imageID);
             selectStr.Append("'");
@@ -69,7 +69,7 @@ namespace Renting_Management_System.DAL
         public Renting_Management_System.Models.ImageMod SelectByName(string _imageName)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Image");
+            selectStr.Append("Select * From [Image]");
             selectStr.Append("Where 影像名称 = '");
             selectStr.Append(_imageName);
             selectStr.Append("'");
@@ -104,7 +104,7 @@ namespace Renting_Management_System.DAL
         public DataSet SelectByTypeCode(string _imageTypeCode)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Image");
+            selectStr.Append("Select * From [Image]");
             selectStr.Append("Where 影类代码 = '");
             selectStr.Append(_imageTypeCode);
             selectStr.Append("'");
@@ -125,7 +125,7 @@ namespace Renting_Management_System.DAL
         public DataSet SelectByUserID(string _userID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Image");
+            selectStr.Append("Select * From [Image]");
             selectStr.Append("Where 用户编号 = '");
             selectStr.Append(_userID);
             selectStr.Append("'");
@@ -154,7 +154,7 @@ namespace Renting_Management_System.DAL
             else
             {
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into Image (影像编号,影像名称,用户编号,影类代码,地点代码,影像原价,影像租价,库存数量,货架号,出租状态,影像描述)");
+                insertStr.Append("Insert Into [Image] (影像编号,影像名称,用户编号,影类代码,地点代码,影像原价,影像租价,库存数量,货架号,出租状态,影像描述)");
                 insertStr.Append("Values ('");
                 insertStr.Append(image.ImageID + "','");
                 insertStr.Append(image.ImageName + "','");
@@ -188,7 +188,7 @@ namespace Renting_Management_System.DAL
             else
             {
                 StringBuilder updateStr = new StringBuilder();
-                updateStr.Append("Update Image ");
+                updateStr.Append("Update [Image] ");
                 updateStr.Append("Set ");
                 updateStr.Append("影像名称 = '");
                 updateStr.Append(image.ImageName);
@@ -234,7 +234,7 @@ namespace Renting_Management_System.DAL
             else
             {
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From Image");
+                deleteStr.Append("Delete From [Image]");
                 deleteStr.Append("Where 影像编号 = '");
                 deleteStr.Append(image.ImageID);
                 deleteStr.Append("'");

@@ -19,7 +19,7 @@ namespace Renting_Management_System.DAL
         public DataSet GetAll()
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Customer");
+            selectStr.Append("Select * From [Customer]");
             DataSet ds = new DataSet();
             da = new DBConnection();
             ds = da.SelectQuery(selectStr.ToString());
@@ -33,7 +33,7 @@ namespace Renting_Management_System.DAL
         public Renting_Management_System.Models.CustomerMod SelectByID(string _customerID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * from Customer");
+            selectStr.Append("Select * from [Customer]");
             selectStr.Append("Where 客户编号 = '");
             selectStr.Append(_customerID);
             selectStr.Append("'");
@@ -68,7 +68,7 @@ namespace Renting_Management_System.DAL
         public Renting_Management_System.Models.CustomerMod SelectByName(string _customerName)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * from Customer");
+            selectStr.Append("Select * from [Customer]");
             selectStr.Append("Where 客户名称 = '");
             selectStr.Append(_customerName);
             selectStr.Append("'");
@@ -103,7 +103,7 @@ namespace Renting_Management_System.DAL
         public DataSet SelectByTypeCode(string _customerTypeCode)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * from Customer");
+            selectStr.Append("Select * from [Customer]");
             selectStr.Append("Where 客户类代码 = '");
             selectStr.Append(_customerTypeCode);
             selectStr.Append("'");
@@ -130,7 +130,7 @@ namespace Renting_Management_System.DAL
             if (customer == null)
             {
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into Customer");
+                insertStr.Append("Insert Into [Customer]");
                 insertStr.Append("(客户编号,客户类代码,客户名称,性别,出生日期,证件类代码,证件号码,客户地址,联系方式,客户状态,客户描述,客户拒绝)");
                 insertStr.Append("Values ('");
                 insertStr.Append(customer.CustomerID + "','");
@@ -166,7 +166,7 @@ namespace Renting_Management_System.DAL
             if (customer != null)
             {
                 StringBuilder updateStr = new StringBuilder();
-                updateStr.Append("Update Customer ");
+                updateStr.Append("Update [Customer] ");
                 updateStr.Append("Set ");
                 updateStr.Append("客户类代码 = '");
                 updateStr.Append(customer.CustomerTypeCode + "'");
@@ -212,7 +212,7 @@ namespace Renting_Management_System.DAL
             if (customer != null)
             {
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From Customer");
+                deleteStr.Append("Delete From [Customer]");
                 deleteStr.Append("Where 客户编号 = '");
                 deleteStr.Append(customer.CustomerID);
                 deleteStr.Append("'");
