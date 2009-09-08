@@ -20,7 +20,7 @@ namespace Renting_Management_System.DAL
         {
             da = new DBConnection();
             DataSet ds = new DataSet();
-            ds = da.SelectQuery("Select * from CertificateType");
+            ds = da.SelectQuery("Select * from [CertificateType]");
             return ds;
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From CertificateType");
+            selectStr.Append("Select * From [CertificateType]");
             selectStr.Append("Where 证件类代码 = '");
             selectStr.Append(type.CertificateTypeCode);
             selectStr.Append("'");
@@ -66,7 +66,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From CertificateType");
+                deleteStr.Append("Delete From [CertificateType]");
                 deleteStr.Append("Where 证件类代码 = '");
                 deleteStr.Append(type.CertificateTypeCode);
                 deleteStr.Append("'");
@@ -91,7 +91,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder modifyStr = new StringBuilder();
-                modifyStr.Append("Update CertificateType");
+                modifyStr.Append("Update [CertificateType]");
                 modifyStr.Append("Set 证件类名称 = '");
                 modifyStr.Append(type.CertificateTypeName + "'");
                 modifyStr.Append("Where 证件类代码 = '");
@@ -117,7 +117,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into CertificateType (证件类代码,证件类名称)");
+                insertStr.Append("Insert Into [CertificateType] (证件类代码,证件类名称)");
                 insertStr.Append("Values ('");
                 insertStr.Append(type.CertificateTypeCode + "','");
                 insertStr.Append(type.CertificateTypeName);

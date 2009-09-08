@@ -21,7 +21,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Local");
+            selectStr.Append("Select * From [Local]");
             ds = da.SelectQuery(selectStr.ToString());
             return ds;
         }
@@ -38,7 +38,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From Local");
+            selectStr.Append("Select * From [Local]");
             selectStr.Append("Where 地点代码 = '");
             selectStr.Append(local.LocalCode);
             selectStr.Append("'");
@@ -70,7 +70,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder modifyStr = new StringBuilder();
-                modifyStr.Append("Update Local");
+                modifyStr.Append("Update [Local]");
                 modifyStr.Append("Set 地点名称 = '");
                 modifyStr.Append(local.LocalName);
                 modifyStr.Append("'");
@@ -98,7 +98,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From Local");
+                deleteStr.Append("Delete From [Local]");
                 deleteStr.Append("'");
                 deleteStr.Append("Where 地点代码 = '");
                 deleteStr.Append(local.LocalCode);
@@ -124,7 +124,7 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into Local (地点代码,地点名称)");
+                insertStr.Append("Insert Into [Local] (地点代码,地点名称)");
                 insertStr.Append("Values ('");
                 insertStr.Append(local.LocalCode + "','");
                 insertStr.Append(local.LocalName);
