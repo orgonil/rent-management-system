@@ -19,7 +19,7 @@ namespace Renting_Management_System.DAL
         public DataSet GetAll()
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From User");
+            selectStr.Append("Select * From User ");
             DataSet ds = new DataSet();
             da = new DBConnection();
             ds = da.SelectQuery(selectStr.ToString());
@@ -33,7 +33,7 @@ namespace Renting_Management_System.DAL
         public Renting_Management_System.Models.UserMod SelectByID(string _userID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From User");
+            selectStr.Append("Select * From User ");
             selectStr.Append("Where 用户编号 = '");
             selectStr.Append(_userID);
             selectStr.Append("'");
