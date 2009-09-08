@@ -9,10 +9,12 @@ using System.Windows.Forms;
 
 namespace Renting_Management_System
 {
-    public partial class LoginForm : Form
+   public partial class LoginForm : Form
     {
-        private Renting_Management_System.DAL.DBConnection da;
-        public LoginForm()
+       private Renting_Management_System.BLL.LoginBLL Login;
+       private Renting_Management_System.Forms.CounterForm counter;
+       private Renting_Management_System.Forms.StoreForm store;
+       public LoginForm()
         {
             InitializeComponent();
             Renting_Management_System.DAL.UserTypeDAL _userType = new Renting_Management_System.DAL.UserTypeDAL();
@@ -31,11 +33,25 @@ namespace Renting_Management_System
 
         private void Loginbutton_Click(object sender, EventArgs e)
         {
+            bool yes;
+            counter = new Renting_Management_System.Forms.CounterForm();
+            store = new Renting_Management_System.Forms.StoreForm();
             Renting_Management_System.Models.UserMod user = new Renting_Management_System.Models.UserMod();
             user.UserID = UserIDtextBox.Text;
             user.UserPassword = UserPasswordtextBox.Text;
             user.UserTypeCode = UserTypecomboBox.SelectedValue.ToString();
-
+            Login = new Renting_Management_System.BLL.LoginBLL();
+            yes = Login.Login(user);
+            if (yes)
+            {
+                counter.ShowDialog(this);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("用户编号、用户密码有误，请重试！");
+                return;
+            }
         }
     }
 }
