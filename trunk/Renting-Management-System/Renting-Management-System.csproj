@@ -48,8 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\LoginBLL.cs" />
-    <Compile Include="BLL\OpenBLL.cs" />
+    <Compile Include="BLL\FormBLL.cs" />
     <Compile Include="DAL\CertificateTypeDAL.cs" />
     <Compile Include="DAL\CustomerDAL.cs" />
     <Compile Include="DAL\CustomerTypeDAL.cs" />
