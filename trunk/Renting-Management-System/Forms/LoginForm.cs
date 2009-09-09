@@ -12,8 +12,8 @@ namespace Renting_Management_System
    public partial class LoginForm : Form
     {
        private Renting_Management_System.BLL.LoginBLL Login;
-       private Renting_Management_System.Forms.CounterForm counter;
-       private Renting_Management_System.Forms.StoreForm store;
+       private Renting_Management_System.BLL.OpenBLL Open;
+       private Renting_Management_System.Forms.AdminForm admin;
        public LoginForm()
         {
             InitializeComponent();
@@ -34,8 +34,6 @@ namespace Renting_Management_System
         private void Loginbutton_Click(object sender, EventArgs e)
         {
             bool yes;
-            counter = new Renting_Management_System.Forms.CounterForm();
-            store = new Renting_Management_System.Forms.StoreForm();
             Renting_Management_System.Models.UserMod user = new Renting_Management_System.Models.UserMod();
             user.UserID = UserIDtextBox.Text;
             user.UserPassword = UserPasswordtextBox.Text;
@@ -44,8 +42,8 @@ namespace Renting_Management_System
             yes = Login.Login(user);
             if (yes)
             {
-                counter.ShowDialog(this);
-                this.Close();
+                Open = new Renting_Management_System.BLL.OpenBLL();
+                Open.OpenForm(user.UserTypeCode);
             }
             else
             {
