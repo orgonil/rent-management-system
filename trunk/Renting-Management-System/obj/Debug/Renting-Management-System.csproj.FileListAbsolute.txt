@@ -35,3 +35,4 @@ D:\Project\obj\Debug\Renting_Management_System.Forms.CounterForm.resources
 D:\Project\obj\Debug\Renting_Management_System.Forms.StoreManagementForm.resources
 E:\Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.CounterForm.resources
 E:\Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.AdminForm.resources
+E:\Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.StoreForm.resources

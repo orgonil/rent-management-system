@@ -7,10 +7,10 @@ namespace Renting_Management_System.BLL
 {
     class FormBLL
     {
-        private Renting_Management_System.Forms.CounterForm counter;
-        private Renting_Management_System.Forms.StoreForm store;
-        private Renting_Management_System.Forms.AdminForm admin;
-        private Renting_Management_System.DAL.UserTypeDAL userType;
+        private Renting_Management_System.Forms.CounterForm counterForm;
+        private Renting_Management_System.Forms.StoreForm storeForm;
+        private Renting_Management_System.Forms.AdminForm adminForm;
+        private LoginForm loginForm;
         /// <summary>
         /// 按照用户类型代码，打开界面
         /// </summary>
@@ -20,16 +20,16 @@ namespace Renting_Management_System.BLL
             switch (_userTypeCode)
             {
                 case "A001":
-                    admin = new Renting_Management_System.Forms.AdminForm();
-                    admin.Show();
+                    adminForm = new Renting_Management_System.Forms.AdminForm();
+                    adminForm.Show();
                     break;
                 case "C002":
-                    counter = new Renting_Management_System.Forms.CounterForm();
-                    counter.Show();
+                    counterForm = new Renting_Management_System.Forms.CounterForm();
+                    counterForm.Show();
                     break;
                 default:
-                    store = new Renting_Management_System.Forms.StoreForm();
-                    store.Show();
+                    storeForm = new Renting_Management_System.Forms.StoreForm();
+                    storeForm.Show();
                     break;
             }
         }
@@ -54,6 +54,14 @@ namespace Renting_Management_System.BLL
             }
             else
             { return false; }
+        }
+        /// <summary>
+        /// 注销用户
+        /// </summary>
+        public void Logout()
+        {
+            loginForm = new LoginForm();
+            loginForm.ShowDialog();
         }
     }
 }
