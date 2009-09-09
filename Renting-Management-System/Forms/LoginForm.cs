@@ -11,9 +11,7 @@ namespace Renting_Management_System
 {
    public partial class LoginForm : Form
     {
-       private Renting_Management_System.BLL.LoginBLL Login;
-       private Renting_Management_System.BLL.OpenBLL Open;
-       private Renting_Management_System.Forms.AdminForm admin;
+       private Renting_Management_System.BLL.FormBLL form;
        public LoginForm()
         {
             InitializeComponent();
@@ -38,12 +36,12 @@ namespace Renting_Management_System
             user.UserID = UserIDtextBox.Text;
             user.UserPassword = UserPasswordtextBox.Text;
             user.UserTypeCode = UserTypecomboBox.SelectedValue.ToString();
-            Login = new Renting_Management_System.BLL.LoginBLL();
-            yes = Login.Login(user);
+            form = new Renting_Management_System.BLL.FormBLL();
+            yes = form.Login(user);
             if (yes)
             {
-                Open = new Renting_Management_System.BLL.OpenBLL();
-                Open.OpenForm(user.UserTypeCode);
+                form.OpenForm(user.UserTypeCode);
+                this.Hide();
             }
             else
             {
