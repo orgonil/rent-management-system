@@ -33,7 +33,18 @@
             this.注销LToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabe1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_UserName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_Date = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_Time = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -59,27 +70,105 @@
             // 注销LToolStripMenuItem
             // 
             this.注销LToolStripMenuItem.Name = "注销LToolStripMenuItem";
-            this.注销LToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.注销LToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.注销LToolStripMenuItem.Text = "注销(&L)";
             this.注销LToolStripMenuItem.Click += new System.EventHandler(this.注销LToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(109, 6);
             // 
             // 退出XToolStripMenuItem
             // 
             this.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem";
-            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.退出XToolStripMenuItem.Text = "退出(&X)";
             this.退出XToolStripMenuItem.Click += new System.EventHandler(this.退出XToolStripMenuItem_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabe1,
+            this.toolStripStatusLabel_UserName,
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLabel_Date,
+            this.toolStripStatusLabel5,
+            this.toolStripStatusLabel_Time});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 244);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(680, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabe1
+            // 
+            this.toolStripStatusLabe1.Name = "toolStripStatusLabe1";
+            this.toolStripStatusLabe1.Size = new System.Drawing.Size(53, 17);
+            this.toolStripStatusLabe1.Text = "用户名：";
+            // 
+            // toolStripStatusLabel_UserName
+            // 
+            this.toolStripStatusLabel_UserName.AutoSize = false;
+            this.toolStripStatusLabel_UserName.Name = "toolStripStatusLabel_UserName";
+            this.toolStripStatusLabel_UserName.Size = new System.Drawing.Size(100, 17);
+            this.toolStripStatusLabel_UserName.Text = "没有人登陆!";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(65, 17);
+            this.toolStripStatusLabel1.Text = "用户类型：";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.AutoSize = false;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(100, 17);
+            this.toolStripStatusLabel2.Text = "管理员";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.AutoSize = false;
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(50, 17);
+            this.toolStripStatusLabel3.Text = "|";
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(41, 17);
+            this.toolStripStatusLabel4.Text = "日期：";
+            // 
+            // toolStripStatusLabel_Date
+            // 
+            this.toolStripStatusLabel_Date.AutoSize = false;
+            this.toolStripStatusLabel_Date.Name = "toolStripStatusLabel_Date";
+            this.toolStripStatusLabel_Date.Size = new System.Drawing.Size(150, 17);
+            this.toolStripStatusLabel_Date.Text = "toolStripStatusLabel_Date";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(41, 17);
+            this.toolStripStatusLabel5.Text = "时间：";
+            // 
+            // toolStripStatusLabel_Time
+            // 
+            this.toolStripStatusLabel_Time.AutoSize = false;
+            this.toolStripStatusLabel_Time.Name = "toolStripStatusLabel_Time";
+            this.toolStripStatusLabel_Time.Size = new System.Drawing.Size(150, 17);
+            this.toolStripStatusLabel_Time.Text = "toolStripStatusLabel_Time";
             // 
             // CounterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 266);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "CounterForm";
@@ -87,6 +176,8 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CounterForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,5 +190,15 @@
         private System.Windows.Forms.ToolStripMenuItem 注销LToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 退出XToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabe1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_UserName;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Date;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Time;
     }
 }
