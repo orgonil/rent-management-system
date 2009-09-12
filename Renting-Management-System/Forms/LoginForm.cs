@@ -40,8 +40,16 @@ namespace Renting_Management_System
             yes = form.Login(user);
             if (yes)
             {
-                form.OpenForm(user.UserTypeCode);
-                this.Hide();
+                if(form.Deny(user))
+                {
+                    MessageBox.Show("用户已被拒绝，请跟管理员联系！");
+                    return;
+                }
+                else 
+                {
+                    form.OpenForm(user.UserTypeCode);
+                    this.Hide();
+                }
             }
             else
             {

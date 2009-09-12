@@ -63,5 +63,16 @@ namespace Renting_Management_System.BLL
             loginForm = new LoginForm();
             loginForm.ShowDialog();
         }
+        /// <summary>
+        /// 用户是否被拒绝？
+        /// </summary>
+        /// <param name="_user"></param>
+        /// <returns></returns>
+        public bool Deny(Renting_Management_System.Models.UserMod _user)
+        {
+            Renting_Management_System.DAL.UserDAL userDAL = new Renting_Management_System.DAL.UserDAL();
+            _user = userDAL.SelectByID(_user.UserID);
+            return _user.UserDeny;
+        }
     }
 }
