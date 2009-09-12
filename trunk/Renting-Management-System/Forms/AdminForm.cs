@@ -31,5 +31,30 @@ namespace Renting_Management_System.Forms
             Renting_Management_System.BLL.FormBLL form = new Renting_Management_System.BLL.FormBLL();
             form.Logout();
         }
+
+        private void 用户操作ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 添加用户ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 所有用户ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 代码库操作ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 客户操作ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
