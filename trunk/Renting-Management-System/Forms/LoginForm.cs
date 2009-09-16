@@ -12,10 +12,12 @@ namespace Renting_Management_System
    public partial class LoginForm : Form
     {
        private Renting_Management_System.BLL.FormBLL form;
+       private Renting_Management_System.Models.UserMod user;
+       private Renting_Management_System.DAL.UserTypeDAL _userType;
        public LoginForm()
         {
             InitializeComponent();
-            Renting_Management_System.DAL.UserTypeDAL _userType = new Renting_Management_System.DAL.UserTypeDAL();
+            _userType = new Renting_Management_System.DAL.UserTypeDAL();
             DataSet ds = new DataSet();
             ds = _userType.GetAll();
             UserTypecomboBox.DataSource = ds.Tables[0];
@@ -32,7 +34,7 @@ namespace Renting_Management_System
         private void Loginbutton_Click(object sender, EventArgs e)
         {
             bool yes;
-            Renting_Management_System.Models.UserMod user = new Renting_Management_System.Models.UserMod();
+            user = new Renting_Management_System.Models.UserMod();
             user.UserID = UserIDtextBox.Text;
             user.UserPassword = UserPasswordtextBox.Text;
             user.UserTypeCode = UserTypecomboBox.SelectedValue.ToString();

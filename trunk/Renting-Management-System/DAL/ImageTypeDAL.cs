@@ -24,6 +24,15 @@ namespace Renting_Management_System.DAL
             return ds;
         }
         /// <summary>
+        /// 更新数据集
+        /// </summary>
+        /// <param name="dataSet"></param>
+        public void Update(DataSet dataSet)
+        {
+            da = new DBConnection();
+            da.Refresh("[ImageType]", dataSet);
+        }
+        /// <summary>
         /// 获取一个影像类
         /// </summary>
         /// <param name="_userTypeCode"></param>

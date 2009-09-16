@@ -23,6 +23,11 @@ namespace Renting_Management_System.DAL
             ds = da.SelectQuery("Select * from [UserType]");
             return ds;
         }
+        public void Update(DataSet dataSet)
+        {
+            da = new DBConnection();
+            da.Refresh("[UserType]", dataSet);
+        }
         /// <summary>
         /// 获取一个用户类
         /// </summary>
@@ -128,5 +133,6 @@ namespace Renting_Management_System.DAL
             else
                 return false;
         }
+
     }
 }
