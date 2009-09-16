@@ -11,9 +11,29 @@ namespace Renting_Management_System.Forms
 {
     public partial class AdminForm : Form
     {
+        LoginForm loginForm;
+        Renting_Management_System.Models.UserMod _user;
+        Renting_Management_System.DAL.UserDAL userDAL;
+        Renting_Management_System.DAL.UserTypeDAL userTypeDAL;
         public AdminForm()
         {
             InitializeComponent();
+            loginForm = new LoginForm();
+            /*_user = new Renting_Management_System.Models.UserMod();
+            userDAL = new Renting_Management_System.DAL.UserDAL();
+            userTypeDAL=new Renting_Management_System.DAL.UserTypeDAL();
+            _user = userDAL.SelectByID(loginForm.UserIDtextBox.Text);
+            if (_user == null)
+            {
+                toolStripStatusLabel_UserName.Text = "";
+                toolStripStatusLabel_UserType.Text = "";
+            }
+            else
+            {
+                toolStripStatusLabel_UserName.Text = _user.UserName;
+                toolStripStatusLabel_UserType.Text = userTypeDAL.SelectData(_user.UserTypeCode).UserTypeName;
+            }*/
+
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)

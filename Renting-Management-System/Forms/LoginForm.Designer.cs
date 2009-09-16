@@ -135,7 +135,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox UserIDtextBox;
+        public System.Windows.Forms.TextBox UserIDtextBox;
         private System.Windows.Forms.TextBox UserPasswordtextBox;
         private System.Windows.Forms.ComboBox UserTypecomboBox;
         private System.Windows.Forms.Button Loginbutton;

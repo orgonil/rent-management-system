@@ -26,6 +26,15 @@ namespace Renting_Management_System.DAL
             return ds;
         }
         /// <summary>
+        /// 更新数据集
+        /// </summary>
+        /// <param name="dataSet"></param>
+        public void Update(DataSet dataSet)
+        {
+            da = new DBConnection();
+            da.Refresh("[Local]", dataSet);
+        }
+        /// <summary>
         /// 获取一个地点
         /// _localCode 为地点代码
         /// </summary>

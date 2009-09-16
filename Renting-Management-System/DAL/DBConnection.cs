@@ -10,7 +10,7 @@ namespace Renting_Management_System.DAL
 {
     class DBConnection
     {
-        private string stringConnection = @"Data Source=.\SQLEXPRESS;AttachDbFilename=E:\Project\Renting-Management-System\DataBase\Rent-Management-System.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+        private string stringConnection = @"Data Source=RINROTA-PC\RINROTA;AttachDbFilename= D:\My Project\Renting-Management-System\DataBase\Rent-Management-System.mdf;Integrated Security=True";
         private SqlConnection conn;
         private SqlCommand com;
         public DBConnection()
@@ -64,6 +64,20 @@ namespace Renting_Management_System.DAL
             conn.Open();
             com = new SqlCommand(insertString, conn);
             com.ExecuteNonQuery();
+            conn.Close();
+        }
+        /// <summary>
+        /// 更新数据集，tableName 为数据表名称
+        /// </summary>
+        /// <param name="selectString"></param>
+        public void Refresh(string tableName, DataSet ds)
+        {
+            conn.Open();
+            com = new SqlCommand("Select * From" + tableName, conn);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = com;
+            SqlCommandBuilder cb = new SqlCommandBuilder(dataAdapter);
+            dataAdapter.Update(ds, tableName);
             conn.Close();
         }
     }

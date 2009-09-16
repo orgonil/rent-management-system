@@ -25,6 +25,15 @@ namespace Renting_Management_System.DAL
             return ds;
         }
         /// <summary>
+        /// 更新数据集
+        /// </summary>
+        /// <param name="dataSet"></param>
+        public void Update(DataSet dataSet)
+        {
+            da = new DBConnection();
+            da.Refresh("[Rent]", dataSet);
+        }
+        /// <summary>
         /// 通过客户编号获取一个租借记录的数据集
         /// 返回 null 表示记录不存在，否侧返回一个租借记录的数据集
         /// </summary>

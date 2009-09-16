@@ -36,3 +36,14 @@ D:\Project\obj\Debug\Renting_Management_System.Forms.StoreManagementForm.resourc
 E:\Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.CounterForm.resources
 E:\Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.AdminForm.resources
 E:\Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.StoreForm.resources
+D:\My Project\Renting-Management-System\obj\Debug\Renting-Management-System.exe
+D:\My Project\Renting-Management-System\obj\Debug\Renting-Management-System.pdb
+D:\My Project\Renting-Management-System\bin\Debug\Renting-Management-System.exe
+D:\My Project\Renting-Management-System\bin\Debug\Renting-Management-System.pdb
+D:\My Project\Renting-Management-System\obj\Debug\ResolveAssemblyReference.cache
+D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.AdminForm.resources
+D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.CounterForm.resources
+D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.LoginForm.resources
+D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.StoreForm.resources
+D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Properties.Resources.resources
+D:\My Project\Renting-Management-System\obj\Debug\Renting-Management-System.csproj.GenerateResource.Cache

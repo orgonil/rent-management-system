@@ -26,6 +26,15 @@ namespace Renting_Management_System.DAL
             return ds;
         }
         /// <summary>
+        /// 更新数据集
+        /// </summary>
+        /// <param name="dataSet"></param>
+        public void Update(DataSet dataSet)
+        {
+            da = new DBConnection();
+            da.Refresh("[User]", dataSet);
+        }
+        /// <summary>
         /// 通过用户编号可以获取一个用户
         /// </summary>
         /// <param name="_userID"></param>
