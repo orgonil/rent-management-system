@@ -32,7 +32,7 @@ namespace Renting_Management_System.DAL
         public void Update(DataSet dataSet)
         {
             da = new DBConnection();
-            da.Refresh("[Customer]", dataSet);
+            da.Refresh(dataSet);
         }
         /// <summary>
         /// 通过客户编号获取一个客户，null 表示数据不存在

@@ -30,7 +30,7 @@ namespace Renting_Management_System.DAL
         public void Update(DataSet dataSet)
         {
             da = new DBConnection();
-            da.Refresh("[CustomerType]", dataSet);
+            da.Refresh(dataSet);
         }
         /// <summary>
         /// 获取一个客户类

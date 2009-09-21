@@ -32,7 +32,7 @@ namespace Renting_Management_System.DAL
         public void Update(DataSet dataSet)
         {
             da = new DBConnection();
-            da.Refresh("[Image]", dataSet);
+            da.Refresh(dataSet);
         }
         /// <summary>
         /// 通过影像编号获取一个影像的记录
