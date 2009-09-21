@@ -32,7 +32,7 @@ namespace Renting_Management_System.DAL
         public void Update(DataSet dataSet)
         {
             da = new DBConnection();
-            da.Refresh("[User]", dataSet);
+            da.Refresh(dataSet);
         }
         /// <summary>
         /// 通过用户编号可以获取一个用户

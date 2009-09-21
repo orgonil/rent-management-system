@@ -33,7 +33,9 @@ namespace Renting_Management_System.Forms
                 toolStripStatusLabel_UserName.Text = _user.UserName;
                 toolStripStatusLabel_UserType.Text = userTypeDAL.SelectData(_user.UserTypeCode).UserTypeName;
             }*/
-
+            timer1.Start();
+            toolStripStatusLabel_Date.Text = DateTime.Now.Date.ToShortDateString();
+            toolStripStatusLabel_Time.Text =
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)

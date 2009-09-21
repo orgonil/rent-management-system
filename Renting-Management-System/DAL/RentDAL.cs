@@ -31,7 +31,7 @@ namespace Renting_Management_System.DAL
         public void Update(DataSet dataSet)
         {
             da = new DBConnection();
-            da.Refresh("[Rent]", dataSet);
+            da.Refresh(dataSet);
         }
         /// <summary>
         /// 通过客户编号获取一个租借记录的数据集
