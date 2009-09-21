@@ -71,10 +71,16 @@ namespace Renting_Management_System.Forms
 
         private void 代码库操作ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            CodeLibrary dm = new CodeLibrary();
+            dm.Show();
         }
 
         private void 客户操作ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
         {
 
         }
