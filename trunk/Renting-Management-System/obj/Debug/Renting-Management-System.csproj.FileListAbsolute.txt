@@ -47,3 +47,4 @@ D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Logi
 D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.StoreForm.resources
 D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Properties.Resources.resources
 D:\My Project\Renting-Management-System\obj\Debug\Renting-Management-System.csproj.GenerateResource.Cache
+D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.CodeLibrary.resources
