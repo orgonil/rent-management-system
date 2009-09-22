@@ -19,21 +19,12 @@ namespace Renting_Management_System.DAL
         public DataSet GetAll()
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From [Customer]");
+            selectStr.Append("Select * From [Customer] ");
             DataSet ds = new DataSet();
             da = new DBConnection();
             ds = da.SelectQuery(selectStr.ToString());
             ds.Tables[0].TableName = "Customer";
             return ds;
-        }
-        /// <summary>
-        /// 更新数据集
-        /// </summary>
-        /// <param name="dataSet"></param>
-        public void Update(DataSet dataSet)
-        {
-            da = new DBConnection();
-            da.Refresh(dataSet);
         }
         /// <summary>
         /// 通过客户编号获取一个客户，null 表示数据不存在
@@ -50,7 +41,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count != 0)
+            if (ds.Tables[0].Rows.Count != 0)
             {
                 customer = new Renting_Management_System.Models.CustomerMod();
                 customer.CustomerID = ds.Tables[0].Rows[0]["客户编号"].ToString().Trim();
@@ -85,7 +76,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count != 0)
+            if (ds.Tables[0].Rows.Count != 0)
             {
                 customer = new Renting_Management_System.Models.CustomerMod();
                 customer.CustomerID = ds.Tables[0].Rows[0]["客户编号"].ToString().Trim();
@@ -113,14 +104,14 @@ namespace Renting_Management_System.DAL
         public DataSet SelectByTypeCode(string _customerTypeCode)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * from [Customer]");
+            selectStr.Append("Select * from [Customer] ");
             selectStr.Append("Where 客户类代码 = '");
             selectStr.Append(_customerTypeCode);
             selectStr.Append("'");
             da = new DBConnection();
             DataSet ds = new DataSet();
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count != 0)
+            if (ds.Tables[0].Rows.Count != 0)
             {
                 return ds;
             }
@@ -143,18 +134,18 @@ namespace Renting_Management_System.DAL
                 insertStr.Append("Insert Into [Customer]");
                 insertStr.Append("(客户编号,客户类代码,客户名称,性别,出生日期,证件类代码,证件号码,客户地址,联系方式,客户状态,客户描述,客户拒绝)");
                 insertStr.Append("Values ('");
-                insertStr.Append(customer.CustomerID + "','");
-                insertStr.Append(customer.CustomerTypeCode + "','");
-                insertStr.Append(customer.CustomerName + "','");
-                insertStr.Append(customer.Sex + "',");
-                insertStr.Append(customer.BirthDate.ToShortDateString() + ",'");
-                insertStr.Append(customer.CertificateTypeCode + "','");
-                insertStr.Append(customer.CertificateNumber + "','");
-                insertStr.Append(customer.CustomerAddress + "','");
-                insertStr.Append(customer.CustomerContact + "','");
-                insertStr.Append(customer.CustomerState + "','");
-                insertStr.Append(customer.CustomerDescription + "','");
-                insertStr.Append(customer.CustomerDeny.ToString());
+                insertStr.Append(_customer.CustomerID + "','");
+                insertStr.Append(_customer.CustomerTypeCode + "','");
+                insertStr.Append(_customer.CustomerName + "','");
+                insertStr.Append(_customer.Sex + "',");
+                insertStr.Append(_customer.BirthDate.ToShortDateString() + ",'");
+                insertStr.Append(_customer.CertificateTypeCode + "','");
+                insertStr.Append(_customer.CertificateNumber + "','");
+                insertStr.Append(_customer.CustomerAddress + "','");
+                insertStr.Append(_customer.CustomerContact + "','");
+                insertStr.Append(_customer.CustomerState + "','");
+                insertStr.Append(_customer.CustomerDescription + "','");
+                insertStr.Append(_customer.CustomerDeny.ToString());
                 insertStr.Append("')");
                 da = new DBConnection();
                 da.InsertQuery(insertStr.ToString());
@@ -179,29 +170,29 @@ namespace Renting_Management_System.DAL
                 updateStr.Append("Update [Customer] ");
                 updateStr.Append("Set ");
                 updateStr.Append("客户类代码 = '");
-                updateStr.Append(customer.CustomerTypeCode + "'");
+                updateStr.Append(_customer.CustomerTypeCode + "'");
                 updateStr.Append(",客户名称 = '");
-                updateStr.Append(customer.CustomerName + "'");
+                updateStr.Append(_customer.CustomerName + "'");
                 updateStr.Append(",性别 = '");
-                updateStr.Append(customer.Sex + "'");
+                updateStr.Append(_customer.Sex + "'");
                 updateStr.Append(",出生日期 = ");
-                updateStr.Append(customer.BirthDate.ToShortDateString());
+                updateStr.Append(_customer.BirthDate.ToShortDateString());
                 updateStr.Append(",证件类代码 = '");
-                updateStr.Append(customer.CertificateTypeCode + "'");
+                updateStr.Append(_customer.CertificateTypeCode + "'");
                 updateStr.Append(",证件号码 = '");
-                updateStr.Append(customer.CertificateNumber + "'");
+                updateStr.Append(_customer.CertificateNumber + "'");
                 updateStr.Append(",客户地址 = '");
-                updateStr.Append(customer.CustomerAddress + "'");
+                updateStr.Append(_customer.CustomerAddress + "'");
                 updateStr.Append(",联系方式 = '");
-                updateStr.Append(customer.CustomerContact + "'");
+                updateStr.Append(_customer.CustomerContact + "'");
                 updateStr.Append(",客户状态 = '");
-                updateStr.Append(customer.CustomerState + "'");
+                updateStr.Append(_customer.CustomerState + "'");
                 updateStr.Append(",客户描述 = '");
-                updateStr.Append(customer.CustomerDescription + "'");
+                updateStr.Append(_customer.CustomerDescription + "'");
                 updateStr.Append(",客户拒绝 = '");
-                updateStr.Append(customer.CustomerDeny.ToString() + "'");
+                updateStr.Append(_customer.CustomerDeny.ToString() + "'");
                 updateStr.Append("Where 客户编号 = '");
-                updateStr.Append(customer.CustomerID + "'");
+                updateStr.Append(_customer.CustomerID + "'");
                 da = new DBConnection();
                 da.UpdateQuery(updateStr.ToString());
                 return true;
@@ -224,7 +215,7 @@ namespace Renting_Management_System.DAL
                 StringBuilder deleteStr = new StringBuilder();
                 deleteStr.Append("Delete From [Customer]");
                 deleteStr.Append("Where 客户编号 = '");
-                deleteStr.Append(customer.CustomerID);
+                deleteStr.Append(_customer.CustomerID);
                 deleteStr.Append("'");
                 da = new DBConnection();
                 da.DeleteQuery(deleteStr.ToString());

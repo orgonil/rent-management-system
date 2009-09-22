@@ -25,39 +25,29 @@ namespace Renting_Management_System.DAL
             return ds;
         }
         /// <summary>
-        /// 更新数据集
-        /// </summary>
-        /// <param name="dataSet"></param>
-        public void Update(DataSet dataSet)
-        {
-            da = new DBConnection();
-            da.Refresh(dataSet);
-        }
-        /// <summary>
         /// 获取一个证件类
         /// </summary>
         /// <param name="_userTypeCode"></param>
         /// <returns></returns>
         public Renting_Management_System.Models.CertificateTypeMod SelectData(string _certificateCode)
         {
-            type = new Renting_Management_System.Models.CertificateTypeMod();
-            type.CertificateTypeCode = _certificateCode;
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From [CertificateType]");
             selectStr.Append("Where 证件类代码 = '");
-            selectStr.Append(type.CertificateTypeCode);
+            selectStr.Append(_certificateCode);
             selectStr.Append("'");
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             {
                 return null;
             }
             else
             {
-                type.CertificateTypeCode = ds.Tables[0].Rows[0]["证件类代码"].ToString().Trim();
-                type.CertificateTypeName = ds.Tables[0].Rows[0]["证件类名称"].ToString().Trim();
+                type = new Renting_Management_System.Models.CertificateTypeMod();
+                type.CertificateTypeCode = ds.Tables[0].Rows[0][0].ToString().Trim();
+                type.CertificateTypeName = ds.Tables[0].Rows[0][1].ToString().Trim();
                 return type;
             }
         }
@@ -78,7 +68,7 @@ namespace Renting_Management_System.DAL
                 StringBuilder deleteStr = new StringBuilder();
                 deleteStr.Append("Delete From [CertificateType]");
                 deleteStr.Append("Where 证件类代码 = '");
-                deleteStr.Append(type.CertificateTypeCode);
+                deleteStr.Append(_certificateType.CertificateTypeCode);
                 deleteStr.Append("'");
                 da.DeleteQuery(deleteStr.ToString());
                 return true;
@@ -103,9 +93,9 @@ namespace Renting_Management_System.DAL
                 StringBuilder modifyStr = new StringBuilder();
                 modifyStr.Append("Update [CertificateType]");
                 modifyStr.Append("Set 证件类名称 = '");
-                modifyStr.Append(type.CertificateTypeName + "'");
+                modifyStr.Append(_certificateType.CertificateTypeName + "'");
                 modifyStr.Append("Where 证件类代码 = '");
-                modifyStr.Append(type.CertificateTypeCode + "'");
+                modifyStr.Append(_certificateType.CertificateTypeCode + "'");
                 da.UpdateQuery(modifyStr.ToString());
                 return true;
             }
@@ -129,8 +119,8 @@ namespace Renting_Management_System.DAL
                 StringBuilder insertStr = new StringBuilder();
                 insertStr.Append("Insert Into [CertificateType] (证件类代码,证件类名称)");
                 insertStr.Append("Values ('");
-                insertStr.Append(type.CertificateTypeCode + "','");
-                insertStr.Append(type.CertificateTypeName);
+                insertStr.Append(_certificateType.CertificateTypeCode + "','");
+                insertStr.Append(_certificateType.CertificateTypeName);
                 insertStr.Append("')");
                 da.InsertQuery(insertStr.ToString());
                 return true;
