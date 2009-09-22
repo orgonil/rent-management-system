@@ -41,60 +41,60 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 29);
+            this.label1.Location = new System.Drawing.Point(25, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "用户编号:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 69);
+            this.label2.Location = new System.Drawing.Point(26, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(59, 12);
             this.label2.TabIndex = 1;
             this.label2.Text = "用户密码:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 107);
+            this.label3.Location = new System.Drawing.Point(26, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.Size = new System.Drawing.Size(59, 12);
             this.label3.TabIndex = 2;
             this.label3.Text = "用户类型:";
             // 
             // UserIDtextBox
             // 
-            this.UserIDtextBox.Location = new System.Drawing.Point(100, 26);
+            this.UserIDtextBox.Location = new System.Drawing.Point(100, 24);
             this.UserIDtextBox.Name = "UserIDtextBox";
-            this.UserIDtextBox.Size = new System.Drawing.Size(121, 20);
+            this.UserIDtextBox.Size = new System.Drawing.Size(121, 21);
             this.UserIDtextBox.TabIndex = 3;
             this.UserIDtextBox.Text = "A2009001";
             // 
             // UserPasswordtextBox
             // 
-            this.UserPasswordtextBox.Location = new System.Drawing.Point(100, 66);
+            this.UserPasswordtextBox.Location = new System.Drawing.Point(100, 61);
             this.UserPasswordtextBox.Name = "UserPasswordtextBox";
             this.UserPasswordtextBox.PasswordChar = '@';
-            this.UserPasswordtextBox.Size = new System.Drawing.Size(121, 20);
+            this.UserPasswordtextBox.Size = new System.Drawing.Size(121, 21);
             this.UserPasswordtextBox.TabIndex = 4;
             this.UserPasswordtextBox.Text = "123456789";
             // 
             // UserTypecomboBox
             // 
             this.UserTypecomboBox.FormattingEnabled = true;
-            this.UserTypecomboBox.Location = new System.Drawing.Point(100, 104);
+            this.UserTypecomboBox.Location = new System.Drawing.Point(100, 96);
             this.UserTypecomboBox.Name = "UserTypecomboBox";
-            this.UserTypecomboBox.Size = new System.Drawing.Size(121, 21);
+            this.UserTypecomboBox.Size = new System.Drawing.Size(121, 20);
             this.UserTypecomboBox.TabIndex = 5;
             // 
             // Loginbutton
             // 
-            this.Loginbutton.Location = new System.Drawing.Point(29, 154);
+            this.Loginbutton.Location = new System.Drawing.Point(29, 142);
             this.Loginbutton.Name = "Loginbutton";
-            this.Loginbutton.Size = new System.Drawing.Size(75, 23);
+            this.Loginbutton.Size = new System.Drawing.Size(75, 21);
             this.Loginbutton.TabIndex = 6;
             this.Loginbutton.Text = "登录";
             this.Loginbutton.UseVisualStyleBackColor = true;
@@ -102,9 +102,9 @@
             // 
             // Canclebutton
             // 
-            this.Canclebutton.Location = new System.Drawing.Point(146, 154);
+            this.Canclebutton.Location = new System.Drawing.Point(146, 142);
             this.Canclebutton.Name = "Canclebutton";
-            this.Canclebutton.Size = new System.Drawing.Size(75, 23);
+            this.Canclebutton.Size = new System.Drawing.Size(75, 21);
             this.Canclebutton.TabIndex = 7;
             this.Canclebutton.Text = "取消";
             this.Canclebutton.UseVisualStyleBackColor = true;
@@ -112,9 +112,9 @@
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(252, 202);
+            this.ClientSize = new System.Drawing.Size(252, 186);
             this.Controls.Add(this.Canclebutton);
             this.Controls.Add(this.Loginbutton);
             this.Controls.Add(this.UserTypecomboBox);
