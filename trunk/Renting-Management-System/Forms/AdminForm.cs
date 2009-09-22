@@ -78,7 +78,8 @@ namespace Renting_Management_System.Forms
 
         private void 客户操作ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            CounterForm f = new CounterForm();
+            f.Show();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -93,6 +94,11 @@ namespace Renting_Management_System.Forms
                 tableUpdate = new Renting_Management_System.BLL.TableUpdate();
                 tableUpdate.Update(ds);
             }
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
