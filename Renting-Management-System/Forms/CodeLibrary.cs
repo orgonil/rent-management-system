@@ -15,7 +15,6 @@ namespace Renting_Management_System.Forms
         DataSet ds = new DataSet();
         BindingSource s1;
         Renting_Management_System.DAL.DBConnection sq1 = new Renting_Management_System.DAL.DBConnection();
-        Renting_Management_System.DAL.DBConnection sq2 = new Renting_Management_System.DAL.DBConnection();
         Renting_Management_System.DAL.CertificateTypeDAL certificateType;
         Renting_Management_System.DAL.CustomerTypeDAL customerType;
         Renting_Management_System.DAL.ImageTypeDAL imageType;
@@ -26,8 +25,9 @@ namespace Renting_Management_System.Forms
         Renting_Management_System.Models.ImageTypeMod imageTypeMod;
         public CodeLibrary()
         {
+           
             InitializeComponent();
-        }
+        } 
 
         private void CodeLibrary_Load(object sender, EventArgs e)
         {
@@ -121,7 +121,7 @@ namespace Renting_Management_System.Forms
                 s1.DataMember = ds.Tables[0].TableName;
                 bindingNavigator1.BindingSource = s1;
                 dataGridView1.DataSource = s1;
-                userType.Update(ds);
+                sq1.Refresh(ds);
                 MessageBox.Show("添加成功");
             }
             else if (this.Certificatetype.Enabled==false)
@@ -138,7 +138,7 @@ namespace Renting_Management_System.Forms
                 s1.DataMember = ds.Tables[0].TableName;
                 bindingNavigator1.BindingSource = s1;
                 dataGridView1.DataSource = s1;
-                certificateType.Update(ds);
+                sq1.Refresh(ds);
                 MessageBox.Show("添加成功");
             }
             else if(this.customertype.Enabled==false)
@@ -155,7 +155,7 @@ namespace Renting_Management_System.Forms
                 s1.DataMember = ds.Tables[0].TableName;
                 bindingNavigator1.BindingSource = s1;
                 dataGridView1.DataSource = s1;
-                customerType.Update(ds);
+                sq1.Refresh(ds);
                 MessageBox.Show("添加成功");
             }
             else if (this.Imagetype.Enabled == false)
@@ -172,22 +172,56 @@ namespace Renting_Management_System.Forms
                 s1.DataMember = ds.Tables[0].TableName;
                 bindingNavigator1.BindingSource = s1;
                 dataGridView1.DataSource = s1;
-                imageType.Update(ds);
+                sq1.Refresh(ds);
                 MessageBox.Show("添加成功");
+            }
+            else
+            {
+                MessageBox.Show("请选择相应的表再进行添加");
             }
         }
 
         private void Mod_btn_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("确定要保存嘛?", "确认保存", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                DataTable DT = new DataTable();
+                SqlDataAdapter SDA = new SqlDataAdapter();
+
+                try
+                {
+                    SqlCommandBuilder SCB = new SqlCommandBuilder(SDA);
+                    SDA.Update(DT);
+                    MessageBox.Show("更新成功!");
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    return;
+
+                }
+            } 
+
 
         }
 
+  
+        
+
         private void Del_btn_Click(object sender, EventArgs e)
         {
-          
-
+            if (MessageBox.Show("确定删除吗？", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                    foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+                    {
+                        dataGridView1.Rows.Remove(r);
+                        MessageBox.Show("删除成功");
+                    }
+                }
+       
+            }
 
 
         }
     }
-}
+
