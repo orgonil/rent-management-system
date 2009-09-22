@@ -39,7 +39,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From [UserType]");
+            selectStr.Append("Select * From [UserType] ");
             selectStr.Append("Where 用户类代码 = '");
             selectStr.Append(_userTypeCode);
             selectStr.Append("'");
@@ -51,8 +51,8 @@ namespace Renting_Management_System.DAL
             else
             {
                 type = new Renting_Management_System.Models.UserTypeMod();
-                type.UserTypeCode = ds.Tables[0].Rows[0][0].ToString().Trim();
-                type.UserTypeName = ds.Tables[0].Rows[0][1].ToString().Trim();
+                type.UserTypeCode = ds.Tables[0].Rows[0][0].ToString();
+                type.UserTypeName = ds.Tables[0].Rows[0][1].ToString();
                 return type;
             }
         }

@@ -72,7 +72,8 @@ namespace Renting_Management_System.Forms
 
         private void 代码库操作ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            CodeLibrary codeForm = new CodeLibrary();
+            codeForm.ShowDialog();
         }
 
         private void 客户操作ToolStripMenuItem_Click(object sender, EventArgs e)
