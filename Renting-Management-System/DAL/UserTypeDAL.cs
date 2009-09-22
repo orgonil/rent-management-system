@@ -24,11 +24,6 @@ namespace Renting_Management_System.DAL
             ds.Tables[0].TableName = "UserType";
             return ds;
         }
-        public void Update(DataSet dataSet)
-        {
-            da = new DBConnection();
-            da.Refresh(dataSet);
-        }
         /// <summary>
         /// 获取一个用户类
         /// </summary>
@@ -73,7 +68,7 @@ namespace Renting_Management_System.DAL
                 StringBuilder deleteStr = new StringBuilder();
                 deleteStr.Append("Delete From [UserType]");
                 deleteStr.Append("Where 用户类代码 = '");
-                deleteStr.Append(type.UserTypeCode);
+                deleteStr.Append(_userType.UserTypeCode);
                 deleteStr.Append("'");
                 da.DeleteQuery(deleteStr.ToString());
                 return true;
@@ -98,9 +93,9 @@ namespace Renting_Management_System.DAL
                 StringBuilder modifyStr = new StringBuilder();
                 modifyStr.Append("Update [UserType]");
                 modifyStr.Append("Set 用户类名称 = '");
-                modifyStr.Append(type.UserTypeName + "'");
+                modifyStr.Append(_userType.UserTypeName + "'");
                 modifyStr.Append("Where 用户类代码 = '");
-                modifyStr.Append(type.UserTypeCode + "'");
+                modifyStr.Append(_userType.UserTypeCode + "'");
                 da.UpdateQuery(modifyStr.ToString());
                 return true;
             }

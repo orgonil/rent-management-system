@@ -27,16 +27,8 @@ namespace Renting_Management_System.DAL
             return ds;
         }
         /// <summary>
-        /// 更新数据集
-        /// </summary>
-        /// <param name="dataSet"></param>
-        public void Update(DataSet dataSet)
-        {
-            da = new DBConnection();
-            da.Refresh(dataSet);
-        }
-        /// <summary>
         /// 通过用户编号可以获取一个用户
+        /// 返回null 表示没有改用户
         /// </summary>
         /// <param name="_userID"></param>
         /// <returns></returns>
@@ -50,7 +42,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             { return null; }
             else
             {
@@ -78,6 +70,7 @@ namespace Renting_Management_System.DAL
         }
         /// <summary>
         /// 通过用户名称可以获取一个用户
+        /// 返回null 表示没有改用户
         /// </summary>
         /// <param name="_userName"></param>
         /// <returns></returns>
@@ -91,7 +84,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             { return null; }
             else
             {
@@ -119,6 +112,7 @@ namespace Renting_Management_System.DAL
         }
         /// <summary>
         /// 通过用户类代码可以获取一个用户数据集
+        /// 返回 null 表示没有数据
         /// </summary>
         /// <param name="_userTypeCode"></param>
         /// <returns></returns>
@@ -132,7 +126,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             { return null; }
             else 
             {return ds;}
@@ -154,18 +148,18 @@ namespace Renting_Management_System.DAL
                 insertStr.Append("Insert Into [User] ");
                 insertStr.Append("(用户编号,用户名称,性别,出生日期,用户密码,用户类代码,证件类代码,证件号码,联系方式,用户地址,用户描述,用户拒绝)");
                 insertStr.Append("Values ('");
-                insertStr.Append(user.UserID + "','");
-                insertStr.Append(user.UserName + "','");
-                insertStr.Append(user.Sex + "',");
-                insertStr.Append(user.BirthDate.ToShortDateString() + ",'");
-                insertStr.Append(user.UserPassword + "','");
-                insertStr.Append(user.UserTypeCode + "','");
-                insertStr.Append(user.CertificateTypeCode + "','");
-                insertStr.Append(user.CertificateNumber + "','");
-                insertStr.Append(user.UserContact + "','");
-                insertStr.Append(user.UserAddress + "','");
-                insertStr.Append(user.UserDescription + "','");
-                insertStr.Append(user.UserDeny.ToString());
+                insertStr.Append(_user.UserID + "','");
+                insertStr.Append(_user.UserName + "','");
+                insertStr.Append(_user.Sex + "',");
+                insertStr.Append(_user.BirthDate.ToShortDateString() + ",'");
+                insertStr.Append(_user.UserPassword + "','");
+                insertStr.Append(_user.UserTypeCode + "','");
+                insertStr.Append(_user.CertificateTypeCode + "','");
+                insertStr.Append(_user.CertificateNumber + "','");
+                insertStr.Append(_user.UserContact + "','");
+                insertStr.Append(_user.UserAddress + "','");
+                insertStr.Append(_user.UserDescription + "','");
+                insertStr.Append(_user.UserDeny.ToString());
                 insertStr.Append("')");
                 da = new DBConnection();
                 da.InsertQuery(insertStr.ToString());
@@ -192,30 +186,30 @@ namespace Renting_Management_System.DAL
                 updateStr.Append("Update [User]");
                 updateStr.Append("Set");
                 updateStr.Append("用户名称 = '");
-                updateStr.Append(user.UserName + "'");
+                updateStr.Append(_user.UserName + "'");
                 updateStr.Append(",性别 = '");
-                updateStr.Append(user.Sex + "'");
+                updateStr.Append(_user.Sex + "'");
                 updateStr.Append(",出生日期 = ");
-                updateStr.Append(user.BirthDate.ToShortDateString());
-                updateStr.Append(",用户密码 = '");
-                updateStr.Append(user.UserPassword + "'");
+                updateStr.Append(_user.BirthDate.ToShortDateString());
+                updateStr.Append(",用户 密码 = '");
+                updateStr.Append(_user.UserPassword + "'");
                 updateStr.Append(",用户类代码 = '");
-                updateStr.Append(user.UserTypeCode + "'");
+                updateStr.Append(_user.UserTypeCode + "'");
                 updateStr.Append(",证件类代码 = '");
-                updateStr.Append(user.CertificateTypeCode + "'");
+                updateStr.Append(_user.CertificateTypeCode + "'");
                 updateStr.Append(",证件号码 = '");
-                updateStr.Append(user.CertificateNumber + "'");
+                updateStr.Append(_user.CertificateNumber + "'");
                 updateStr.Append(",联系方式 = '");
-                updateStr.Append(user.UserContact + "'");
+                updateStr.Append(_user.UserContact + "'");
                 updateStr.Append(",用户地址 = '");
-                updateStr.Append(user.UserAddress + "'");
+                updateStr.Append(_user.UserAddress + "'");
                 updateStr.Append(",用户描述 = '");
-                updateStr.Append(user.UserDescription + "'");
+                updateStr.Append(_user.UserDescription + "'");
                 updateStr.Append(",用户拒绝 = '");
-                updateStr.Append(user.UserDeny.ToString());
+                updateStr.Append(_user.UserDeny.ToString());
                 updateStr.Append("'");
                 updateStr.Append("Where 用户编号 = '");
-                updateStr.Append(user.UserID + "'");
+                updateStr.Append(_user.UserID + "'");
                 da = new DBConnection();
                 da.UpdateQuery(updateStr.ToString());
                 return true;
@@ -237,7 +231,7 @@ namespace Renting_Management_System.DAL
                 StringBuilder deleteStr = new StringBuilder();
                 deleteStr.Append("Delete From [User]");
                 deleteStr.Append("Where 用户编号 = '");
-                deleteStr.Append(user.UserID);
+                deleteStr.Append(_user.UserID);
                 deleteStr.Append("'");
                 da = new DBConnection();
                 da.DeleteQuery(deleteStr.ToString());
