@@ -39,7 +39,7 @@ namespace Renting_Management_System.DAL
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From [Local]");
             selectStr.Append("Where 地点代码 = '");
-            selectStr.Append(_local.LocalCode);
+            selectStr.Append(_localCode);
             selectStr.Append("'");
             ds = da.SelectQuery(selectStr.ToString());
             if (ds.Tables[0].Rows.Count == 0)
