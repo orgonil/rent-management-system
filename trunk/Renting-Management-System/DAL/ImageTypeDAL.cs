@@ -25,39 +25,29 @@ namespace Renting_Management_System.DAL
             return ds;
         }
         /// <summary>
-        /// 更新数据集
-        /// </summary>
-        /// <param name="dataSet"></param>
-        public void Update(DataSet dataSet)
-        {
-            da = new DBConnection();
-            da.Refresh(dataSet);
-        }
-        /// <summary>
         /// 获取一个影像类
         /// </summary>
         /// <param name="_userTypeCode"></param>
         /// <returns></returns>
         public Renting_Management_System.Models.ImageTypeMod SelectData(string _imageTypeCode)
         {
-            type = new Renting_Management_System.Models.ImageTypeMod();
-            type.ImageTypeCode = _imageTypeCode;
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From [ImageType]");
+            selectStr.Append("Select * From [ImageType] ");
             selectStr.Append("Where 影类代码 = '");
-            selectStr.Append(type.ImageTypeCode);
+            selectStr.Append(_imageTypeCode);
             selectStr.Append("'");
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             {
                 return null;
             }
             else
             {
-                type.ImageTypeCode = ds.Tables[0].Rows[0]["影类代码"].ToString().Trim();
-                type.ImageTypeName = ds.Tables[0].Rows[0]["影类名称"].ToString().Trim();
+                type = new Renting_Management_System.Models.ImageTypeMod();
+                type.ImageTypeCode = ds.Tables[0].Rows[0][0].ToString().Trim();
+                type.ImageTypeName = ds.Tables[0].Rows[0][1].ToString().Trim();
                 return type;
             }
         }
@@ -76,9 +66,9 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From [ImageType]");
+                deleteStr.Append("Delete From [ImageType] ");
                 deleteStr.Append("Where 影类代码 = '");
-                deleteStr.Append(type.ImageTypeCode);
+                deleteStr.Append(_imageType.ImageTypeCode);
                 deleteStr.Append("'");
                 da.DeleteQuery(deleteStr.ToString());
                 return true;
@@ -101,11 +91,11 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder modifyStr = new StringBuilder();
-                modifyStr.Append("Update [ImageType]");
+                modifyStr.Append("Update [ImageType] ");
                 modifyStr.Append("Set 影类名称 = '");
-                modifyStr.Append(type.ImageTypeName + "'");
+                modifyStr.Append(_imageType.ImageTypeName + "'");
                 modifyStr.Append("Where 影类代码 = '");
-                modifyStr.Append(type.ImageTypeCode + "'");
+                modifyStr.Append(_imageType.ImageTypeCode + "'");
                 da.UpdateQuery(modifyStr.ToString());
                 return true;
             }
@@ -127,10 +117,10 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into [ImageType] (影类代码,影类名称)");
+                insertStr.Append("Insert Into [ImageType] (影类代码,影类名称) ");
                 insertStr.Append("Values ('");
-                insertStr.Append(type.ImageTypeCode + "','");
-                insertStr.Append(type.ImageTypeName);
+                insertStr.Append(_imageType.ImageTypeCode + "','");
+                insertStr.Append(_imageType.ImageTypeName);
                 insertStr.Append("')");
                 da.InsertQuery(insertStr.ToString());
                 return true;

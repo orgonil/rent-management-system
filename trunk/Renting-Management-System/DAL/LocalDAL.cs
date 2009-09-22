@@ -27,15 +27,6 @@ namespace Renting_Management_System.DAL
             return ds;
         }
         /// <summary>
-        /// 更新数据集
-        /// </summary>
-        /// <param name="dataSet"></param>
-        public void Update(DataSet dataSet)
-        {
-            da = new DBConnection();
-            da.Refresh(dataSet);
-        }
-        /// <summary>
         /// 获取一个地点
         /// _localCode 为地点代码
         /// </summary>
@@ -43,24 +34,23 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public Renting_Management_System.Models.LocalMod SelectData(string _localCode)
         {
-            local = new Renting_Management_System.Models.LocalMod();
-            local.LocalCode = _localCode;
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From [Local]");
             selectStr.Append("Where 地点代码 = '");
-            selectStr.Append(local.LocalCode);
+            selectStr.Append(_local.LocalCode);
             selectStr.Append("'");
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             {
                 return null;
             }
             else
             {
-                local.LocalCode = ds.Tables[0].Rows[0]["地点代码"].ToString().Trim();
-                local.LocalName = ds.Tables[0].Rows[0]["地点名称"].ToString().Trim();
+                local = new Renting_Management_System.Models.LocalMod();
+                local.LocalCode = ds.Tables[0].Rows[0][0].ToString().Trim();
+                local.LocalName = ds.Tables[0].Rows[0][1].ToString().Trim();
                 return local;
             }
 
@@ -82,10 +72,10 @@ namespace Renting_Management_System.DAL
                 StringBuilder modifyStr = new StringBuilder();
                 modifyStr.Append("Update [Local]");
                 modifyStr.Append("Set 地点名称 = '");
-                modifyStr.Append(local.LocalName);
+                modifyStr.Append(_local.LocalName);
                 modifyStr.Append("'");
                 modifyStr.Append("Where 地点代码 = '");
-                modifyStr.Append(local.LocalCode);
+                modifyStr.Append(_local.LocalCode);
                 modifyStr.Append("'");
                 da.UpdateQuery(modifyStr.ToString());
                 return true;
@@ -108,10 +98,9 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From [Local]");
-                deleteStr.Append("'");
+                deleteStr.Append("Delete From [Local] ");
                 deleteStr.Append("Where 地点代码 = '");
-                deleteStr.Append(local.LocalCode);
+                deleteStr.Append(_local.LocalCode);
                 deleteStr.Append("'");
                 da.DeleteQuery(deleteStr.ToString());
                 return true;
@@ -134,10 +123,10 @@ namespace Renting_Management_System.DAL
             {
                 da = new DBConnection();
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into [Local] (地点代码,地点名称)");
+                insertStr.Append("Insert Into [Local] (地点代码,地点名称) ");
                 insertStr.Append("Values ('");
-                insertStr.Append(local.LocalCode + "','");
-                insertStr.Append(local.LocalName);
+                insertStr.Append(_local.LocalCode + "','");
+                insertStr.Append(_local.LocalName);
                 insertStr.Append("')");
                 da.InsertQuery(insertStr.ToString());
                 return true;

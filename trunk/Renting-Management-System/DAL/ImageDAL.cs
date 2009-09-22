@@ -27,15 +27,6 @@ namespace Renting_Management_System.DAL
             return ds;
         }
         /// <summary>
-        /// 更新数据集
-        /// </summary>
-        /// <param name="dataSet"></param>
-        public void Update(DataSet dataSet)
-        {
-            da = new DBConnection();
-            da.Refresh(dataSet);
-        }
-        /// <summary>
         /// 通过影像编号获取一个影像的记录
         /// 返回 null 表示数据不存在，否侧返回一个影像的记录
         /// </summary>
@@ -44,14 +35,14 @@ namespace Renting_Management_System.DAL
         public Renting_Management_System.Models.ImageMod SelectByID(string _imageID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From [Image]");
+            selectStr.Append("Select * From [Image] ");
             selectStr.Append("Where 影像编号 = '");
             selectStr.Append(_imageID);
             selectStr.Append("'");
             DataSet ds = new DataSet();
             da = new DBConnection();
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             { return null; }
             else
             {
@@ -79,14 +70,14 @@ namespace Renting_Management_System.DAL
         public Renting_Management_System.Models.ImageMod SelectByName(string _imageName)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From [Image]");
+            selectStr.Append("Select * From [Image] ");
             selectStr.Append("Where 影像名称 = '");
             selectStr.Append(_imageName);
             selectStr.Append("'");
             DataSet ds = new DataSet();
             da = new DBConnection();
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             { return null; }
             else
             {
@@ -114,14 +105,14 @@ namespace Renting_Management_System.DAL
         public DataSet SelectByTypeCode(string _imageTypeCode)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From [Image]");
+            selectStr.Append("Select * From [Image] ");
             selectStr.Append("Where 影类代码 = '");
             selectStr.Append(_imageTypeCode);
             selectStr.Append("'");
             DataSet ds = new DataSet();
             da = new DBConnection();
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             { return null; }
             else
             { return ds; }
@@ -135,14 +126,14 @@ namespace Renting_Management_System.DAL
         public DataSet SelectByUserID(string _userID)
         {
             StringBuilder selectStr = new StringBuilder();
-            selectStr.Append("Select * From [Image]");
+            selectStr.Append("Select * From [Image] ");
             selectStr.Append("Where 用户编号 = '");
             selectStr.Append(_userID);
             selectStr.Append("'");
             DataSet ds = new DataSet();
             da = new DBConnection();
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             { return null; }
             else
             {
@@ -164,19 +155,19 @@ namespace Renting_Management_System.DAL
             else
             {
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into [Image] (影像编号,影像名称,用户编号,影类代码,地点代码,影像原价,影像租价,库存数量,货架号,出租状态,影像描述)");
+                insertStr.Append("Insert Into [Image] (影像编号,影像名称,用户编号,影类代码,地点代码,影像原价,影像租价,库存数量,货架号,出租状态,影像描述) ");
                 insertStr.Append("Values ('");
-                insertStr.Append(image.ImageID + "','");
-                insertStr.Append(image.ImageName + "','");
-                insertStr.Append(image.UserID + "','");
-                insertStr.Append(image.ImageTypeCode + "','");
-                insertStr.Append(image.LocalCode + "',");
-                insertStr.Append(image.ImageCostPrice + ",");
-                insertStr.Append(image.ImageRentalPrice + ",");
-                insertStr.Append(image.StorageQuantity + ",'");
-                insertStr.Append(image.ShelvesNumber + "','");
-                insertStr.Append(image.RentState + "','");
-                insertStr.Append(image.ImageDescription);
+                insertStr.Append(_image.ImageID + "','");
+                insertStr.Append(_image.ImageName + "','");
+                insertStr.Append(_image.UserID + "','");
+                insertStr.Append(_image.ImageTypeCode + "','");
+                insertStr.Append(_image.LocalCode + "',");
+                insertStr.Append(_image.ImageCostPrice + ",");
+                insertStr.Append(_image.ImageRentalPrice + ",");
+                insertStr.Append(_image.StorageQuantity + ",'");
+                insertStr.Append(_image.ShelvesNumber + "','");
+                insertStr.Append(_image.RentState + "','");
+                insertStr.Append(_image.ImageDescription);
                 insertStr.Append("')");
                 da = new DBConnection();
                 da.InsertQuery(insertStr.ToString());
@@ -201,28 +192,28 @@ namespace Renting_Management_System.DAL
                 updateStr.Append("Update [Image] ");
                 updateStr.Append("Set ");
                 updateStr.Append("影像名称 = '");
-                updateStr.Append(image.ImageName);
+                updateStr.Append(_image.ImageName);
                 updateStr.Append("',用户编号 = '");
-                updateStr.Append(image.UserID);
+                updateStr.Append(_image.UserID);
                 updateStr.Append("',影类代码 = '");
-                updateStr.Append(image.ImageTypeCode);
+                updateStr.Append(_image.ImageTypeCode);
                 updateStr.Append("',地点代码 = '");
-                updateStr.Append(image.LocalCode);
+                updateStr.Append(_image.LocalCode);
                 updateStr.Append("',影像原价 = ");
-                updateStr.Append(image.ImageCostPrice);
+                updateStr.Append(_image.ImageCostPrice);
                 updateStr.Append(",影像租价 = ");
-                updateStr.Append(image.ImageRentalPrice);
+                updateStr.Append(_image.ImageRentalPrice);
                 updateStr.Append(",库存数量 = ");
-                updateStr.Append(image.StorageQuantity);
+                updateStr.Append(_image.StorageQuantity);
                 updateStr.Append(",货架号 = '");
-                updateStr.Append(image.ShelvesNumber);
+                updateStr.Append(_image.ShelvesNumber);
                 updateStr.Append("',出租状态 = '");
-                updateStr.Append(image.RentState);
+                updateStr.Append(_image.RentState);
                 updateStr.Append("',影像描述 = '");
-                updateStr.Append(image.ImageDescription);
+                updateStr.Append(_image.ImageDescription);
                 updateStr.Append("'");
                 updateStr.Append("Where 影像编号 = '");
-                updateStr.Append(image.ImageID);
+                updateStr.Append(_image.ImageID);
                 updateStr.Append("'");
                 da = new DBConnection();
                 da.UpdateQuery(updateStr.ToString());
@@ -244,9 +235,9 @@ namespace Renting_Management_System.DAL
             else
             {
                 StringBuilder deleteStr = new StringBuilder();
-                deleteStr.Append("Delete From [Image]");
+                deleteStr.Append("Delete From [Image] ");
                 deleteStr.Append("Where 影像编号 = '");
-                deleteStr.Append(image.ImageID);
+                deleteStr.Append(_image.ImageID);
                 deleteStr.Append("'");
                 da = new DBConnection();
                 da.DeleteQuery(deleteStr.ToString());
