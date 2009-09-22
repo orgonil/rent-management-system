@@ -21,6 +21,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             ds = da.SelectQuery("Select * from [ImageType]");
+            ds.Tables[0].TableName = "ImageType";
             return ds;
         }
         /// <summary>

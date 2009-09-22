@@ -21,6 +21,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             ds = da.SelectQuery("Select * from [CustomerType]");
+            ds.Tables[0].TableName = "CustomerType";
             return ds;
         }
         /// <summary>

@@ -21,6 +21,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             ds = da.SelectQuery("Select * from [UserType]");
+            ds.Tables[0].TableName = "UserType";
             return ds;
         }
         public void Update(DataSet dataSet)
@@ -35,14 +36,12 @@ namespace Renting_Management_System.DAL
         /// <returns></returns>
         public Renting_Management_System.Models.UserTypeMod SelectData(string _userTypeCode)
         {
-            type = new Renting_Management_System.Models.UserTypeMod();
-            type.UserTypeCode = _userTypeCode;
             da = new DBConnection();
             DataSet ds = new DataSet();
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From [UserType]");
             selectStr.Append("Where 用户类代码 = '");
-            selectStr.Append(type.UserTypeCode);
+            selectStr.Append(_userTypeCode);
             selectStr.Append("'");
             ds = da.SelectQuery(selectStr.ToString());
             if (ds.Tables.Count == 0)
@@ -51,8 +50,9 @@ namespace Renting_Management_System.DAL
             }
             else
             {
-                type.UserTypeCode = ds.Tables[0].Rows[0]["用户类代码"].ToString().Trim();
-                type.UserTypeName = ds.Tables[0].Rows[0]["用户类名称"].ToString().Trim();
+                type = new Renting_Management_System.Models.UserTypeMod();
+                type.UserTypeCode = ds.Tables[0].Rows[0][0].ToString().Trim();
+                type.UserTypeName = ds.Tables[0].Rows[0][1].ToString().Trim();
                 return type;
             }
         }

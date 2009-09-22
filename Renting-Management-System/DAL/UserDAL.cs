@@ -23,6 +23,7 @@ namespace Renting_Management_System.DAL
             DataSet ds = new DataSet();
             da = new DBConnection();
             ds = da.SelectQuery(selectStr.ToString());
+            ds.Tables[0].TableName = "User";
             return ds;
         }
         /// <summary>

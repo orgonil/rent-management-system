@@ -23,6 +23,7 @@ namespace Renting_Management_System.DAL
             StringBuilder selectStr = new StringBuilder();
             selectStr.Append("Select * From [Local]");
             ds = da.SelectQuery(selectStr.ToString());
+            ds.Tables[0].TableName = "Local";
             return ds;
         }
         /// <summary>
