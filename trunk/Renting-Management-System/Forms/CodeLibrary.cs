@@ -25,9 +25,9 @@ namespace Renting_Management_System.Forms
         Renting_Management_System.Models.ImageTypeMod imageTypeMod;
         public CodeLibrary()
         {
-           
+
             InitializeComponent();
-        } 
+        }
 
         private void CodeLibrary_Load(object sender, EventArgs e)
         {
@@ -37,7 +37,6 @@ namespace Renting_Management_System.Forms
             ds = userType.GetAll();
             s1.DataSource = ds;
             s1.DataMember = ds.Tables[0].TableName;
-            bindingNavigator1.BindingSource = s1;
             dataGridView1.DataSource = s1;
             //this.dataGridView1.Columns[0].Width = 80;
             //this.dataGridView1.Columns[1].Width = 298;
@@ -56,7 +55,7 @@ namespace Renting_Management_System.Forms
             this.Imagetype.Enabled = true;
             this.Certificatetype.Enabled = true;
         }
-            
+
 
         private void customertype_Click(object sender, EventArgs e)
         {
@@ -67,7 +66,7 @@ namespace Renting_Management_System.Forms
             s1.DataSource = ds;
             s1.DataMember = ds.Tables[0].TableName;
             dataGridView1.DataSource = s1;
-            this.customertype.Enabled= false;
+            this.customertype.Enabled = false;
             this.usertype.Enabled = true;
             this.Imagetype.Enabled = true;
             this.Certificatetype.Enabled = true;
@@ -87,7 +86,7 @@ namespace Renting_Management_System.Forms
             this.Imagetype.Enabled = false;
 
             this.Certificatetype.Enabled = true;
-            
+
         }
 
         private void Certificatetype_Click(object sender, EventArgs e)
@@ -107,7 +106,7 @@ namespace Renting_Management_System.Forms
         private void Add_btn_Click(object sender, EventArgs e)
         {
 
-            if (this.usertype.Enabled==false)
+            if (this.usertype.Enabled == false)
             {
                 userType = new Renting_Management_System.DAL.UserTypeDAL();
                 userTypeMod = new Renting_Management_System.Models.UserTypeMod();
@@ -119,12 +118,11 @@ namespace Renting_Management_System.Forms
                 s1 = new BindingSource();
                 s1.DataSource = ds;
                 s1.DataMember = ds.Tables[0].TableName;
-                bindingNavigator1.BindingSource = s1;
                 dataGridView1.DataSource = s1;
                 sq1.Refresh(ds);
                 MessageBox.Show("添加成功");
             }
-            else if (this.Certificatetype.Enabled==false)
+            else if (this.Certificatetype.Enabled == false)
             {
                 certificateType = new Renting_Management_System.DAL.CertificateTypeDAL();
                 certificateTypeMod = new Renting_Management_System.Models.CertificateTypeMod();
@@ -136,24 +134,22 @@ namespace Renting_Management_System.Forms
                 s1 = new BindingSource();
                 s1.DataSource = ds;
                 s1.DataMember = ds.Tables[0].TableName;
-                bindingNavigator1.BindingSource = s1;
                 dataGridView1.DataSource = s1;
                 sq1.Refresh(ds);
                 MessageBox.Show("添加成功");
             }
-            else if(this.customertype.Enabled==false)
+            else if (this.customertype.Enabled == false)
             {
-                customerType=new Renting_Management_System.DAL.CustomerTypeDAL();
-                customerTypeMod=new Renting_Management_System.Models.CustomerTypeMod();
-                customerTypeMod.CustomerTypeCode=txtID.Text.Trim();
-                customerTypeMod.CustomerTypeName=txtName.Text.Trim();
+                customerType = new Renting_Management_System.DAL.CustomerTypeDAL();
+                customerTypeMod = new Renting_Management_System.Models.CustomerTypeMod();
+                customerTypeMod.CustomerTypeCode = txtID.Text.Trim();
+                customerTypeMod.CustomerTypeName = txtName.Text.Trim();
                 customerType.AddData(customerTypeMod);
                 ds.Clear();
-                ds=customerType.GetAll();
+                ds = customerType.GetAll();
                 s1 = new BindingSource();
                 s1.DataSource = ds;
                 s1.DataMember = ds.Tables[0].TableName;
-                bindingNavigator1.BindingSource = s1;
                 dataGridView1.DataSource = s1;
                 sq1.Refresh(ds);
                 MessageBox.Show("添加成功");
@@ -170,7 +166,6 @@ namespace Renting_Management_System.Forms
                 s1 = new BindingSource();
                 s1.DataSource = ds;
                 s1.DataMember = ds.Tables[0].TableName;
-                bindingNavigator1.BindingSource = s1;
                 dataGridView1.DataSource = s1;
                 sq1.Refresh(ds);
                 MessageBox.Show("添加成功");
@@ -185,43 +180,156 @@ namespace Renting_Management_System.Forms
         {
             if (MessageBox.Show("确定要保存嘛?", "确认保存", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
-                DataTable DT = new DataTable();
-                SqlDataAdapter SDA = new SqlDataAdapter();
 
-                try
+                if (this.usertype.Enabled == false)
                 {
-                    SqlCommandBuilder SCB = new SqlCommandBuilder(SDA);
-                    SDA.Update(DT);
-                    MessageBox.Show("更新成功!");
+                    userType = new Renting_Management_System.DAL.UserTypeDAL();
+                    userTypeMod = new Renting_Management_System.Models.UserTypeMod();
+                    userTypeMod.UserTypeCode = txtID.Text.Trim();
+                    userTypeMod.UserTypeName = txtName.Text.Trim();
+                    userType.ModifyData(userTypeMod);
+                    ds.Clear();
+                    ds = userType.GetAll();
+                    s1 = new BindingSource();
+                    s1.DataSource = ds;
+                    s1.DataMember = ds.Tables[0].TableName;
+                    dataGridView1.DataSource = s1;
+                    sq1.Refresh(ds);
+                    MessageBox.Show("修改成功!");
                 }
-                catch (System.Exception ex)
+                else if (this.Certificatetype.Enabled == false)
                 {
-                    MessageBox.Show(ex.ToString());
-                    return;
-
+                    certificateType = new Renting_Management_System.DAL.CertificateTypeDAL();
+                    certificateTypeMod = new Renting_Management_System.Models.CertificateTypeMod();
+                    certificateTypeMod.CertificateTypeCode = txtID.Text.Trim();
+                    certificateTypeMod.CertificateTypeName = txtName.Text.Trim();
+                    certificateType.ModifyData(certificateTypeMod);
+                    ds.Clear();
+                    ds = certificateType.GetAll();
+                    s1 = new BindingSource();
+                    s1.DataSource = ds;
+                    s1.DataMember = ds.Tables[0].TableName;
+                    dataGridView1.DataSource = s1;
+                    sq1.Refresh(ds);
+                    MessageBox.Show("修改成功!");
                 }
-            } 
+                else if (this.customertype.Enabled == false)
+                {
+                    customerType = new Renting_Management_System.DAL.CustomerTypeDAL();
+                    customerTypeMod = new Renting_Management_System.Models.CustomerTypeMod();
+                    customerTypeMod.CustomerTypeCode = txtID.Text.Trim();
+                    customerTypeMod.CustomerTypeName = txtName.Text.Trim();
+                    customerType.ModifyData(customerTypeMod);
+                    ds.Clear();
+                    ds = customerType.GetAll();
+                    s1 = new BindingSource();
+                    s1.DataSource = ds;
+                    s1.DataMember = ds.Tables[0].TableName;
+                    dataGridView1.DataSource = s1;
+                    sq1.Refresh(ds);
+                    MessageBox.Show("修改成功!");
+                }
+                else if (this.Imagetype.Enabled == false)
+                {
+                    imageType = new Renting_Management_System.DAL.ImageTypeDAL();
+                    imageTypeMod = new Renting_Management_System.Models.ImageTypeMod();
+                    imageTypeMod.ImageTypeCode = txtID.Text.Trim();
+                    imageTypeMod.ImageTypeName = txtName.Text.Trim();
+                    imageType.ModifyData(imageTypeMod);
+                    ds.Clear();
+                    ds = imageType.GetAll();
+                    s1 = new BindingSource();
+                    s1.DataSource = ds;
+                    s1.DataMember = ds.Tables[0].TableName;
+                    dataGridView1.DataSource = s1;
+                    sq1.Refresh(ds);
+                    MessageBox.Show("修改成功!");
+                }
+            }
 
 
         }
 
-  
-        
+
+
 
         private void Del_btn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("确定删除吗？", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                    foreach (DataGridViewRow r in dataGridView1.SelectedRows)
-                    {
-                        dataGridView1.Rows.Remove(r);
-                        MessageBox.Show("删除成功");
-                    }
+                if (this.usertype.Enabled == false)
+                {
+                    userType = new Renting_Management_System.DAL.UserTypeDAL();
+                    userTypeMod = new Renting_Management_System.Models.UserTypeMod();
+                    userTypeMod.UserTypeCode = txtID.Text.Trim();
+                    userTypeMod.UserTypeName = txtName.Text.Trim();
+                    userType.DeleteData(userTypeMod);
+                    ds.Clear();
+                    ds = userType.GetAll();
+                    s1 = new BindingSource();
+                    s1.DataSource = ds;
+                    s1.DataMember = ds.Tables[0].TableName;
+                    dataGridView1.DataSource = s1;
+                    sq1.Refresh(ds);
+                    MessageBox.Show("删除成功");
                 }
-       
+                else if (this.Certificatetype.Enabled == false)
+                {
+                    certificateType = new Renting_Management_System.DAL.CertificateTypeDAL();
+                    certificateTypeMod = new Renting_Management_System.Models.CertificateTypeMod();
+                    certificateTypeMod.CertificateTypeCode = txtID.Text.Trim();
+                    certificateTypeMod.CertificateTypeName = txtName.Text.Trim();
+                    certificateType.DeleteData(certificateTypeMod);
+                    ds.Clear();
+                    ds = certificateType.GetAll();
+                    s1 = new BindingSource();
+                    s1.DataSource = ds;
+                    s1.DataMember = ds.Tables[0].TableName;
+                    dataGridView1.DataSource = s1;
+                    sq1.Refresh(ds);
+                    MessageBox.Show("删除成功");
+                }
+                else if (this.customertype.Enabled == false)
+                {
+                    customerType = new Renting_Management_System.DAL.CustomerTypeDAL();
+                    customerTypeMod = new Renting_Management_System.Models.CustomerTypeMod();
+                    customerTypeMod.CustomerTypeCode = txtID.Text.Trim();
+                    customerTypeMod.CustomerTypeName = txtName.Text.Trim();
+                    customerType.DeleteData(customerTypeMod);
+                    ds.Clear();
+                    ds = customerType.GetAll();
+                    s1 = new BindingSource();
+                    s1.DataSource = ds;
+                    s1.DataMember = ds.Tables[0].TableName;
+                    dataGridView1.DataSource = s1;
+                    sq1.Refresh(ds);
+                    MessageBox.Show("删除成功!");
+                }
+                else if (this.Imagetype.Enabled == false)
+                {
+                    imageType = new Renting_Management_System.DAL.ImageTypeDAL();
+                    imageTypeMod = new Renting_Management_System.Models.ImageTypeMod();
+                    imageTypeMod.ImageTypeCode = txtID.Text.Trim();
+                    imageTypeMod.ImageTypeName = txtName.Text.Trim();
+                    imageType.DeleteData(imageTypeMod);
+                    ds.Clear();
+                    ds = imageType.GetAll();
+                    s1 = new BindingSource();
+                    s1.DataSource = ds;
+                    s1.DataMember = ds.Tables[0].TableName;
+                    dataGridView1.DataSource = s1;
+                    sq1.Refresh(ds);
+                    MessageBox.Show("删除成功!");
+                }
+                else
+                {
+                    MessageBox.Show("请选择相应的表再进行删除!");
+                }
+
             }
 
 
         }
     }
+}
 
