@@ -14,6 +14,7 @@ namespace Renting_Management_System
        private Renting_Management_System.BLL.FormBLL form;
        private Renting_Management_System.Models.UserMod user;
        private Renting_Management_System.DAL.UserTypeDAL _userType;
+       public string userTypeCode;
        public LoginForm()
         {
             InitializeComponent();
@@ -21,14 +22,15 @@ namespace Renting_Management_System
             DataSet ds = new DataSet();
             ds = _userType.GetAll();
             UserTypecomboBox.DataSource = ds.Tables[0];
-            UserTypecomboBox.DisplayMember = "用户类名称";
-            UserTypecomboBox.ValueMember = "用户类代码";
+            UserTypecomboBox.DisplayMember = ds.Tables[0].Columns[1].ToString().Trim();
+            UserTypecomboBox.ValueMember = ds.Tables[0].Columns[0].ToString().Trim();
             UserTypecomboBox.SelectedValue = "";
         }
 
         private void Canclebutton_Click(object sender, EventArgs e)
         {
             Close();
+            Application.Exit();
         }
 
         private void Loginbutton_Click(object sender, EventArgs e)
@@ -37,7 +39,12 @@ namespace Renting_Management_System
             user = new Renting_Management_System.Models.UserMod();
             user.UserID = UserIDtextBox.Text;
             user.UserPassword = UserPasswordtextBox.Text;
+            if (UserTypecomboBox.SelectedValue == null)
+            {
+                UserTypecomboBox.SelectedIndex = 0;
+            }
             user.UserTypeCode = UserTypecomboBox.SelectedValue.ToString();
+            userTypeCode = UserTypecomboBox.SelectedValue.ToString();
             form = new Renting_Management_System.BLL.FormBLL();
             yes = form.Login(user);
             if (yes)
