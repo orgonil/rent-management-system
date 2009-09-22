@@ -11,31 +11,26 @@ namespace Renting_Management_System.Forms
 {
     public partial class AdminForm : Form
     {
-        LoginForm loginForm;
-        Renting_Management_System.Models.UserMod _user;
-        Renting_Management_System.DAL.UserDAL userDAL;
-        Renting_Management_System.DAL.UserTypeDAL userTypeDAL;
+        public DataSet ds = new DataSet();
+        private LoginForm loginForm;
+        private Renting_Management_System.BLL.TableUpdate tableUpdate;
+        private Renting_Management_System.Models.UserMod _user;
+        private Renting_Management_System.Models.UserTypeMod _userType;
+        private Renting_Management_System.DAL.UserDAL userDAL;
+        private Renting_Management_System.DAL.UserTypeDAL userTypeDAL;
         public AdminForm()
         {
             InitializeComponent();
             loginForm = new LoginForm();
-            /*_user = new Renting_Management_System.Models.UserMod();
             userDAL = new Renting_Management_System.DAL.UserDAL();
-            userTypeDAL=new Renting_Management_System.DAL.UserTypeDAL();
+            userTypeDAL = new Renting_Management_System.DAL.UserTypeDAL();
+            _user = new Renting_Management_System.Models.UserMod();
+            _userType = new Renting_Management_System.Models.UserTypeMod();
             _user = userDAL.SelectByID(loginForm.UserIDtextBox.Text);
-            if (_user == null)
-            {
-                toolStripStatusLabel_UserName.Text = "";
-                toolStripStatusLabel_UserType.Text = "";
-            }
-            else
-            {
-                toolStripStatusLabel_UserName.Text = _user.UserName;
-                toolStripStatusLabel_UserType.Text = userTypeDAL.SelectData(_user.UserTypeCode).UserTypeName;
-            }*/
-            timer1.Start();
-            toolStripStatusLabel_Date.Text = DateTime.Now.Date.ToShortDateString();
-            //toolStripStatusLabel_Time.Text =
+            _userType = userTypeDAL.SelectData(_user.UserTypeCode);
+            toolStripStatusLabel_UserName.Text = _user.UserName;
+            toolStripStatusLabel_UserType.Text = _userType.UserTypeName;
+            toolStripStatusLabel_Date.Text = DateTime.Now.ToShortDateString();
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -44,7 +39,6 @@ namespace Renting_Management_System.Forms
         }
         private void 退出XToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
             System.Windows.Forms.Application.Exit();
         }
 
@@ -66,13 +60,19 @@ namespace Renting_Management_System.Forms
 
         private void 所有用户ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            userDAL = new Renting_Management_System.DAL.UserDAL();
+            ds.Clear();
+            ds = userDAL.GetAll();
+            BindingSource bds = new BindingSource();
+            bds.DataSource = ds;
+            bds.DataMember = ds.Tables[0].TableName;
+            dataGridView1.DataSource = bds;
+            bindingNavigator1.BindingSource = bds;
         }
 
         private void 代码库操作ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CodeLibrary dm = new CodeLibrary();
-            dm.Show();
+
         }
 
         private void 客户操作ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,9 +80,18 @@ namespace Renting_Management_System.Forms
 
         }
 
-        private void AdminForm_Load(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
+            toolStripStatusLabel_Time.Text = DateTime.Now.ToLongTimeString();
+        }
 
+        private void bindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            if (ds.HasChanges())
+            {
+                tableUpdate = new Renting_Management_System.BLL.TableUpdate();
+                tableUpdate.Update(ds);
+            }
         }
     }
 }
