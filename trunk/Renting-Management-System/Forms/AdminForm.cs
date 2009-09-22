@@ -35,7 +35,7 @@ namespace Renting_Management_System.Forms
             }*/
             timer1.Start();
             toolStripStatusLabel_Date.Text = DateTime.Now.Date.ToShortDateString();
-            toolStripStatusLabel_Time.Text =
+            //toolStripStatusLabel_Time.Text =
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
