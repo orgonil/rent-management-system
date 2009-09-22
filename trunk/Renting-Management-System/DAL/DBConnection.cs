@@ -73,11 +73,11 @@ namespace Renting_Management_System.DAL
         public void Refresh(DataSet ds)
         {
             conn.Open();
-            com = new SqlCommand("Select * From" + ds.Tables[0].TableName, conn);
+            com = new SqlCommand("Select * From [" + ds.Tables[0].TableName + "]", conn);
             SqlDataAdapter dataAdapter = new SqlDataAdapter();
             dataAdapter.SelectCommand = com;
             SqlCommandBuilder cb = new SqlCommandBuilder(dataAdapter);
-            dataAdapter.Update(ds);
+            dataAdapter.Update(ds, ds.Tables[0].TableName);
             conn.Close();
         }
     }

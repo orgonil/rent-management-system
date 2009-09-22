@@ -21,6 +21,7 @@ namespace Renting_Management_System.DAL
             da = new DBConnection();
             DataSet ds = new DataSet();
             ds = da.SelectQuery("Select * from [CertificateType]");
+            ds.Tables[0].TableName = "CertificateType";
             return ds;
         }
         /// <summary>

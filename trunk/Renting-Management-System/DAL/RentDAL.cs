@@ -22,6 +22,7 @@ namespace Renting_Management_System.DAL
             DataSet ds = new DataSet();
             da = new DBConnection();
             ds = da.SelectQuery("Select * From [Rent]");
+            ds.Tables[0].TableName = "Rent";
             return ds;
         }
         /// <summary>

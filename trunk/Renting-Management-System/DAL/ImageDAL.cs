@@ -23,6 +23,7 @@ namespace Renting_Management_System.DAL
             DataSet ds = new DataSet();
             string selectStr = "Select * From [Image]";
             ds = da.SelectQuery(selectStr);
+            ds.Tables[0].TableName = "Image";
             return ds;
         }
         /// <summary>
