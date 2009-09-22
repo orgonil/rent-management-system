@@ -44,15 +44,15 @@ namespace Renting_Management_System.DAL
             selectStr.Append(_userTypeCode);
             selectStr.Append("'");
             ds = da.SelectQuery(selectStr.ToString());
-            if (ds.Tables.Count == 0)
+            if (ds.Tables[0].Rows.Count == 0)
             {
                 return null;
             }
             else
             {
                 type = new Renting_Management_System.Models.UserTypeMod();
-                type.UserTypeCode = ds.Tables[0].Rows[0][0].ToString();
-                type.UserTypeName = ds.Tables[0].Rows[0][1].ToString();
+                type.UserTypeCode = ds.Tables[0].Rows[0][0].ToString().Trim();
+                type.UserTypeName = ds.Tables[0].Rows[0][1].ToString().Trim();
                 return type;
             }
         }
@@ -124,8 +124,8 @@ namespace Renting_Management_System.DAL
                 StringBuilder insertStr = new StringBuilder();
                 insertStr.Append("Insert Into [UserType] (用户类代码,用户类名称)");
                 insertStr.Append("Values ('");
-                insertStr.Append(type.UserTypeCode + "','");
-                insertStr.Append(type.UserTypeName);
+                insertStr.Append(_userType.UserTypeCode + "','");
+                insertStr.Append(_userType.UserTypeName);
                 insertStr.Append("')");
                 da.InsertQuery(insertStr.ToString());
                 return true;
