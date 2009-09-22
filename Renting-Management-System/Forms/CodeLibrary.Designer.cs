@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.Mod_btn = new System.Windows.Forms.Button();
+            this.Del_btn = new System.Windows.Forms.Button();
+            this.Add_btn = new System.Windows.Forms.Button();
             this.Certificatetype = new System.Windows.Forms.Button();
             this.Imagetype = new System.Windows.Forms.Button();
             this.customertype = new System.Windows.Forms.Button();
             this.usertype = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Add_btn = new System.Windows.Forms.Button();
-            this.Del_btn = new System.Windows.Forms.Button();
-            this.Mod_btn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -65,14 +65,42 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.txtName);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.txtID);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer1.Size = new System.Drawing.Size(573, 264);
             this.splitContainer1.SplitterDistance = 147;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // Mod_btn
+            // 
+            this.Mod_btn.Location = new System.Drawing.Point(0, 200);
+            this.Mod_btn.Name = "Mod_btn";
+            this.Mod_btn.Size = new System.Drawing.Size(75, 23);
+            this.Mod_btn.TabIndex = 0;
+            this.Mod_btn.Text = "修改";
+            this.Mod_btn.Click += new System.EventHandler(this.Mod_btn_Click);
+            // 
+            // Del_btn
+            // 
+            this.Del_btn.Location = new System.Drawing.Point(0, 229);
+            this.Del_btn.Name = "Del_btn";
+            this.Del_btn.Size = new System.Drawing.Size(75, 23);
+            this.Del_btn.TabIndex = 1;
+            this.Del_btn.Text = "删除";
+            this.Del_btn.Click += new System.EventHandler(this.Del_btn_Click);
+            // 
+            // Add_btn
+            // 
+            this.Add_btn.Location = new System.Drawing.Point(0, 171);
+            this.Add_btn.Name = "Add_btn";
+            this.Add_btn.Size = new System.Drawing.Size(75, 23);
+            this.Add_btn.TabIndex = 4;
+            this.Add_btn.Text = "添加";
+            this.Add_btn.UseVisualStyleBackColor = true;
+            this.Add_btn.Click += new System.EventHandler(this.Add_btn_Click);
             // 
             // Certificatetype
             // 
@@ -114,61 +142,12 @@
             this.usertype.UseVisualStyleBackColor = true;
             this.usertype.Click += new System.EventHandler(this.usertype_Click);
             // 
-            // dataGridView1
+            // txtName
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 46);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(419, 218);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // Add_btn
-            // 
-            this.Add_btn.Location = new System.Drawing.Point(0, 171);
-            this.Add_btn.Name = "Add_btn";
-            this.Add_btn.Size = new System.Drawing.Size(75, 23);
-            this.Add_btn.TabIndex = 4;
-            this.Add_btn.Text = "添加";
-            this.Add_btn.UseVisualStyleBackColor = true;
-            this.Add_btn.Click += new System.EventHandler(this.Add_btn_Click);
-            // 
-            // Del_btn
-            // 
-            this.Del_btn.Location = new System.Drawing.Point(3, 200);
-            this.Del_btn.Name = "Del_btn";
-            this.Del_btn.Size = new System.Drawing.Size(75, 23);
-            this.Del_btn.TabIndex = 5;
-            this.Del_btn.Text = "删除";
-            this.Del_btn.UseVisualStyleBackColor = true;
-            this.Del_btn.Click += new System.EventHandler(this.Del_btn_Click);
-            // 
-            // Mod_btn
-            // 
-            this.Mod_btn.Location = new System.Drawing.Point(0, 229);
-            this.Mod_btn.Name = "Mod_btn";
-            this.Mod_btn.Size = new System.Drawing.Size(75, 23);
-            this.Mod_btn.TabIndex = 6;
-            this.Mod_btn.Text = "修改";
-            this.Mod_btn.UseVisualStyleBackColor = true;
-            this.Mod_btn.Click += new System.EventHandler(this.Mod_btn_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "代码编号";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(75, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 2;
+            this.txtName.Location = new System.Drawing.Point(279, 12);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 21);
+            this.txtName.TabIndex = 4;
             // 
             // label2
             // 
@@ -179,12 +158,32 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "代码名称";
             // 
-            // textBox2
+            // txtID
             // 
-            this.textBox2.Location = new System.Drawing.Point(279, 12);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 4;
+            this.txtID.Location = new System.Drawing.Point(75, 12);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(100, 21);
+            this.txtID.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "代码编号";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 46);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(422, 218);
+            this.dataGridView1.TabIndex = 0;
             // 
             // CodeLibrary
             // 
@@ -193,6 +192,7 @@
             this.ClientSize = new System.Drawing.Size(573, 264);
             this.Controls.Add(this.splitContainer1);
             this.Name = "CodeLibrary";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "代码库";
             this.Load += new System.EventHandler(this.CodeLibrary_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -215,9 +215,9 @@
         private System.Windows.Forms.Button Mod_btn;
         private System.Windows.Forms.Button Del_btn;
         private System.Windows.Forms.Button Add_btn;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label1;
     }
 }
