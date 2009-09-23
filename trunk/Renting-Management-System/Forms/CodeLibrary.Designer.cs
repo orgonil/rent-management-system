@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeLibrary));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.Mod_btn = new System.Windows.Forms.Button();
             this.Del_btn = new System.Windows.Forms.Button();
@@ -36,6 +38,18 @@
             this.Imagetype = new System.Windows.Forms.Button();
             this.customertype = new System.Windows.Forms.Button();
             this.usertype = new System.Windows.Forms.Button();
+            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -44,6 +58,8 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+            this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +71,9 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.Mod_btn);
+            this.splitContainer1.Panel1.Controls.Add(this.Del_btn);
+            this.splitContainer1.Panel1.Controls.Add(this.Add_btn);
             this.splitContainer1.Panel1.Controls.Add(this.Certificatetype);
             this.splitContainer1.Panel1.Controls.Add(this.Imagetype);
             this.splitContainer1.Panel1.Controls.Add(this.customertype);
@@ -62,58 +81,39 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.Del_btn);
-            this.splitContainer1.Panel2.Controls.Add(this.Mod_btn);
+            this.splitContainer1.Panel2.Controls.Add(this.bindingNavigator1);
             this.splitContainer1.Panel2.Controls.Add(this.txtName);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Panel2.Controls.Add(this.Add_btn);
             this.splitContainer1.Panel2.Controls.Add(this.txtID);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-<<<<<<< .mine
-            this.splitContainer1.Size = new System.Drawing.Size(573, 286);
+            this.splitContainer1.Size = new System.Drawing.Size(573, 264);
             this.splitContainer1.SplitterDistance = 147;
-=======
-            this.splitContainer1.Size = new System.Drawing.Size(469, 264);
-            this.splitContainer1.SplitterDistance = 92;
->>>>>>> .r63
             this.splitContainer1.TabIndex = 0;
             // 
             // Mod_btn
             // 
-<<<<<<< .mine
-            this.Mod_btn.Location = new System.Drawing.Point(10, 217);
-=======
-            this.Mod_btn.Location = new System.Drawing.Point(152, 53);
->>>>>>> .r63
+            this.Mod_btn.Location = new System.Drawing.Point(0, 200);
             this.Mod_btn.Name = "Mod_btn";
-            this.Mod_btn.Size = new System.Drawing.Size(75, 25);
+            this.Mod_btn.Size = new System.Drawing.Size(75, 23);
             this.Mod_btn.TabIndex = 0;
             this.Mod_btn.Text = "修改";
             this.Mod_btn.Click += new System.EventHandler(this.Mod_btn_Click);
             // 
             // Del_btn
             // 
-<<<<<<< .mine
-            this.Del_btn.Location = new System.Drawing.Point(10, 248);
-=======
-            this.Del_btn.Location = new System.Drawing.Point(279, 53);
->>>>>>> .r63
+            this.Del_btn.Location = new System.Drawing.Point(0, 229);
             this.Del_btn.Name = "Del_btn";
-            this.Del_btn.Size = new System.Drawing.Size(75, 25);
+            this.Del_btn.Size = new System.Drawing.Size(75, 23);
             this.Del_btn.TabIndex = 1;
             this.Del_btn.Text = "删除";
             this.Del_btn.Click += new System.EventHandler(this.Del_btn_Click);
             // 
             // Add_btn
             // 
-<<<<<<< .mine
-            this.Add_btn.Location = new System.Drawing.Point(10, 185);
-=======
-            this.Add_btn.Location = new System.Drawing.Point(18, 53);
->>>>>>> .r63
+            this.Add_btn.Location = new System.Drawing.Point(0, 171);
             this.Add_btn.Name = "Add_btn";
-            this.Add_btn.Size = new System.Drawing.Size(75, 25);
+            this.Add_btn.Size = new System.Drawing.Size(75, 23);
             this.Add_btn.TabIndex = 4;
             this.Add_btn.Text = "添加";
             this.Add_btn.UseVisualStyleBackColor = true;
@@ -121,13 +121,9 @@
             // 
             // Certificatetype
             // 
-<<<<<<< .mine
-            this.Certificatetype.Location = new System.Drawing.Point(9, 102);
-=======
-            this.Certificatetype.Location = new System.Drawing.Point(8, 90);
->>>>>>> .r63
+            this.Certificatetype.Location = new System.Drawing.Point(0, 90);
             this.Certificatetype.Name = "Certificatetype";
-            this.Certificatetype.Size = new System.Drawing.Size(75, 25);
+            this.Certificatetype.Size = new System.Drawing.Size(75, 23);
             this.Certificatetype.TabIndex = 3;
             this.Certificatetype.Text = "证件类代码库";
             this.Certificatetype.UseVisualStyleBackColor = true;
@@ -135,13 +131,9 @@
             // 
             // Imagetype
             // 
-<<<<<<< .mine
-            this.Imagetype.Location = new System.Drawing.Point(10, 70);
-=======
-            this.Imagetype.Location = new System.Drawing.Point(9, 61);
->>>>>>> .r63
+            this.Imagetype.Location = new System.Drawing.Point(0, 61);
             this.Imagetype.Name = "Imagetype";
-            this.Imagetype.Size = new System.Drawing.Size(75, 25);
+            this.Imagetype.Size = new System.Drawing.Size(75, 23);
             this.Imagetype.TabIndex = 2;
             this.Imagetype.Text = "影像类代码库";
             this.Imagetype.UseVisualStyleBackColor = true;
@@ -149,13 +141,9 @@
             // 
             // customertype
             // 
-<<<<<<< .mine
-            this.customertype.Location = new System.Drawing.Point(9, 39);
-=======
-            this.customertype.Location = new System.Drawing.Point(9, 32);
->>>>>>> .r63
+            this.customertype.Location = new System.Drawing.Point(0, 32);
             this.customertype.Name = "customertype";
-            this.customertype.Size = new System.Drawing.Size(75, 25);
+            this.customertype.Size = new System.Drawing.Size(75, 23);
             this.customertype.TabIndex = 1;
             this.customertype.Text = "客户类代码库";
             this.customertype.UseVisualStyleBackColor = true;
@@ -163,19 +151,14 @@
             // 
             // usertype
             // 
-<<<<<<< .mine
-            this.usertype.Location = new System.Drawing.Point(10, 7);
-=======
-            this.usertype.Location = new System.Drawing.Point(9, 3);
->>>>>>> .r63
+            this.usertype.Location = new System.Drawing.Point(3, 3);
             this.usertype.Name = "usertype";
-            this.usertype.Size = new System.Drawing.Size(75, 25);
+            this.usertype.Size = new System.Drawing.Size(75, 23);
             this.usertype.TabIndex = 0;
             this.usertype.Text = "用户类代码库";
             this.usertype.UseVisualStyleBackColor = true;
             this.usertype.Click += new System.EventHandler(this.usertype_Click);
             // 
-<<<<<<< .mine
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
@@ -194,7 +177,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 41);
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 36);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -217,7 +200,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem.Text = "/ {0}";
             this.bindingNavigatorCountItem.ToolTipText = "总项数";
             // 
@@ -290,37 +273,35 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-=======
->>>>>>> .r63
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(279, 13);
+            this.txtName.Location = new System.Drawing.Point(279, 12);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.Size = new System.Drawing.Size(100, 21);
             this.txtName.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(210, 16);
+            this.label2.Location = new System.Drawing.Point(210, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 3;
             this.label2.Text = "代码名称";
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(75, 13);
+            this.txtID.Location = new System.Drawing.Point(75, 12);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 20);
+            this.txtID.Size = new System.Drawing.Size(100, 21);
             this.txtID.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 16);
+            this.label1.Location = new System.Drawing.Point(16, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "代码编号";
             // 
@@ -329,32 +310,18 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-<<<<<<< .mine
-            this.dataGridView1.Location = new System.Drawing.Point(0, 66);
-=======
-            this.dataGridView1.Location = new System.Drawing.Point(0, 82);
->>>>>>> .r63
+            this.dataGridView1.Location = new System.Drawing.Point(0, 61);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-<<<<<<< .mine
-            this.dataGridView1.Size = new System.Drawing.Size(422, 220);
-=======
-            this.dataGridView1.Size = new System.Drawing.Size(373, 182);
->>>>>>> .r63
+            this.dataGridView1.Size = new System.Drawing.Size(422, 203);
             this.dataGridView1.TabIndex = 0;
             // 
             // CodeLibrary
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< .mine
-            this.ClientSize = new System.Drawing.Size(573, 286);
-=======
-            this.ClientSize = new System.Drawing.Size(469, 264);
->>>>>>> .r63
+            this.ClientSize = new System.Drawing.Size(573, 264);
             this.Controls.Add(this.splitContainer1);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "CodeLibrary";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "代码库";
@@ -363,6 +330,9 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
+            this.bindingNavigator1.ResumeLayout(false);
+            this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -383,5 +353,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingNavigator bindingNavigator1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
     }
 }
