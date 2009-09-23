@@ -55,7 +55,8 @@ namespace Renting_Management_System.Forms
 
         private void 添加用户ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            AddingUserForm form = new AddingUserForm();
+            form.ShowDialog();
         }
 
         private void 所有用户ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,10 +96,19 @@ namespace Renting_Management_System.Forms
                 tableUpdate.Update(ds);
             }
         }
+<<<<<<< .mine
+
+        private void 查找ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckingUserForm form = new CheckingUserForm();
+            form.ShowDialog();
+        }
+=======
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
 
         }
+>>>>>>> .r63
     }
 }
