@@ -134,6 +134,8 @@
             // 
             this.textBox_UserPassword02.Location = new System.Drawing.Point(395, 71);
             this.textBox_UserPassword02.Name = "textBox_UserPassword02";
+            this.textBox_UserPassword02.PasswordChar = '*';
+            this.textBox_UserPassword02.ReadOnly = true;
             this.textBox_UserPassword02.Size = new System.Drawing.Size(174, 20);
             this.textBox_UserPassword02.TabIndex = 17;
             // 
@@ -141,6 +143,8 @@
             // 
             this.textBox_UserPassword01.Location = new System.Drawing.Point(101, 71);
             this.textBox_UserPassword01.Name = "textBox_UserPassword01";
+            this.textBox_UserPassword01.PasswordChar = '*';
+            this.textBox_UserPassword01.ReadOnly = true;
             this.textBox_UserPassword01.Size = new System.Drawing.Size(174, 20);
             this.textBox_UserPassword01.TabIndex = 16;
             // 
@@ -150,6 +154,7 @@
             this.textBox_UserName.Name = "textBox_UserName";
             this.textBox_UserName.Size = new System.Drawing.Size(174, 20);
             this.textBox_UserName.TabIndex = 15;
+            this.textBox_UserName.TextChanged += new System.EventHandler(this.CheckingUserForm_Load);
             // 
             // textBox_UserID
             // 
@@ -157,6 +162,7 @@
             this.textBox_UserID.Name = "textBox_UserID";
             this.textBox_UserID.Size = new System.Drawing.Size(174, 20);
             this.textBox_UserID.TabIndex = 14;
+            this.textBox_UserID.TextChanged += new System.EventHandler(this.CheckingUserForm_Load);
             // 
             // label13
             // 
@@ -223,6 +229,7 @@
             // 
             // button_Delete
             // 
+            this.button_Delete.Enabled = false;
             this.button_Delete.Location = new System.Drawing.Point(403, 370);
             this.button_Delete.Name = "button_Delete";
             this.button_Delete.Size = new System.Drawing.Size(75, 23);
@@ -232,6 +239,7 @@
             // 
             // button_Modify
             // 
+            this.button_Modify.Enabled = false;
             this.button_Modify.Location = new System.Drawing.Point(309, 370);
             this.button_Modify.Name = "button_Modify";
             this.button_Modify.Size = new System.Drawing.Size(75, 23);
@@ -241,12 +249,14 @@
             // 
             // button_Check
             // 
+            this.button_Check.Enabled = false;
             this.button_Check.Location = new System.Drawing.Point(210, 370);
             this.button_Check.Name = "button_Check";
             this.button_Check.Size = new System.Drawing.Size(75, 23);
             this.button_Check.TabIndex = 11;
             this.button_Check.Text = "查找";
             this.button_Check.UseVisualStyleBackColor = true;
+            this.button_Check.Click += new System.EventHandler(this.button_Check_Click);
             // 
             // groupBox2
             // 
@@ -418,6 +428,7 @@
             this.MinimizeBox = false;
             this.Name = "CheckingUserForm";
             this.Text = "查找用户";
+            this.Load += new System.EventHandler(this.CheckingUserForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
