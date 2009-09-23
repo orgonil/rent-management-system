@@ -67,6 +67,7 @@
             // 
             // button_Add
             // 
+            this.button_Add.Enabled = false;
             this.button_Add.Location = new System.Drawing.Point(403, 363);
             this.button_Add.Name = "button_Add";
             this.button_Add.Size = new System.Drawing.Size(75, 23);
@@ -177,6 +178,7 @@
             this.textBox_UserID.Name = "textBox_UserID";
             this.textBox_UserID.Size = new System.Drawing.Size(174, 20);
             this.textBox_UserID.TabIndex = 14;
+            this.textBox_UserID.TextChanged += new System.EventHandler(this.AddingUserForm_Load);
             // 
             // label13
             // 
@@ -401,6 +403,7 @@
             this.MinimizeBox = false;
             this.Name = "AddingUserForm";
             this.Text = "添加用户";
+            this.Load += new System.EventHandler(this.AddingUserForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
