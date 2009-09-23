@@ -10,7 +10,7 @@ namespace Renting_Management_System.DAL
 {
     class DBConnection
     {
-        private string stringConnection = @"Data Source=\\SQLEXPRESS;AttachDbFilename=F:\12\Renting-Management-System\DataBase\Rent-Management-System.mdf;Integrated Security=True;Connect Timeout=30;User Instance=True";
+        private string stringConnection = @"Data Source=RINROTA-PC\RINROTA;AttachDbFilename=D:\My Project\Renting-Management-System\DataBase\Rent-Management-System.mdf;Integrated Security=True";
         private SqlConnection conn;
         private SqlCommand com;
         public DBConnection()
