@@ -25,7 +25,10 @@ namespace Renting_Management_System.Forms
         Renting_Management_System.Models.ImageTypeMod imageTypeMod;
         public CodeLibrary()
         {
+<<<<<<< .mine
+=======
 
+>>>>>>> .r63
             InitializeComponent();
         }
 
@@ -250,7 +253,10 @@ namespace Renting_Management_System.Forms
 
         }
 
+<<<<<<< .mine
+=======
 
+>>>>>>> .r63
 
 
         private void Del_btn_Click(object sender, EventArgs e)
