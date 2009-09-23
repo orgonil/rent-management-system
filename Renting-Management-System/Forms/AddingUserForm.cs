@@ -93,6 +93,23 @@ namespace Renting_Management_System.Forms
                 if (userDAL.AddData(userMod))
                 {
                     MessageBox.Show("添加用户成功！", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    textBox_UserID.Clear();
+                    textBox_UserName.Clear();
+                    textBox_UserPassword01.Clear();
+                    textBox_UserPassword02.Clear();
+                    textBox_UserDescription.Clear();
+                    textBox_UserAddress.Clear();
+                    textBox_Contact.Clear();
+                    textBox_CertificateNumber.Clear();
+                    comboBox_CertificateType.SelectedIndex = -1;
+                    comboBox_UserType.SelectedIndex = -1;
+                    dateTimePicker_BirthDate.Value = DateTimePicker.MinimumDateTime;
+                    radioButton_DenyNo.Checked = false;
+                    radioButton_DenyYes.Checked = false;
+                    radioButton_SexBoy.Checked = false;
+                    radioButton_SexGirl.Checked = false;
+                    button_Add.Enabled = false;
                     return;
                 }
                 else

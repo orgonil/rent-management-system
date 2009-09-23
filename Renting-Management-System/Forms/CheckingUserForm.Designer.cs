@@ -43,8 +43,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button_Cancel = new System.Windows.Forms.Button();
-            this.button_Delete = new System.Windows.Forms.Button();
             this.button_Modify = new System.Windows.Forms.Button();
             this.button_Check = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -63,6 +61,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button_Cencel = new System.Windows.Forms.Button();
+            this.button_Delete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -218,39 +218,21 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "用户编号：";
             // 
-            // button_Cancel
-            // 
-            this.button_Cancel.Location = new System.Drawing.Point(494, 370);
-            this.button_Cancel.Name = "button_Cancel";
-            this.button_Cancel.Size = new System.Drawing.Size(75, 23);
-            this.button_Cancel.TabIndex = 7;
-            this.button_Cancel.Text = "取消";
-            this.button_Cancel.UseVisualStyleBackColor = true;
-            // 
-            // button_Delete
-            // 
-            this.button_Delete.Enabled = false;
-            this.button_Delete.Location = new System.Drawing.Point(403, 370);
-            this.button_Delete.Name = "button_Delete";
-            this.button_Delete.Size = new System.Drawing.Size(75, 23);
-            this.button_Delete.TabIndex = 6;
-            this.button_Delete.Text = "删除";
-            this.button_Delete.UseVisualStyleBackColor = true;
-            // 
             // button_Modify
             // 
             this.button_Modify.Enabled = false;
-            this.button_Modify.Location = new System.Drawing.Point(309, 370);
+            this.button_Modify.Location = new System.Drawing.Point(299, 365);
             this.button_Modify.Name = "button_Modify";
             this.button_Modify.Size = new System.Drawing.Size(75, 23);
             this.button_Modify.TabIndex = 10;
             this.button_Modify.Text = "修改";
             this.button_Modify.UseVisualStyleBackColor = true;
+            this.button_Modify.Click += new System.EventHandler(this.button_Modify_Click);
             // 
             // button_Check
             // 
             this.button_Check.Enabled = false;
-            this.button_Check.Location = new System.Drawing.Point(210, 370);
+            this.button_Check.Location = new System.Drawing.Point(200, 365);
             this.button_Check.Name = "button_Check";
             this.button_Check.Size = new System.Drawing.Size(75, 23);
             this.button_Check.TabIndex = 11;
@@ -412,17 +394,38 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "性别：";
             // 
+            // button_Cencel
+            // 
+            this.button_Cencel.Location = new System.Drawing.Point(494, 365);
+            this.button_Cencel.Name = "button_Cencel";
+            this.button_Cencel.Size = new System.Drawing.Size(75, 23);
+            this.button_Cencel.TabIndex = 13;
+            this.button_Cencel.Text = "取消";
+            this.button_Cencel.UseVisualStyleBackColor = true;
+            this.button_Cencel.Click += new System.EventHandler(this.button_Cencel_Click);
+            // 
+            // button_Delete
+            // 
+            this.button_Delete.Enabled = false;
+            this.button_Delete.Location = new System.Drawing.Point(399, 365);
+            this.button_Delete.Name = "button_Delete";
+            this.button_Delete.Size = new System.Drawing.Size(75, 23);
+            this.button_Delete.TabIndex = 14;
+            this.button_Delete.Text = "删除";
+            this.button_Delete.UseVisualStyleBackColor = true;
+            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
+            // 
             // CheckingUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 400);
+            this.ClientSize = new System.Drawing.Size(594, 401);
+            this.Controls.Add(this.button_Delete);
+            this.Controls.Add(this.button_Cencel);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button_Check);
             this.Controls.Add(this.button_Modify);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button_Cancel);
-            this.Controls.Add(this.button_Delete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -454,8 +457,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button_Cancel;
-        private System.Windows.Forms.Button button_Delete;
         private System.Windows.Forms.Button button_Modify;
         private System.Windows.Forms.Button button_Check;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -474,5 +475,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button_Cencel;
+        private System.Windows.Forms.Button button_Delete;
     }
 }
