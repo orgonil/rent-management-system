@@ -19,12 +19,13 @@ namespace Renting_Management_System.Forms
         public CounterForm()
         {
             InitializeComponent();
+
             loginForm = new LoginForm();
             userDAL = new Renting_Management_System.DAL.UserDAL();
             userTypeDAL = new Renting_Management_System.DAL.UserTypeDAL();
             _user = new Renting_Management_System.Models.UserMod();
             _userType = new Renting_Management_System.Models.UserTypeMod();
-            _user = userDAL.SelectByID(loginForm.UserIDtextBox.Text);
+            _user = userDAL.SelectByID(loginForm.UserIDtextBox.Text.Trim());
             _userType = userTypeDAL.SelectData(_user.UserTypeCode);
             toolStripStatusLabel_UserName.Text = _user.UserName;
             toolStripStatusLabel_UserType.Text = _userType.UserTypeName;
@@ -50,6 +51,16 @@ namespace Renting_Management_System.Forms
         private void timer1_Tick(object sender, EventArgs e)
         {
             toolStripStatusLabel_Time.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

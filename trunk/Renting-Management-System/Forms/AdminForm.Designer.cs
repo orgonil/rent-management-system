@@ -66,11 +66,13 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -81,9 +83,10 @@
             this.客户操作ToolStripMenuItem,
             this.代码库操作ToolStripMenuItem,
             this.帮助HToolStripMenuItem});
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(793, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(896, 23);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,7 +97,7 @@
             this.toolStripMenuItem1,
             this.退出XToolStripMenuItem});
             this.文件FToolStripMenuItem.Name = "文件FToolStripMenuItem";
-            this.文件FToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.文件FToolStripMenuItem.Size = new System.Drawing.Size(57, 19);
             this.文件FToolStripMenuItem.Text = "文件(&F)";
             // 
             // 注销LToolStripMenuItem
@@ -123,49 +126,49 @@
             this.添加用户ToolStripMenuItem,
             this.所有用户ToolStripMenuItem});
             this.用户操作ToolStripMenuItem.Name = "用户操作ToolStripMenuItem";
-            this.用户操作ToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.用户操作ToolStripMenuItem.Size = new System.Drawing.Size(59, 19);
             this.用户操作ToolStripMenuItem.Text = "用户(&U)";
             this.用户操作ToolStripMenuItem.Click += new System.EventHandler(this.用户操作ToolStripMenuItem_Click);
             // 
             // 查找ToolStripMenuItem
             // 
             this.查找ToolStripMenuItem.Name = "查找ToolStripMenuItem";
-            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.查找ToolStripMenuItem.Text = "查找用户";
             this.查找ToolStripMenuItem.Click += new System.EventHandler(this.查找ToolStripMenuItem_Click);
             // 
             // 添加用户ToolStripMenuItem
             // 
             this.添加用户ToolStripMenuItem.Name = "添加用户ToolStripMenuItem";
-            this.添加用户ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.添加用户ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.添加用户ToolStripMenuItem.Text = "添加用户";
             this.添加用户ToolStripMenuItem.Click += new System.EventHandler(this.添加用户ToolStripMenuItem_Click);
             // 
             // 所有用户ToolStripMenuItem
             // 
             this.所有用户ToolStripMenuItem.Name = "所有用户ToolStripMenuItem";
-            this.所有用户ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.所有用户ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.所有用户ToolStripMenuItem.Text = "所有用户";
             this.所有用户ToolStripMenuItem.Click += new System.EventHandler(this.所有用户ToolStripMenuItem_Click);
             // 
             // 客户操作ToolStripMenuItem
             // 
             this.客户操作ToolStripMenuItem.Name = "客户操作ToolStripMenuItem";
-            this.客户操作ToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.客户操作ToolStripMenuItem.Size = new System.Drawing.Size(59, 19);
             this.客户操作ToolStripMenuItem.Text = "客户(&C)";
             this.客户操作ToolStripMenuItem.Click += new System.EventHandler(this.客户操作ToolStripMenuItem_Click);
             // 
             // 代码库操作ToolStripMenuItem
             // 
             this.代码库操作ToolStripMenuItem.Name = "代码库操作ToolStripMenuItem";
-            this.代码库操作ToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.代码库操作ToolStripMenuItem.Size = new System.Drawing.Size(69, 19);
             this.代码库操作ToolStripMenuItem.Text = "代码库(&S)";
             this.代码库操作ToolStripMenuItem.Click += new System.EventHandler(this.代码库操作ToolStripMenuItem_Click);
             // 
             // 帮助HToolStripMenuItem
             // 
             this.帮助HToolStripMenuItem.Name = "帮助HToolStripMenuItem";
-            this.帮助HToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.帮助HToolStripMenuItem.Size = new System.Drawing.Size(60, 19);
             this.帮助HToolStripMenuItem.Text = "帮助(&H)";
             // 
             // statusStrip1
@@ -179,9 +182,9 @@
             this.toolStripStatusLabel_Date,
             this.toolStripStatusLabel5,
             this.toolStripStatusLabel_Time});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 266);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 434);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(793, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(896, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -245,10 +248,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 52);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(793, 214);
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(890, 367);
             this.dataGridView1.TabIndex = 2;
             // 
             // bindingNavigator1
@@ -269,14 +273,14 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.bindingNavigatorSaveItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 24);
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 23);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(793, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(896, 25);
             this.bindingNavigator1.TabIndex = 3;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -375,13 +379,24 @@
             this.bindingNavigatorSaveItem.Text = "toolStripButton1";
             this.bindingNavigatorSaveItem.Click += new System.EventHandler(this.bindingNavigatorSaveItem_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 48);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(896, 386);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 288);
+            this.ClientSize = new System.Drawing.Size(896, 456);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bindingNavigator1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -396,6 +411,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,5 +455,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton bindingNavigatorSaveItem;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
