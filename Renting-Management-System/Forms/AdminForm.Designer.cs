@@ -130,20 +130,21 @@
             // 查找ToolStripMenuItem
             // 
             this.查找ToolStripMenuItem.Name = "查找ToolStripMenuItem";
-            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.查找ToolStripMenuItem.Text = "查找与修改用户";
+            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.查找ToolStripMenuItem.Text = "查找用户";
+            this.查找ToolStripMenuItem.Click += new System.EventHandler(this.查找ToolStripMenuItem_Click);
             // 
             // 添加用户ToolStripMenuItem
             // 
             this.添加用户ToolStripMenuItem.Name = "添加用户ToolStripMenuItem";
-            this.添加用户ToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.添加用户ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.添加用户ToolStripMenuItem.Text = "添加用户";
             this.添加用户ToolStripMenuItem.Click += new System.EventHandler(this.添加用户ToolStripMenuItem_Click);
             // 
             // 所有用户ToolStripMenuItem
             // 
             this.所有用户ToolStripMenuItem.Name = "所有用户ToolStripMenuItem";
-            this.所有用户ToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.所有用户ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.所有用户ToolStripMenuItem.Text = "所有用户";
             this.所有用户ToolStripMenuItem.Click += new System.EventHandler(this.所有用户ToolStripMenuItem_Click);
             // 
@@ -244,10 +245,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 24);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 52);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(793, 242);
+            this.dataGridView1.Size = new System.Drawing.Size(793, 214);
             this.dataGridView1.TabIndex = 2;
             // 
             // bindingNavigator1
