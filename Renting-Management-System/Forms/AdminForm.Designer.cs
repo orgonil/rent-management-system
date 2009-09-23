@@ -130,20 +130,34 @@
             // 查找ToolStripMenuItem
             // 
             this.查找ToolStripMenuItem.Name = "查找ToolStripMenuItem";
+<<<<<<< .mine
+            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.查找ToolStripMenuItem.Text = "查找用户";
+            this.查找ToolStripMenuItem.Click += new System.EventHandler(this.查找ToolStripMenuItem_Click);
+=======
             this.查找ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.查找ToolStripMenuItem.Text = "查找与修改用户";
+>>>>>>> .r63
             // 
             // 添加用户ToolStripMenuItem
             // 
             this.添加用户ToolStripMenuItem.Name = "添加用户ToolStripMenuItem";
+<<<<<<< .mine
+            this.添加用户ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+=======
             this.添加用户ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+>>>>>>> .r63
             this.添加用户ToolStripMenuItem.Text = "添加用户";
             this.添加用户ToolStripMenuItem.Click += new System.EventHandler(this.添加用户ToolStripMenuItem_Click);
             // 
             // 所有用户ToolStripMenuItem
             // 
             this.所有用户ToolStripMenuItem.Name = "所有用户ToolStripMenuItem";
+<<<<<<< .mine
+            this.所有用户ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+=======
             this.所有用户ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+>>>>>>> .r63
             this.所有用户ToolStripMenuItem.Text = "所有用户";
             this.所有用户ToolStripMenuItem.Click += new System.EventHandler(this.所有用户ToolStripMenuItem_Click);
             // 
@@ -244,10 +258,15 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 24);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 52);
             this.dataGridView1.Name = "dataGridView1";
+<<<<<<< .mine
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(793, 214);
+=======
             this.dataGridView1.Size = new System.Drawing.Size(793, 220);
+>>>>>>> .r63
             this.dataGridView1.TabIndex = 2;
             // 
             // bindingNavigator1
@@ -276,7 +295,7 @@
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
             this.bindingNavigator1.Size = new System.Drawing.Size(793, 25);
-            this.bindingNavigator1.TabIndex = 3;
+            this.bindingNavigator1.TabIndex = 4;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
