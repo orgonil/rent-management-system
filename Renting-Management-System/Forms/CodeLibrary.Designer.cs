@@ -70,33 +70,50 @@
             this.splitContainer1.Panel2.Controls.Add(this.txtID);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+<<<<<<< .mine
+            this.splitContainer1.Size = new System.Drawing.Size(573, 286);
+            this.splitContainer1.SplitterDistance = 147;
+=======
             this.splitContainer1.Size = new System.Drawing.Size(469, 264);
             this.splitContainer1.SplitterDistance = 92;
+>>>>>>> .r63
             this.splitContainer1.TabIndex = 0;
             // 
             // Mod_btn
             // 
+<<<<<<< .mine
+            this.Mod_btn.Location = new System.Drawing.Point(10, 217);
+=======
             this.Mod_btn.Location = new System.Drawing.Point(152, 53);
+>>>>>>> .r63
             this.Mod_btn.Name = "Mod_btn";
-            this.Mod_btn.Size = new System.Drawing.Size(75, 23);
+            this.Mod_btn.Size = new System.Drawing.Size(75, 25);
             this.Mod_btn.TabIndex = 0;
             this.Mod_btn.Text = "修改";
             this.Mod_btn.Click += new System.EventHandler(this.Mod_btn_Click);
             // 
             // Del_btn
             // 
+<<<<<<< .mine
+            this.Del_btn.Location = new System.Drawing.Point(10, 248);
+=======
             this.Del_btn.Location = new System.Drawing.Point(279, 53);
+>>>>>>> .r63
             this.Del_btn.Name = "Del_btn";
-            this.Del_btn.Size = new System.Drawing.Size(75, 23);
+            this.Del_btn.Size = new System.Drawing.Size(75, 25);
             this.Del_btn.TabIndex = 1;
             this.Del_btn.Text = "删除";
             this.Del_btn.Click += new System.EventHandler(this.Del_btn_Click);
             // 
             // Add_btn
             // 
+<<<<<<< .mine
+            this.Add_btn.Location = new System.Drawing.Point(10, 185);
+=======
             this.Add_btn.Location = new System.Drawing.Point(18, 53);
+>>>>>>> .r63
             this.Add_btn.Name = "Add_btn";
-            this.Add_btn.Size = new System.Drawing.Size(75, 23);
+            this.Add_btn.Size = new System.Drawing.Size(75, 25);
             this.Add_btn.TabIndex = 4;
             this.Add_btn.Text = "添加";
             this.Add_btn.UseVisualStyleBackColor = true;
@@ -104,9 +121,13 @@
             // 
             // Certificatetype
             // 
+<<<<<<< .mine
+            this.Certificatetype.Location = new System.Drawing.Point(9, 102);
+=======
             this.Certificatetype.Location = new System.Drawing.Point(8, 90);
+>>>>>>> .r63
             this.Certificatetype.Name = "Certificatetype";
-            this.Certificatetype.Size = new System.Drawing.Size(75, 23);
+            this.Certificatetype.Size = new System.Drawing.Size(75, 25);
             this.Certificatetype.TabIndex = 3;
             this.Certificatetype.Text = "证件类代码库";
             this.Certificatetype.UseVisualStyleBackColor = true;
@@ -114,9 +135,13 @@
             // 
             // Imagetype
             // 
+<<<<<<< .mine
+            this.Imagetype.Location = new System.Drawing.Point(10, 70);
+=======
             this.Imagetype.Location = new System.Drawing.Point(9, 61);
+>>>>>>> .r63
             this.Imagetype.Name = "Imagetype";
-            this.Imagetype.Size = new System.Drawing.Size(75, 23);
+            this.Imagetype.Size = new System.Drawing.Size(75, 25);
             this.Imagetype.TabIndex = 2;
             this.Imagetype.Text = "影像类代码库";
             this.Imagetype.UseVisualStyleBackColor = true;
@@ -124,9 +149,13 @@
             // 
             // customertype
             // 
+<<<<<<< .mine
+            this.customertype.Location = new System.Drawing.Point(9, 39);
+=======
             this.customertype.Location = new System.Drawing.Point(9, 32);
+>>>>>>> .r63
             this.customertype.Name = "customertype";
-            this.customertype.Size = new System.Drawing.Size(75, 23);
+            this.customertype.Size = new System.Drawing.Size(75, 25);
             this.customertype.TabIndex = 1;
             this.customertype.Text = "客户类代码库";
             this.customertype.UseVisualStyleBackColor = true;
@@ -134,43 +163,164 @@
             // 
             // usertype
             // 
+<<<<<<< .mine
+            this.usertype.Location = new System.Drawing.Point(10, 7);
+=======
             this.usertype.Location = new System.Drawing.Point(9, 3);
+>>>>>>> .r63
             this.usertype.Name = "usertype";
-            this.usertype.Size = new System.Drawing.Size(75, 23);
+            this.usertype.Size = new System.Drawing.Size(75, 25);
             this.usertype.TabIndex = 0;
             this.usertype.Text = "用户类代码库";
             this.usertype.UseVisualStyleBackColor = true;
             this.usertype.Click += new System.EventHandler(this.usertype_Click);
             // 
+<<<<<<< .mine
+            // bindingNavigator1
+            // 
+            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
+            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem});
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 41);
+            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.bindingNavigator1.Name = "bindingNavigator1";
+            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
+            this.bindingNavigator1.Size = new System.Drawing.Size(422, 25);
+            this.bindingNavigator1.TabIndex = 5;
+            this.bindingNavigator1.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "新添";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorCountItem.Text = "/ {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "总项数";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "删除";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "移到第一条记录";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "移到上一条记录";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "位置";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "当前位置";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Text = "移到下一条记录";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Text = "移到最后一条记录";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+=======
+>>>>>>> .r63
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(279, 12);
+            this.txtName.Location = new System.Drawing.Point(279, 13);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 21);
+            this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(210, 15);
+            this.label2.Location = new System.Drawing.Point(210, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "代码名称";
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(75, 12);
+            this.txtID.Location = new System.Drawing.Point(75, 13);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 21);
+            this.txtID.Size = new System.Drawing.Size(100, 20);
             this.txtID.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 15);
+            this.label1.Location = new System.Drawing.Point(16, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "代码编号";
             // 
@@ -179,17 +329,29 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+<<<<<<< .mine
+            this.dataGridView1.Location = new System.Drawing.Point(0, 66);
+=======
             this.dataGridView1.Location = new System.Drawing.Point(0, 82);
+>>>>>>> .r63
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
+<<<<<<< .mine
+            this.dataGridView1.Size = new System.Drawing.Size(422, 220);
+=======
             this.dataGridView1.Size = new System.Drawing.Size(373, 182);
+>>>>>>> .r63
             this.dataGridView1.TabIndex = 0;
             // 
             // CodeLibrary
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< .mine
+            this.ClientSize = new System.Drawing.Size(573, 286);
+=======
             this.ClientSize = new System.Drawing.Size(469, 264);
+>>>>>>> .r63
             this.Controls.Add(this.splitContainer1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
