@@ -94,25 +94,25 @@
             this.toolStripMenuItem1,
             this.退出XToolStripMenuItem});
             this.文件FToolStripMenuItem.Name = "文件FToolStripMenuItem";
-            this.文件FToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.文件FToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.文件FToolStripMenuItem.Text = "文件(&F)";
             // 
             // 注销LToolStripMenuItem
             // 
             this.注销LToolStripMenuItem.Name = "注销LToolStripMenuItem";
-            this.注销LToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.注销LToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.注销LToolStripMenuItem.Text = "注销(&L)";
             this.注销LToolStripMenuItem.Click += new System.EventHandler(this.注销LToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(109, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(110, 6);
             // 
             // 退出XToolStripMenuItem
             // 
             this.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem";
-            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.退出XToolStripMenuItem.Text = "退出(&X)";
             this.退出XToolStripMenuItem.Click += new System.EventHandler(this.退出XToolStripMenuItem_Click);
             // 
@@ -130,34 +130,20 @@
             // 查找ToolStripMenuItem
             // 
             this.查找ToolStripMenuItem.Name = "查找ToolStripMenuItem";
-<<<<<<< .mine
-            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.查找ToolStripMenuItem.Text = "查找用户";
-            this.查找ToolStripMenuItem.Click += new System.EventHandler(this.查找ToolStripMenuItem_Click);
-=======
-            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.查找ToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.查找ToolStripMenuItem.Text = "查找与修改用户";
->>>>>>> .r63
             // 
             // 添加用户ToolStripMenuItem
             // 
             this.添加用户ToolStripMenuItem.Name = "添加用户ToolStripMenuItem";
-<<<<<<< .mine
-            this.添加用户ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-=======
-            this.添加用户ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
->>>>>>> .r63
+            this.添加用户ToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.添加用户ToolStripMenuItem.Text = "添加用户";
             this.添加用户ToolStripMenuItem.Click += new System.EventHandler(this.添加用户ToolStripMenuItem_Click);
             // 
             // 所有用户ToolStripMenuItem
             // 
             this.所有用户ToolStripMenuItem.Name = "所有用户ToolStripMenuItem";
-<<<<<<< .mine
-            this.所有用户ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-=======
-            this.所有用户ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
->>>>>>> .r63
+            this.所有用户ToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.所有用户ToolStripMenuItem.Text = "所有用户";
             this.所有用户ToolStripMenuItem.Click += new System.EventHandler(this.所有用户ToolStripMenuItem_Click);
             // 
@@ -171,14 +157,14 @@
             // 代码库操作ToolStripMenuItem
             // 
             this.代码库操作ToolStripMenuItem.Name = "代码库操作ToolStripMenuItem";
-            this.代码库操作ToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.代码库操作ToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.代码库操作ToolStripMenuItem.Text = "代码库(&S)";
             this.代码库操作ToolStripMenuItem.Click += new System.EventHandler(this.代码库操作ToolStripMenuItem_Click);
             // 
             // 帮助HToolStripMenuItem
             // 
             this.帮助HToolStripMenuItem.Name = "帮助HToolStripMenuItem";
-            this.帮助HToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.帮助HToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.帮助HToolStripMenuItem.Text = "帮助(&H)";
             // 
             // statusStrip1
@@ -192,7 +178,7 @@
             this.toolStripStatusLabel_Date,
             this.toolStripStatusLabel5,
             this.toolStripStatusLabel_Time});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 244);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 266);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(793, 22);
             this.statusStrip1.TabIndex = 1;
@@ -201,7 +187,7 @@
             // toolStripStatusLabe1
             // 
             this.toolStripStatusLabe1.Name = "toolStripStatusLabe1";
-            this.toolStripStatusLabe1.Size = new System.Drawing.Size(53, 17);
+            this.toolStripStatusLabe1.Size = new System.Drawing.Size(55, 17);
             this.toolStripStatusLabe1.Text = "用户名：";
             // 
             // toolStripStatusLabel_UserName
@@ -214,7 +200,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(65, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(67, 17);
             this.toolStripStatusLabel1.Text = "用户类型：";
             // 
             // toolStripStatusLabel_UserType
@@ -227,7 +213,7 @@
             // toolStripStatusLabel4
             // 
             this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(41, 17);
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(43, 17);
             this.toolStripStatusLabel4.Text = "日期：";
             // 
             // toolStripStatusLabel_Date
@@ -240,7 +226,7 @@
             // toolStripStatusLabel5
             // 
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(41, 17);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(43, 17);
             this.toolStripStatusLabel5.Text = "时间：";
             // 
             // toolStripStatusLabel_Time
@@ -258,15 +244,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 52);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 24);
             this.dataGridView1.Name = "dataGridView1";
-<<<<<<< .mine
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(793, 214);
-=======
-            this.dataGridView1.Size = new System.Drawing.Size(793, 220);
->>>>>>> .r63
+            this.dataGridView1.Size = new System.Drawing.Size(793, 242);
             this.dataGridView1.TabIndex = 2;
             // 
             // bindingNavigator1
@@ -295,7 +276,7 @@
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
             this.bindingNavigator1.Size = new System.Drawing.Size(793, 25);
-            this.bindingNavigator1.TabIndex = 4;
+            this.bindingNavigator1.TabIndex = 3;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
@@ -310,7 +291,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(29, 22);
             this.bindingNavigatorCountItem.Text = "/ {0}";
             this.bindingNavigatorCountItem.ToolTipText = "总项数";
             // 
@@ -395,9 +376,9 @@
             // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 266);
+            this.ClientSize = new System.Drawing.Size(793, 288);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.statusStrip1);
@@ -405,7 +386,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AdminForm";
             this.Text = "AdminForm";
-            this.Load += new System.EventHandler(this.AdminForm_Load);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
