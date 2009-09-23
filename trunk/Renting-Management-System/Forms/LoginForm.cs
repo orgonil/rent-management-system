@@ -22,8 +22,8 @@ namespace Renting_Management_System
             DataSet ds = new DataSet();
             ds = _userType.GetAll();
             UserTypecomboBox.DataSource = ds.Tables[0];
-            UserTypecomboBox.DisplayMember = ds.Tables[0].Columns[1].ToString().Trim();
-            UserTypecomboBox.ValueMember = ds.Tables[0].Columns[0].ToString().Trim();
+            UserTypecomboBox.DisplayMember = ds.Tables[0].Columns[1].ColumnName;
+            UserTypecomboBox.ValueMember = ds.Tables[0].Columns[0].ColumnName;
             UserTypecomboBox.SelectedValue = "";
         }
 
