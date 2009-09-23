@@ -12,14 +12,10 @@ namespace Renting_Management_System.Forms
     public partial class AddingUserForm : Form
     {
         DataSet ds;
-        //Renting_Management_System.DAL.DBConnection da;
-        Renting_Management_System.BLL.TableUpdate tableUpdate;
         Renting_Management_System.DAL.UserDAL userDAL;
         Renting_Management_System.DAL.UserTypeDAL userTypeDAL;
         Renting_Management_System.DAL.CertificateTypeDAL certificateTypeDAL;
         Renting_Management_System.Models.UserMod userMod;
-        Renting_Management_System.Models.UserTypeMod userTypeMod;
-        Renting_Management_System.Models.CertificateTypeMod certificateTypeMod;
         DialogResult dialogResult;
 
         public AddingUserForm()
@@ -45,16 +41,21 @@ namespace Renting_Management_System.Forms
 
         private void button_Add_Click(object sender, EventArgs e)
         {
-            if (textBox_UserID.Text == "" || textBox_UserName.Text == "" || textBox_UserPassword01.Text == "" || textBox_UserPassword02.Text == "" || textBox_UserPassword01.Text != textBox_UserPassword02.Text)
+            if (textBox_UserID.Text == "" || textBox_UserName.Text == "" || textBox_UserPassword01.Text == "" || textBox_UserPassword02.Text == "")
             {
                 MessageBox.Show("用户登录信息区有些不能为空！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (textBox_UserPassword01.Text != textBox_UserPassword02.Text)
+            {
+                MessageBox.Show("再次输入密码不正确，请重试！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
             {
                 userDAL = new Renting_Management_System.DAL.UserDAL();
                 userMod = new Renting_Management_System.Models.UserMod();
-                
+
                 userMod.UserID = textBox_UserID.Text.Trim();
                 userMod.UserName = textBox_UserName.Text.Trim();
                 userMod.UserPassword = textBox_UserPassword01.Text.Trim();
@@ -113,8 +114,15 @@ namespace Renting_Management_System.Forms
                     break;
                 case DialogResult.No:
                     return;
-                    break;
             }
+        }
+
+        private void AddingUserForm_Load(object sender, EventArgs e)
+        {
+            if (textBox_UserID.Text != "")
+                button_Add.Enabled = true;
+            else
+                button_Add.Enabled = false;
         }
     }
 }
