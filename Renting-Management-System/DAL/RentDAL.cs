@@ -137,14 +137,14 @@ namespace Renting_Management_System.DAL
             if (rent == null)
             {
                 StringBuilder insertStr = new StringBuilder();
-                insertStr.Append("Insert Into ]Rent](影像编号,客户编号,用户编号,出租数量,出租日期,归还日期,出租押金,归还状态,描述)");
+                insertStr.Append("Insert Into [Rent](影像编号,客户编号,用户编号,出租数量,出租日期,归还日期,出租押金,归还状态,描述)");
                 insertStr.Append("Values ('");
                 insertStr.Append(_rent.ImageID + "','");
                 insertStr.Append(_rent.CustomerID + "','");
                 insertStr.Append(_rent.UserID + "',");
-                insertStr.Append(_rent.QuantityOfRent + ",");
-                insertStr.Append(_rent.RentDate.ToShortDateString() + ",");
-                insertStr.Append(_rent.ReturnDate.ToShortDateString() + ",");
+                insertStr.Append(_rent.QuantityOfRent + ",'");
+                insertStr.Append(_rent.RentDate.ToShortDateString() + "','");
+                insertStr.Append(_rent.ReturnDate.ToShortDateString() + "',");
                 insertStr.Append(_rent.Deposit + ",'");
                 insertStr.Append(_rent.ReturnState + "','");
                 insertStr.Append(_rent.Description + "'");
@@ -176,11 +176,11 @@ namespace Renting_Management_System.DAL
                 updateStr.Append(_rent.UserID);
                 updateStr.Append("',出租数量 = ");
                 updateStr.Append(_rent.QuantityOfRent);
-                updateStr.Append(",出租日期 = ");
+                updateStr.Append(",出租日期 = '");
                 updateStr.Append(_rent.RentDate.ToShortDateString());
-                updateStr.Append(",归还日期 = ");
+                updateStr.Append("',归还日期 = '");
                 updateStr.Append(_rent.ReturnDate.ToShortDateString());
-                updateStr.Append(",出租押金 = ");
+                updateStr.Append("',出租押金 = ");
                 updateStr.Append(_rent.Deposit);
                 updateStr.Append(",归还状态 = '");
                 updateStr.Append(_rent.ReturnState);

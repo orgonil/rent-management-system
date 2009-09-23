@@ -137,8 +137,8 @@ namespace Renting_Management_System.DAL
                 insertStr.Append(_customer.CustomerID + "','");
                 insertStr.Append(_customer.CustomerTypeCode + "','");
                 insertStr.Append(_customer.CustomerName + "','");
-                insertStr.Append(_customer.Sex + "',");
-                insertStr.Append(_customer.BirthDate.ToShortDateString() + ",'");
+                insertStr.Append(_customer.Sex + "','");
+                insertStr.Append(_customer.BirthDate.ToShortDateString() + "','");
                 insertStr.Append(_customer.CertificateTypeCode + "','");
                 insertStr.Append(_customer.CertificateNumber + "','");
                 insertStr.Append(_customer.CustomerAddress + "','");
@@ -175,9 +175,9 @@ namespace Renting_Management_System.DAL
                 updateStr.Append(_customer.CustomerName + "'");
                 updateStr.Append(",性别 = '");
                 updateStr.Append(_customer.Sex + "'");
-                updateStr.Append(",出生日期 = ");
+                updateStr.Append(",出生日期 = '");
                 updateStr.Append(_customer.BirthDate.ToShortDateString());
-                updateStr.Append(",证件类代码 = '");
+                updateStr.Append("',证件类代码 = '");
                 updateStr.Append(_customer.CertificateTypeCode + "'");
                 updateStr.Append(",证件号码 = '");
                 updateStr.Append(_customer.CertificateNumber + "'");

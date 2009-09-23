@@ -147,11 +147,11 @@ namespace Renting_Management_System.DAL
                 StringBuilder insertStr = new StringBuilder();
                 insertStr.Append("Insert Into [User] ");
                 insertStr.Append("(用户编号,用户名称,性别,出生日期,用户密码,用户类代码,证件类代码,证件号码,联系方式,用户地址,用户描述,用户拒绝)");
-                insertStr.Append("Values ('");
+                insertStr.Append(" Values ('");
                 insertStr.Append(_user.UserID + "','");
                 insertStr.Append(_user.UserName + "','");
-                insertStr.Append(_user.Sex + "',");
-                insertStr.Append(_user.BirthDate.ToShortDateString() + ",'");
+                insertStr.Append(_user.Sex + "','");
+                insertStr.Append(_user.BirthDate.Date.ToShortDateString()+ "','");
                 insertStr.Append(_user.UserPassword + "','");
                 insertStr.Append(_user.UserTypeCode + "','");
                 insertStr.Append(_user.CertificateTypeCode + "','");
@@ -183,15 +183,15 @@ namespace Renting_Management_System.DAL
             else
             {
                 StringBuilder updateStr = new StringBuilder();
-                updateStr.Append("Update [User]");
-                updateStr.Append("Set");
+                updateStr.Append("Update [User] ");
+                updateStr.Append("Set ");
                 updateStr.Append("用户名称 = '");
                 updateStr.Append(_user.UserName + "'");
                 updateStr.Append(",性别 = '");
                 updateStr.Append(_user.Sex + "'");
-                updateStr.Append(",出生日期 = ");
+                updateStr.Append(",出生日期 = '");
                 updateStr.Append(_user.BirthDate.ToShortDateString());
-                updateStr.Append(",用户 密码 = '");
+                updateStr.Append("',用户密码 = '");
                 updateStr.Append(_user.UserPassword + "'");
                 updateStr.Append(",用户类代码 = '");
                 updateStr.Append(_user.UserTypeCode + "'");
@@ -220,18 +220,18 @@ namespace Renting_Management_System.DAL
         /// 返回 true 表示删除成功
         /// 返回 false 表示数据不存在
         /// </summary>
-        /// <param name="_user"></param>
+        /// <param name="_userID"></param>
         /// <returns></returns>
-        public bool DeleteData(Renting_Management_System.Models.UserMod _user)
+        public bool DeleteData(string _userID)
         {
             user = new Renting_Management_System.Models.UserMod();
-            user = SelectByID(_user.UserID);
+            user = SelectByID(_userID);
             if (user != null)
             {
                 StringBuilder deleteStr = new StringBuilder();
                 deleteStr.Append("Delete From [User]");
                 deleteStr.Append("Where 用户编号 = '");
-                deleteStr.Append(_user.UserID);
+                deleteStr.Append(_userID);
                 deleteStr.Append("'");
                 da = new DBConnection();
                 da.DeleteQuery(deleteStr.ToString());
