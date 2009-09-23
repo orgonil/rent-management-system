@@ -48,6 +48,11 @@ D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Form
 D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Properties.Resources.resources
 D:\My Project\Renting-Management-System\obj\Debug\Renting-Management-System.csproj.GenerateResource.Cache
 D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.CodeLibrary.resources
+<<<<<<< .mine
+D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.AddingUserForm.resources
+D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.CheckingUserForm.resources
+D:\My Project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.AddForm.resources
+=======
 F:\project\Renting-Management-System\obj\Debug\Renting-Management-System.exe
 F:\project\Renting-Management-System\obj\Debug\Renting-Management-System.pdb
 F:\project\Renting-Management-System\bin\Debug\Renting-Management-System.exe
@@ -85,3 +90,4 @@ H:\yx\Renting-Management-System\obj\Debug\Renting-Management-System.csproj.Gener
 H:\yx\Renting-Management-System\bin\Debug\Renting-Management-System.exe
 H:\yx\Renting-Management-System\bin\Debug\Renting-Management-System.pdb
 F:\project\Renting-Management-System\obj\Debug\Renting_Management_System.Forms.AddForm.resources
+>>>>>>> .r65
