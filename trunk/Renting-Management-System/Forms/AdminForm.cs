@@ -12,31 +12,28 @@ namespace Renting_Management_System.Forms
     public partial class AdminForm : Form
     {
         public DataSet ds = new DataSet();
-        private LoginForm loginForm;
         private Renting_Management_System.BLL.TableUpdate tableUpdate;
         private Renting_Management_System.Models.UserMod _user;
         private Renting_Management_System.Models.UserTypeMod _userType;
         private Renting_Management_System.DAL.UserDAL userDAL;
         private Renting_Management_System.DAL.UserTypeDAL userTypeDAL;
+
         public AdminForm()
         {
             InitializeComponent();
-            loginForm = new LoginForm();
-            userDAL = new Renting_Management_System.DAL.UserDAL();
-            userTypeDAL = new Renting_Management_System.DAL.UserTypeDAL();
-            _user = new Renting_Management_System.Models.UserMod();
-            _userType = new Renting_Management_System.Models.UserTypeMod();
-            _user = userDAL.SelectByID(loginForm.UserIDtextBox.Text);
-            _userType = userTypeDAL.SelectData(_user.UserTypeCode);
-            toolStripStatusLabel_UserName.Text = _user.UserName;
-            toolStripStatusLabel_UserType.Text = _userType.UserTypeName;
-            toolStripStatusLabel_Date.Text = DateTime.Now.ToLongDateString();
+
+            LoginForm form = new LoginForm();
+
+            toolStripStatusLabel_UserName.Text = form.GetUserName();
+            toolStripStatusLabel_UserType.Text = form.GetUserType();
+            toolStripStatusLabel_Date.Text = DateTime.Now.ToShortDateString();
         }
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
+        
         private void 退出XToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
@@ -61,6 +58,7 @@ namespace Renting_Management_System.Forms
 
         private void 所有用户ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            dataGridView1.AutoGenerateColumns = false;
             userDAL = new Renting_Management_System.DAL.UserDAL();
             ds.Clear();
             ds = userDAL.GetAll();

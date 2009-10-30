@@ -11,24 +11,14 @@ namespace Renting_Management_System.Forms
 {
     public partial class StoreForm : Form
     {
-
-        LoginForm loginForm;
-        Renting_Management_System.Models.UserMod _user;
-        Renting_Management_System.Models.UserTypeMod _userType;
-        Renting_Management_System.DAL.UserDAL userDAL;
-        Renting_Management_System.DAL.UserTypeDAL userTypeDAL;
         public StoreForm()
         {
             InitializeComponent();
-            loginForm = new LoginForm();
-            userDAL = new Renting_Management_System.DAL.UserDAL();
-            userTypeDAL = new Renting_Management_System.DAL.UserTypeDAL();
-            _user = new Renting_Management_System.Models.UserMod();
-            _userType = new Renting_Management_System.Models.UserTypeMod();
-            _user = userDAL.SelectByID(loginForm.UserIDtextBox.Text);
-            _userType = userTypeDAL.SelectData(_user.UserTypeCode);
-            toolStripStatusLabel_UserName.Text = _user.UserName;
-            toolStripStatusLabel_UserType.Text = _userType.UserTypeName;
+
+            LoginForm form = new LoginForm();
+
+            toolStripStatusLabel_UserName.Text = form.GetUserName();
+            toolStripStatusLabel_UserType.Text = form.GetUserType();
             toolStripStatusLabel_Date.Text = DateTime.Now.ToShortDateString();
         }
 

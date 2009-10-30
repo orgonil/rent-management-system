@@ -12,6 +12,7 @@ namespace Renting_Management_System.DAL
     {
         public Renting_Management_System.Models.UserMod user;
         public Renting_Management_System.DAL.DBConnection da;
+
         /// <summary>
         /// 获取所有数据、整个表的记录
         /// </summary>
@@ -26,6 +27,7 @@ namespace Renting_Management_System.DAL
             ds.Tables[0].TableName = "User";
             return ds;
         }
+
         /// <summary>
         /// 通过用户编号可以获取一个用户
         /// 返回null 表示没有改用户
@@ -68,6 +70,7 @@ namespace Renting_Management_System.DAL
                 return user;
             }
         }
+        
         /// <summary>
         /// 通过用户名称可以获取一个用户
         /// 返回null 表示没有改用户
@@ -110,6 +113,7 @@ namespace Renting_Management_System.DAL
                 return user;
             }
         }
+        
         /// <summary>
         /// 通过用户类代码可以获取一个用户数据集
         /// 返回 null 表示没有数据
@@ -131,6 +135,7 @@ namespace Renting_Management_System.DAL
             else 
             {return ds;}
         }
+        
         /// <summary>
         /// 添加一个用户
         /// 返回 true 表示成功
@@ -168,6 +173,7 @@ namespace Renting_Management_System.DAL
             else
             { return false; }
         }
+
         /// <summary>
         /// 修改一个用户
         /// 返回 true 表示成功，否则表示该用户信息不存在
@@ -215,6 +221,7 @@ namespace Renting_Management_System.DAL
                 return true;
             }
         }
+
         /// <summary>
         /// 删除一个用户
         /// 返回 true 表示删除成功
